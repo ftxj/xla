@@ -44,7 +44,7 @@ RUN if [ "${git_clone}" = "true" ]; then github_branch="${release_version}" && \
   if [ "${release_version}" = "nightly" ]; then github_branch="master"; fi && \
   cd /pytorch && \
   rm -rf xla && \
-  git clone -b "${github_branch}" --recursive https://github.com/pytorch/xla && \
+  git clone -b "${github_branch}" --recursive git@github.com:ftxj/xla.git && \
   cd / && \
   git clone -b "${github_branch}" --recursive https://github.com/pytorch-tpu/examples tpu-examples; fi
 
