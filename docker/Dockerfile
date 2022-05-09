@@ -52,7 +52,8 @@ RUN if [ "${git_clone}" = "true" ]; then github_branch="${release_version}" && \
   git clone -b "${github_branch}" --recursive https://github.com/pytorch-tpu/examples tpu-examples; fi
 
 
-COPY ../../../../../home/scratch.jxin_gpu/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz /pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz
+COPY ../cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz /pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz
+
 ENV CUDNN_TGZ_PATH "/pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz"
 
 RUN cd /pytorch && bash xla/scripts/build_torch_wheels.sh ${python_version} ${release_version}
