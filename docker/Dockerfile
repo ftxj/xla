@@ -51,8 +51,9 @@ RUN if [ "${git_clone}" = "true" ]; then github_branch="${release_version}" && \
   cd / && \
   git clone -b "${github_branch}" --recursive https://github.com/pytorch-tpu/examples tpu-examples; fi
 
+RUN ls
 
-COPY ../cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz /pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz
+COPY cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz /pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz
 
 ENV CUDNN_TGZ_PATH "/pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz"
 
