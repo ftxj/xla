@@ -39,7 +39,10 @@ ENV BAZEL_JOBS "${bazel_jobs}"
 # clone recursively from pytorch/xla if building docker image with
 # cloud build. Otherwise, just use local.
 # https://github.com/GoogleCloudPlatform/cloud-builders/issues/435
+
+
 COPY . /pytorch/xla
+
 RUN if [ "${git_clone}" = "true" ]; then github_branch="${release_version}" && \
   if [ "${release_version}" = "nightly" ]; then github_branch="master"; fi && \
   cd /pytorch && \
@@ -47,6 +50,10 @@ RUN if [ "${git_clone}" = "true" ]; then github_branch="${release_version}" && \
   git clone -b "${github_branch}" --recursive git@github.com:ftxj/xla.git && \
   cd / && \
   git clone -b "${github_branch}" --recursive https://github.com/pytorch-tpu/examples tpu-examples; fi
+
+
+COPY /home/scratch.jxin_gpu/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz /pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz
+ENV CUDNN_TGZ_PATH "/pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz"
 
 RUN cd /pytorch && bash xla/scripts/build_torch_wheels.sh ${python_version} ${release_version}
 
