@@ -3,6 +3,8 @@
 set -e  # Fail on any error.
 set -x  # Display commands being run.
 
+set -v on
+
 PYTHON_VERSION=$1
 RELEASE_VERSION=$2  # rX.Y or nightly
 DEFAULT_PYTHON_VERSION=3.6
@@ -80,7 +82,7 @@ function maybe_install_sources {
     sudo apt-get install -y git
     git clone --recursive https://github.com/pytorch/pytorch.git
     cd pytorch
-    git clone --recursive https://github.com/pytorch/xla.git
+    git clone --recursive https://github.com/ftxj/xla.git
     export RELEASE_VERSION="nightly"
   fi
 }
