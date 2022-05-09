@@ -44,7 +44,7 @@ inline torch::lazy::NodePtr GenericOp(
     // cast to uint32_t to avoid ambiguous constructor of uint128
     torch::lazy::hash_t hash_seed = (uint32_t)0x5a2d296e9) {
   return torch_xla::ir::MakeNode<Generic>(std::move(op), operands, shape_fn,
-                                          std::move(lower_fn), num_outputs,
+                                          std::move(lower_fn), num_outputs, 
                                           hash_seed);
 }
 
