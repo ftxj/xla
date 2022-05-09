@@ -12,6 +12,7 @@ namespace ir {
 
 class Util {
  public:
+// FTXJ: EmitStatus (Not Emitted, Emitting, Emitted)
   using EmissionMap = std::unordered_map<const torch::lazy::Node*,
                                          torch::lazy::Util::EmitStatus>;
 

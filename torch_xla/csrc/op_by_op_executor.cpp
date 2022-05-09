@@ -92,7 +92,7 @@ std::vector<xla::ComputationClient::ExecuteChainedOp> OpByOpExecutor::BuildOps(
   std::vector<const torch::lazy::Node*> root_nodes;
   root_nodes.reserve(roots.size());
   for (auto& root : roots) {
-    root_nodes.push_back(root.node.get());
+    root_nodes.push_back(root.node.get()); //FTXJ: Get Lazy Node
   }
   std::vector<const torch::lazy::Node*> post_order =
       ir::Util::ComputePostOrder(root_nodes);
