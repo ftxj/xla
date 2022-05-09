@@ -48,10 +48,10 @@ function install_cudnn {
     ln -s "$CUDNN_TGZ_PATH" "$CUDNN_FILE"
   fi
   tar xvf "$CUDNN_FILE"
-  sudo cp cuda/include/cudnn.h /usr/local/cuda/include
-  sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+  sudo cp cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/include/cudnn.h /usr/local/cuda/include
+  sudo cp cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/lib64/libcudnn* /usr/local/cuda/lib64
   sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
-  rm -rf cuda
+  rm -rf cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/
   rm -f "$CUDNN_FILE"
 }
 
