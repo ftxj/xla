@@ -35,6 +35,7 @@ function setup_system {
 }
 
 function install_cudnn {
+  local CUDNN_TGZ_PATH ="https://developer.download.nvidia.cn/compute/redist/cudnn/v8.0.0/cudnn-10.2-linux-ppc64le-v8.0.0.180.tgz"
   if [ "$CUDNN_TGZ_PATH" == "" ]; then
     echo "Missing CUDNN_TGZ_PATH environment variable"
     exit 1
