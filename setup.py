@@ -320,7 +320,7 @@ setup(
     name=os.environ.get('TORCH_XLA_PACKAGE_NAME', 'torch_xla'),
     version=version,
     description='XLA bridge for PyTorch',
-    url='https://github.com/pytorch/xla',
+    url='https://github.com/ftxj/xla',
     author='PyTorch/XLA Dev Team',
     author_email='pytorch-xla@googlegroups.com',
     # Exclude the build files.
