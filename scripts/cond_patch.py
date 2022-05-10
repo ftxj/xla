@@ -11,6 +11,9 @@ import sys
 
 
 def get_log(repo_folder, depth):
+  print("FTXJ: Some error......")
+  print(repo_folder)
+  print(depth)
   return subprocess.check_output(
       ['git', '-C', repo_folder, 'log', '-{}'.format(depth)]).decode('utf-8')
 

@@ -130,7 +130,7 @@ std::vector<xla::ComputationClient::ExecuteChainedOp> OpByOpExecutor::BuildOps(
       cxop.device_data = device_data->data();
       ops_shapes[i] = &cxop.device_data->shape();
       device_data_ops[i] = true;
-    } else {
+    } else { // FTXJ: When in this Branch ?
       std::vector<const xla::Shape*> op_input_shapes;
       for (auto& operand : node->operands()) {
         size_t op_index = node_to_index.at(operand.node);
