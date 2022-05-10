@@ -180,12 +180,9 @@ function build_and_install_torch() {
   fi
   # Only checkout dependencies once PT commit/branch checked out.
   pwd
-  cd xla
-  pwd
   git submodule update --init --recursive
-  cd ..
-  pwd
   ls xla/.git/submodule/third_party/tensorflow
+  exit
   # Apply patches to PT which are required by the XLA support.
   pwd
   xla/scripts/apply_patches.sh
