@@ -20,7 +20,7 @@ To build from source:
 * Clone the _PyTorch/XLA_ repo:
 
   ```Shell
-  git clone --recursive https://github.com/pytorch/xla.git
+  git clone --recursive https://github.com/ftxj/xla.git
   ```
 
 ### Building Docker Image

@@ -24,7 +24,7 @@ else
   SUBDIR_NAME="master"
 fi
 pushd /tmp
-git clone --quiet -b "$GH_PAGES_BRANCH" https://github.com/pytorch/xla.git "$GH_PAGES_DIR"
+git clone --quiet -b "$GH_PAGES_BRANCH" https://github.com/ftxj/xla.git "$GH_PAGES_DIR"
 pushd $GH_PAGES_DIR
 rm -rf $SUBDIR_NAME
 mkdir -p $SUBDIR_NAME

@@ -38,7 +38,7 @@ python $CDIR/cond_patch.py \
   $XDIR/torch_patches \
   $PTDIR
 
-# python $CDIR/cond_patch.py \
-#   $XDIR/tf_patches \
-#   $TFDIR
+python $CDIR/cond_patch.py \
+  $XDIR/tf_patches \
+  $TFDIR
 
