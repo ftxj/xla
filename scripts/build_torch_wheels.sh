@@ -183,7 +183,10 @@ function build_and_install_torch() {
   git submodule update --init --recursive
 
   cd xla/
+  rm -rf ./third_party/tensorflow
+  
   git submodule update --init --recursive
+
   ls xla/.git/submodule/third_party/tensorflow
   cd -
   # Apply patches to PT which are required by the XLA support.
