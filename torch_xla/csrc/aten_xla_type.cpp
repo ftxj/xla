@@ -151,6 +151,7 @@ std::vector<int64_t> GetOutputSizeWithScale(
 void CheckBinaryOpTypePromotion(const at::Tensor& out, const at::Tensor& self,
                                 const at::Tensor& other) {
   at::ScalarType resultType = at::result_type(self, other);
+  // FTXJ:  result_type({self, other}) 
   XLA_CHECK(at::canCast(/*from=*/resultType, /*to=*/out.scalar_type()));
 }
 
