@@ -18,7 +18,7 @@ RUN apt-get install -y git sudo python-pip python3-pip
 RUN git clone https://github.com/pytorch/pytorch
 
 # Disable CUDA for PyTorch
-ENV USE_CUDA "0"
+ENV USE_CUDA "1"
 
 # Enable CUDA for XLA
 ENV XLA_CUDA "${cuda}"
