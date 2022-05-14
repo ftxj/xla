@@ -189,6 +189,7 @@ function build_and_install_torch() {
   # Apply patches to PT which are required by the XLA support.
   pwd
   xla/scripts/apply_patches.sh
+  echo "Build Torch......"
   python setup.py bdist_wheel
   pip install dist/*.whl
 }
