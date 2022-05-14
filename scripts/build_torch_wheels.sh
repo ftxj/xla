@@ -201,6 +201,8 @@ function build_and_install_torch_xla() {
   else
     export TORCH_XLA_VERSION=${RELEASE_VERSION:1}  # r0.5 -> 0.5
   fi
+  pwd
+  echo "FTXJ ERROR 2....."
   python setup.py bdist_wheel
   pip install dist/*.whl
 }
