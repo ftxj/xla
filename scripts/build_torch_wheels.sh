@@ -53,6 +53,12 @@ function install_cudnn {
   sudo chmod -R a+r /usr/local/cuda/lib/
   sudo chmod -R a+r /usr/local/cuda/lib64/
   rm -rf cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/
+
+
+  ls /usr/local/cuda/include
+  
+  exit
+  
   rm -f "$CUDNN_FILE"
 }
 
