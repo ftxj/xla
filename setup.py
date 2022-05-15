@@ -315,7 +315,7 @@ else:
   extra_compile_args += ['-DNDEBUG']
 
 extra_link_args += ['-lxla_computation_client']
-
+print("--------------------------------------XLA SETUP--------------------------------------")
 setup(
     name=os.environ.get('TORCH_XLA_PACKAGE_NAME', 'torch_xla'),
     version=version,
