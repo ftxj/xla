@@ -32,13 +32,13 @@ class XLATensorImpl : public c10::TensorImpl {
 
   at::IntArrayRef sizes() const override;
 
-  int64_t dim() const override;
+  int64_t dim() const;
 
-  int64_t numel() const override;
+  int64_t numel() const;
 
-  bool is_contiguous(at::MemoryFormat memory_format) const override;
+  bool is_contiguous(at::MemoryFormat memory_format) const;
 
-  int64_t size(int64_t d) const override;
+  int64_t size(int64_t d) const;
 
   const at::Storage& storage() const override;
 
