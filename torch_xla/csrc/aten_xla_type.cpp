@@ -2085,15 +2085,15 @@ at::Tensor XLANativeFunctions::max_unpool2d(const at::Tensor& self,
       torch::lazy::ToVector<int64_t>(output_size)));
 }
 
-at::Tensor XLANativeFunctions::max_unpool2d_backward(
-    const at::Tensor& grad_output, const at::Tensor& self,
-    const at::Tensor& indices, at::IntArrayRef output_size) {
-  XLA_FN_COUNTER("xla::");
-  return bridge::AtenFromXlaTensor(XLATensor::max_unpool_backward(
-      bridge::GetXlaTensor(grad_output), bridge::GetXlaTensor(self),
-      bridge::GetXlaTensor(indices),
-      torch::lazy::ToVector<int64_t>(output_size)));
-}
+// at::Tensor XLANativeFunctions::max_unpool2d_backward(
+//     const at::Tensor& grad_output, const at::Tensor& self,
+//     const at::Tensor& indices, at::IntArrayRef output_size) {
+//   XLA_FN_COUNTER("xla::");
+//   return bridge::AtenFromXlaTensor(XLATensor::max_unpool_backward(
+//       bridge::GetXlaTensor(grad_output), bridge::GetXlaTensor(self),
+//       bridge::GetXlaTensor(indices),
+//       torch::lazy::ToVector<int64_t>(output_size)));
+// }
 
 at::Tensor XLANativeFunctions::max_unpool3d(const at::Tensor& self,
                                             const at::Tensor& indices,
@@ -2106,16 +2106,16 @@ at::Tensor XLANativeFunctions::max_unpool3d(const at::Tensor& self,
       torch::lazy::ToVector<int64_t>(output_size)));
 }
 
-at::Tensor XLANativeFunctions::max_unpool3d_backward(
-    const at::Tensor& grad_output, const at::Tensor& self,
-    const at::Tensor& indices, at::IntArrayRef output_size,
-    at::IntArrayRef stride, at::IntArrayRef padding) {
-  XLA_FN_COUNTER("xla::");
-  return bridge::AtenFromXlaTensor(XLATensor::max_unpool_backward(
-      bridge::GetXlaTensor(grad_output), bridge::GetXlaTensor(self),
-      bridge::GetXlaTensor(indices),
-      torch::lazy::ToVector<int64_t>(output_size)));
-}
+// at::Tensor XLANativeFunctions::max_unpool3d_backward(
+//     const at::Tensor& grad_output, const at::Tensor& self,
+//     const at::Tensor& indices, at::IntArrayRef output_size,
+//     at::IntArrayRef stride, at::IntArrayRef padding) {
+//   XLA_FN_COUNTER("xla::");
+//   return bridge::AtenFromXlaTensor(XLATensor::max_unpool_backward(
+//       bridge::GetXlaTensor(grad_output), bridge::GetXlaTensor(self),
+//       bridge::GetXlaTensor(indices),
+//       torch::lazy::ToVector<int64_t>(output_size)));
+// }
 
 at::Tensor XLANativeFunctions::mean(const at::Tensor& self,
                                     c10::optional<at::ScalarType> dtype) {
