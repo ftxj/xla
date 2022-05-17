@@ -30,7 +30,7 @@ class XLATensorImpl : public c10::TensorImpl {
 
   void shallow_copy_from(const c10::intrusive_ptr<TensorImpl>& impl) override;
 
-  at::IntArrayRef sizes() const override;
+  at::IntArrayRef sizes() const;
 
   int64_t dim() const;
 
