@@ -23,15 +23,17 @@ xla::Shape NodeOutputShape(const XlaValue& grad_output, const XlaValue& input,
 }
 
 c10::Symbol MaxUnpoolNdBackwardSymbol(int64_t spatial_dim_count) {
-  switch (spatial_dim_count) {
-    case 2:
-      return at::aten::max_unpool2d_backward;
-    case 3:
-      return at::aten::max_unpool3d_backward;
-    default:
-      XLA_ERROR() << "Invalid number of spatial dimensions: "
+  // switch (spatial_dim_count) {
+  //   case 2:
+  //     return at::aten::max_unpool2d_backward;
+  //   case 3:
+  //     return at::aten::max_unpool3d_backward;
+  //   default:
+  //     XLA_ERROR() << "Invalid number of spatial dimensions: "
+  //                 << spatial_dim_count;
+  // }
+  XLA_ERROR() << "Invalid number of spatial dimensions: "
                   << spatial_dim_count;
-  }
 }
 
 }  // namespace
