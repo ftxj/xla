@@ -12,6 +12,7 @@
 #include "torch_xla/csrc/device.h"
 #include "torch_xla/csrc/layout_manager.h"
 #include "torch_xla/csrc/tensor_util.h"
+#include <iostream>
 
 namespace torch_xla {
 namespace {
@@ -58,6 +59,7 @@ XLATensorImpl::XLATensorImpl(XLATensor tensor)
                       GetTypeMeta(tensor),
                       bridge::XlaDeviceToAtenDevice(tensor.GetDevice())),
       tensor_(std::move(tensor)) {
+        std::cout << "FTXJ XLATensorImpl " << std::endl;
   is_non_overlapping_and_dense_ = false;
 }
 
