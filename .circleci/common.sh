@@ -108,7 +108,7 @@ function run_torch_xla_tests() {
   PYTORCH_DIR=$1
   XLA_DIR=$2
   if [ -x "$(command -v nvidia-smi)" ]; then
-    export GPU_NUM_DEVICES=2
+    export =2
   else
     export XRT_DEVICE_MAP="CPU:0;/job:localservice/replica:0/task:0/device:XLA_CPU:0"
     XLA_PORT=$(shuf -i 40701-40999 -n 1)

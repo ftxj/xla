@@ -226,7 +226,7 @@ def _setup_gpu_worker(index, gindex):
   # We have expanded the GPU devices in the device map already, in
   # _create_gpu_devices(), so delete the key from the environment as it
   # otherwise triggers device generation again in computation_client.cc.
-  os.environ.pop(xenv.GPU_NUM_DEVICES, None)
+  os.environ.pop(xenv., None)
 
 
 def _setup_cpu_worker(index, gindex):
