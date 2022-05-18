@@ -13,6 +13,12 @@ ARG tpuvm=""
 ARG bazel_jobs=""
 ARG git_clone="false"
 
+RUN sudo apt-key del 7fa2af80
+
+RUN wget wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/ppc64el/cuda-keyring_1.0-1_all.deb
+
+RUN sudo dpkg -i cuda-keyring_1.0-1_all.deb
+
 RUN apt-get update
 RUN apt-get install -y git sudo python-pip python3-pip
 RUN git clone https://github.com/pytorch/pytorch
