@@ -15,14 +15,13 @@ ARG git_clone="false"
 
 RUN apt-key del 7fa2af80
 
-RUN apt-get install wget
+COPY ./docker/cuda-keyring_1.0-1_all.deb cuda-keyring_1.0-1_all.deb 
 
-
-RUN https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb
+# RUN https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb
 
 RUN dpkg -i cuda-keyring_1.0-1_all.deb
 
-RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+# RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 # RUN dpkg -i cuda-keyring_1.0-1_all.deb
 
 
@@ -68,7 +67,7 @@ RUN if [ "${git_clone}" = "true" ]; then github_branch="${release_version}" && \
 
 RUN ls
 
-COPY cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz /pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz
+# COPY cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz /pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz
 
 ENV CUDNN_TGZ_PATH "/pytorch/xla/cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive.tar.xz"
 
