@@ -15,7 +15,12 @@ ARG git_clone="false"
 
 RUN apt-key del 7fa2af80
 
-# RUN apt-get install wget
+RUN apt-get install wget
+
+
+RUN https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb
+
+RUN dpkg -i cuda-keyring_1.0-1_all.deb
 
 RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 # RUN dpkg -i cuda-keyring_1.0-1_all.deb
