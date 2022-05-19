@@ -13,9 +13,14 @@ ARG tpuvm=""
 ARG bazel_jobs=""
 ARG git_clone="false"
 
+RUN rm /etc/apt/sources.list.d/cuda.list
+RUN rm /etc/apt/sources.list.d/nvidia-ml.list
 RUN apt-key del 7fa2af80
 
-COPY ./docker/cuda-keyring_1.0-1_all_ppc.deb cuda-keyring_1.0-1_all.deb 
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/7fa2af80.pub
+
+COPY ./docker/cuda-keyring_1.0-1_all.deb cuda-keyring_1.0-1_all.deb 
 
 # RUN https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb
 
