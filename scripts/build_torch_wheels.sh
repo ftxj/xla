@@ -32,37 +32,6 @@ function setup_system {
   maybe_append 'APT::Acquire::ftp::Timeout "180";' /etc/apt/apt.conf.d/80-failparams
 }
 
-# function install_cudnn {
-#   if [ "$CUDNN_TGZ_PATH" == "" ]; then
-#     echo "Missing CUDNN_TGZ_PATH environment variable"
-#     exit 1
-#   fi
-#   local CUDNN_FILE="cudnn.tar.gz"
-#   if [[ "$CUDNN_TGZ_PATH" == gs://* ]]; then
-#     gsutil cp "$CUDNN_TGZ_PATH" "$CUDNN_FILE"
-#   elif [[ "$CUDNN_TGZ_PATH" == http* ]]; then
-#     wget -O "$CUDNN_FILE" "$CUDNN_TGZ_PATH"
-#   else
-#     ln -s "$CUDNN_TGZ_PATH" "$CUDNN_FILE"
-#   fi
-#   tar xvf "$CUDNN_FILE"
-
-#   ls cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/include/
-
-#   sudo cp -r cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/include/* /usr/local/cuda/include
-#   sudo mkdir /usr/local/cuda/lib
-#   sudo cp -r cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/lib/* /usr/local/cuda/lib
-#   sudo cp -r cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/lib/* /usr/local/cuda/lib64
-#   sudo chmod -R a+r /usr/local/cuda/include/ 
-#   sudo chmod -R a+r /usr/local/cuda/lib/
-#   sudo chmod -R a+r /usr/local/cuda/lib64/
-#   rm -rf cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/
-
-#   ls /usr/local/cuda/include
-  
-#   rm -f "$CUDNN_FILE"
-# }
-
 function install_cudnn {
   if [ "$CUDNN_TGZ_PATH" == "" ]; then
     echo "Missing CUDNN_TGZ_PATH environment variable"
@@ -77,12 +46,43 @@ function install_cudnn {
     ln -s "$CUDNN_TGZ_PATH" "$CUDNN_FILE"
   fi
   tar xvf "$CUDNN_FILE"
-  sudo cp cuda/include/cudnn.h /usr/local/cuda/include
-  sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
-  sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
-  rm -rf cuda
+
+  ls cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/include/
+
+  sudo cp -r cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/include/* /usr/local/cuda/include
+  sudo mkdir /usr/local/cuda/lib
+  sudo cp -r cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/lib/* /usr/local/cuda/lib
+  sudo cp -r cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/lib/* /usr/local/cuda/lib64
+  sudo chmod -R a+r /usr/local/cuda/include/ 
+  sudo chmod -R a+r /usr/local/cuda/lib/
+  sudo chmod -R a+r /usr/local/cuda/lib64/
+  rm -rf cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/
+
+  ls /usr/local/cuda/include
+  
   rm -f "$CUDNN_FILE"
 }
+
+# function install_cudnn {
+#   if [ "$CUDNN_TGZ_PATH" == "" ]; then
+#     echo "Missing CUDNN_TGZ_PATH environment variable"
+#     exit 1
+#   fi
+#   local CUDNN_FILE="cudnn.tar.gz"
+#   if [[ "$CUDNN_TGZ_PATH" == gs://* ]]; then
+#     gsutil cp "$CUDNN_TGZ_PATH" "$CUDNN_FILE"
+#   elif [[ "$CUDNN_TGZ_PATH" == http* ]]; then
+#     wget -O "$CUDNN_FILE" "$CUDNN_TGZ_PATH"
+#   else
+#     ln -s "$CUDNN_TGZ_PATH" "$CUDNN_FILE"
+#   fi
+#   tar xvf "$CUDNN_FILE"
+#   sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+#   sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+#   sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+#   rm -rf cuda
+#   rm -f "$CUDNN_FILE"
+# }
 
 function maybe_install_cuda {
   if [ "$XLA_CUDA" == "1" ]; then

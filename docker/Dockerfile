@@ -1,30 +1,30 @@
 # Use nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04 or later for CUDA.
 # Warning: All ARGs placed before FROM will only be scoped up unitl FROM statement.
 # https://github.com/docker/cli/blob/3c7ede6a68941f64c3a154c9a753eb7a9b1c2c3e/docs/reference/builder.md#understand-how-arg-and-from-interact
-ARG base_image="nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04"
+ARG base_image="debian:buster"
 FROM "${base_image}"
 
 ARG python_version="3.7"
 ARG release_version="nightly"
-ARG cuda="1"
+ARG cuda="0"
 ARG cuda_compute="7.0,7.5"
 ARG cxx_abi="0"
 ARG tpuvm=""
 ARG bazel_jobs=""
 ARG git_clone="false"
 
-RUN rm /etc/apt/sources.list.d/cuda.list
-RUN rm /etc/apt/sources.list.d/nvidia-ml.list
-RUN apt-key del 7fa2af80
+# RUN rm /etc/apt/sources.list.d/cuda.list
+# RUN rm /etc/apt/sources.list.d/nvidia-ml.list
+# RUN apt-key del 7fa2af80
 
-RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
-RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/7fa2af80.pub
+# RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+# RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/7fa2af80.pub
 
-COPY ./docker/cuda-keyring_1.0-1_all.deb cuda-keyring_1.0-1_all.deb 
+# COPY ./docker/cuda-keyring_1.0-1_all.deb cuda-keyring_1.0-1_all.deb 
 
 # RUN https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb
 
-RUN dpkg -i cuda-keyring_1.0-1_all.deb
+# RUN dpkg -i cuda-keyring_1.0-1_all.deb
 
 # RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 # RUN dpkg -i cuda-keyring_1.0-1_all.deb
