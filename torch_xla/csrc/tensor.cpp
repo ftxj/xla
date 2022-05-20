@@ -1486,7 +1486,7 @@ std::shared_ptr<XLATensor::Async> XLATensor::ScheduleSyncTensorsGraph(
 void XLATensor::SyncTensorsGraph(std::vector<XLATensor>* tensors,
                                  absl::Span<const std::string> devices,
                                  bool wait, bool sync_xla_data) {
-  std::cout << "[SyncTensorsGraph Begin] Tensor size = "  << tensors.size() << std::endl;
+  std::cout << "[SyncTensorsGraph Begin] Tensor size = "  << tensors->size() << std::endl;
 
   TF_VLOG(4) << "Trying to sync the value of " << tensors->size()
              << " tensor(s)";

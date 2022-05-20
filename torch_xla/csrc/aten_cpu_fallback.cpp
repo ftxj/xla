@@ -41,6 +41,7 @@ void xla_cpu_fallback(const c10::OperatorHandle& op, torch::jit::Stack* stack) {
 
   // Call the actual boxed CPU fallback.
   at::native::cpu_fallback(op, stack);
+  std::cout << "[xla_cpu_fallback End]" << std::endl;
 }
 
 TORCH_LIBRARY_IMPL(_, XLA, m) {
