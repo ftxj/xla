@@ -24,7 +24,7 @@
 #include "torch_xla/csrc/tensor_impl.h"
 #include "torch_xla/csrc/tensor_util.h"
 #include "torch_xla/csrc/torch_util.h"
-
+#include <iostream>
 // [Implementation Guidelines]
 // - If you want to call a at::func which doesn't have a kernel registered
 // according to xla_native_functions.yaml,
@@ -164,6 +164,7 @@ void CheckBinaryOpTypePromotion(const at::Tensor& out, const at::Tensor& self,
 template <typename B>
 at::Tensor DoBinaryOp(const at::Tensor& self, const at::Tensor& other,
                       const B& bin_op) {
+  std::cout << "[DoBinaryOp] from at::Tensor & binary Op" << std::endl;
   at::ScalarType dtype = at::result_type(self, other);
   std::pair<XLATensor, XLATensor> operands =
       GetBinaryOperands(self, UnwrapNumber(other, dtype));
@@ -174,6 +175,7 @@ at::Tensor DoBinaryOp(const at::Tensor& self, const at::Tensor& other,
 template <typename B>
 at::Tensor DoBinaryOp(const at::Tensor& self, const at::Scalar& other,
                       const B& bin_op) {
+  std::cout << "[DoBinaryOp] from at::Tensor & binary Op" << std::endl;
   at::ScalarType dtype = at::result_type(self, other);
   XLATensor self_tensor = bridge::GetXlaTensor(self);
   XLATensor result = bin_op(self_tensor, other, dtype);
@@ -550,9 +552,15 @@ at::Tensor XLANativeFunctions::add(const at::Tensor& self,
                                    const at::Scalar& other,
                                    const at::Scalar& alpha) {
   XLA_FN_COUNTER("xla::");
+  std::cout << "[XLANativeFunctions::add]" << std::endl;
+  
+  std::cout << "\tfrom at::Tensor to at::Tensor" << std::endl;
+  
   return DoBinaryOp(self, other,
                     [&](const XLATensor& xself, const at::Scalar& other,
                         at::ScalarType dtype) {
+                      std::cout << "Binary Add Op" << std::endl;
+                      std::cout << "do XLATensor::add" << std::endl;
                       return XLATensor::add(xself, other, alpha, dtype);
                     });
 }

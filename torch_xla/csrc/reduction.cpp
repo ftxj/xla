@@ -11,6 +11,7 @@
 #include "torch_xla/csrc/convert_ops.h"
 #include "torch_xla/csrc/helpers.h"
 #include "torch_xla/csrc/tensor_util.h"
+#include <iostream>
 
 namespace torch_xla {
 namespace {
@@ -400,6 +401,7 @@ xla::XlaOp BuildArgMax(xla::XlaOp input, int64_t dim, bool keepdim) {
 }
 
 xla::XlaOp BuildArgMin(xla::XlaOp input, int64_t dim, bool keepdim) {
+  std::cout << "[BuildArgMin] input : xla::XlaOp" << std::endl;
   const xla::Shape* shape = &XlaHelpers::ShapeOfXlaOp(input);
   xla::XlaOp operand = input;
   if (dim < 0) {
@@ -408,6 +410,8 @@ xla::XlaOp BuildArgMin(xla::XlaOp input, int64_t dim, bool keepdim) {
                                          {xla::ShapeUtil::ElementsIn(*shape)});
     shape = &XlaHelpers::ShapeOfXlaOp(operand);
   }
+  std::cout << "[Call Xla::ArgMin] Get xla::XlaOp and return xla::ArgMin XlaOp";
+  std::cout << std::endl;
   xla::XlaOp result = xla::ArgMin(
       operand,
       GetDevicePrimitiveType(xla::PrimitiveType::S64, /*device=*/nullptr), dim);

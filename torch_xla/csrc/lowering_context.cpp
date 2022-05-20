@@ -11,6 +11,8 @@
 #include "tensorflow/compiler/xla/xla_client/sys_util.h"
 #include "torch/csrc/lazy/core/ir_metadata.h"
 
+#include <iostream>
+
 namespace torch_xla {
 namespace ir {
 namespace {
@@ -75,7 +77,9 @@ class HloMetadataSetter {
 
 LoweringContext::LoweringContext(const std::string& name,
                                  torch::lazy::BackendDevice device)
-    : builder_(name), device_(std::move(device)) {}
+    : builder_(name), device_(std::move(device)) {
+      std::cout << "[LoweringContext] construct : " << name << std::endl;
+}
 
 LoweringContext::LoweringContext(
     const std::string& name, torch::lazy::BackendDevice device,
@@ -84,6 +88,7 @@ LoweringContext::LoweringContext(
     : builder_(name),
       device_(std::move(device)),
       emit_status_(std::move(emit_status)) {
+  std::cout << "[LoweringContext] construct with post_order. " << name << std::endl;
   for (auto node : post_order) {
     LowerNode(node);
   }
@@ -91,6 +96,7 @@ LoweringContext::LoweringContext(
 
 xla::XlaOp LoweringContext::GetParameter(
     const std::shared_ptr<xla::ComputationClient::Data>& data) {
+  std::cout << "[LoweringContext] GetParameter. " << std::endl;
   xla::ComputationClient::Data::OpaqueHandle handle = data->GetOpaqueHandle();
   auto it = parameters_map_.find(handle);
   if (it == parameters_map_.end()) {
@@ -132,11 +138,13 @@ xla::StatusOr<xla::XlaComputation> LoweringContext::Build() {
     xla::XlaOp root = xla::Tuple(builder(), root_tuple_);
     return builder()->Build(root);
   }
+  std::cout << "[Xla::Builder::Build()]" << std::endl;
   return builder()->Build();
 }
 
 xla::StatusOr<xla::XlaComputation> LoweringContext::Build(xla::XlaOp root) {
   XLA_CHECK(root_tuple_.empty());
+  std::cout << "[Xla::Builder::Build()] with root" << std::endl;
   return builder()->Build(root);
 }
 
@@ -164,6 +172,10 @@ xla::XlaOp LoweringContext::GetOutputOp(const torch::lazy::Output& output) {
 XlaOpVector LoweringContext::LowerNode(const torch::lazy::Node* node) {
   XlaOpVector result_ops;
   try {
+    std::cout << "[LoweringContext] Lower Node ";
+    std::cout << "cast (Lazy node) -> (XlaNode) ";
+    std::cout << std::endl;
+
     HloMetadataSetter meta_setter(this, node);
 
     const XlaNode* casted = dynamic_cast<const XlaNode*>(node);

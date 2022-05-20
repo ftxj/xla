@@ -59,7 +59,7 @@ XLATensorImpl::XLATensorImpl(XLATensor tensor)
                       GetTypeMeta(tensor),
                       bridge::XlaDeviceToAtenDevice(tensor.GetDevice())),
       tensor_(std::move(tensor)) {
-        std::cout << "FTXJ XLATensorImpl " << std::endl;
+  std::cout << "[XLATensorImpl] constructor" << std::endl;
   is_non_overlapping_and_dense_ = false;
 }
 

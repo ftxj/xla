@@ -6,6 +6,7 @@
 #include <torch_xla/csrc/function_call_tracker.h>
 
 #include <unordered_map>
+#include <iostream>
 
 namespace torch_xla {
 
@@ -14,8 +15,9 @@ static std::unordered_map<std::string, ::xla::metrics::Counter*>
 
 void xla_cpu_fallback(const c10::OperatorHandle& op, torch::jit::Stack* stack) {
   XLA_FN_TRACK(3);
+  std::cout << "[xla_cpu_fallback Begin]" << std::endl; 
   const auto name = c10::toString(op.operator_name());
-
+  std::cout << "\t[op name] " << name << std::endl;
   // Manually applying the XLA_COUNTER macro.
   // We need to do it ourselves and explicitly keep a mapping of counters
   // because this boxed fallback kernel is used by multiple operators,

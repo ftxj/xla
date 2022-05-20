@@ -227,6 +227,7 @@ def xla_device(n=None, devkind=None):
   Returns:
     A `torch.device` with the requested instance.
   """
+  print("[xla_device] call")
   if n is None:
     devices = get_xla_supported_devices(
         devkind=devkind if devkind is not None else None)

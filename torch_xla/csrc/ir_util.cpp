@@ -1,6 +1,7 @@
 #include "torch_xla/csrc/ir_util.h"
 
 #include "tensorflow/compiler/xla/xla_client/debug_macros.h"
+#include <iostream>
 
 namespace torch_xla {
 namespace ir {
@@ -12,6 +13,11 @@ std::vector<const torch::lazy::Node*> Util::ComputePostOrder(
   queue.push_back(node);
   while (!queue.empty()) {
     node = queue.back();
+
+    std::string node_string = node->ToString();
+    std::string op_string = node->op().ToString();
+    std::cout << "node(" << node_string << ", " << op_string << "), ";
+
     auto it = emap->find(node);
     if (it == emap->end()) {
       (*emap)[node] = torch::lazy::Util::kEmitting;
@@ -39,6 +45,13 @@ std::vector<const torch::lazy::Node*> Util::ComputePostOrder(
       queue.pop_back();
     }
   }
+  std::cout << "\nPostOrder" << std::endl;
+  for(auto node : post_order) {
+    std::string node_string = node->ToString();
+    std::string op_string = node->op().ToString();
+    std::cout << "node(" << node_string << ", " << op_string << "), ";
+  }
+  std::cout << std::endl;
   return post_order;
 }
 

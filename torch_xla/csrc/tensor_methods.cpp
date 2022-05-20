@@ -2,7 +2,7 @@
 
 #include <algorithm>
 #include <functional>
-
+#include <iostream>
 #include "absl/strings/str_cat.h"
 #include "absl/strings/str_split.h"
 #include "tensorflow/compiler/xla/literal_util.h"
@@ -661,6 +661,7 @@ XLATensor XLATensor::acosh(const XLATensor& input) {
 XLATensor XLATensor::add(const XLATensor& input, const XLATensor& other,
                          const at::Scalar& alpha,
                          c10::optional<at::ScalarType> logical_element_type) {
+  std::cout << "[XLATensor::add]" << std::endl;
   ir::XlaValue constant = GetIrValueForScalar(
       alpha, other.shape(), logical_element_type, input.GetDevice());
   return input.CreateFrom(input.GetIrValue() + other.GetIrValue() * constant,
@@ -670,6 +671,7 @@ XLATensor XLATensor::add(const XLATensor& input, const XLATensor& other,
 XLATensor XLATensor::add(const XLATensor& input, const at::Scalar& other,
                          const at::Scalar& alpha,
                          c10::optional<at::ScalarType> logical_element_type) {
+  std::cout << "[XLATensor::add]" << std::endl;
   ir::XlaValue other_constant = GetIrValueForScalar(
       other, input.shape(), logical_element_type, input.GetDevice());
   ir::XlaValue alpha_constant = GetIrValueForScalar(

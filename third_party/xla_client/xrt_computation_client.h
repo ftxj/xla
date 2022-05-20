@@ -8,7 +8,7 @@
 #include <mutex>
 #include <string>
 #include <utility>
-
+#include <iostream>
 #include "absl/types/optional.h"
 #include "tensorflow/cc/client/client_session.h"
 #include "tensorflow/cc/framework/ops.h"
@@ -215,6 +215,9 @@ class XrtComputationClient : public ComputationClient {
 
     std::string name;
     int task_no;
+    void dump() const {
+      std::cout << "Worker-" << name << "-" << task_no; 
+    }
   };
 
   struct Options {
@@ -231,6 +234,29 @@ class XrtComputationClient : public ComputationClient {
     std::set<std::string> devices;
     // Maps a TPU Worker with an EndPoint.
     std::map<Worker, std::string> workers_map;
+
+    void dump() const {
+      std::cout << "[Options Dump] : \n";
+
+      std::cout << "\tdefault_device : " <<  default_device << "\n";
+      std::cout << "\tglobal_device_map : ";
+      for(auto x : global_device_map) {
+        std::cout << "(" << x.first << "," << x.second << "), ";
+      } 
+      std::cout << "\n";
+      std::cout <<  "\tdevices";
+      for(auto x : devices) {
+        std::cout << "(" << x << "), ";
+      } 
+      std::cout << "\n";
+      std::cout <<  "\tworkers_map";
+      for(auto x : workers_map) {
+        std::cout << "(";
+        x.first.dump();
+        std::cout << "," << x.second << "), ";
+      }
+      std::cout << std::endl; 
+    }
   };
 
   XrtComputationClient(
@@ -613,6 +639,7 @@ class XrtComputationClient : public ComputationClient {
   XrtLocalService* local_service_ = nullptr;
   util::Cache<CompilationCacheKey, Computation, CompilationCacheKey::Hash>
       compilation_cache_;
+  
   std::atomic<size_t> rng_seed_;
   // Access to the following members must be done while holding lock_.
   // XRT thread safety semantics.

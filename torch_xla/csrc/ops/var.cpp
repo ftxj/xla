@@ -7,6 +7,7 @@
 #include "torch_xla/csrc/reduction.h"
 #include "torch_xla/csrc/tensor_util.h"
 #include "torch_xla/csrc/torch_util.h"
+#include <iostream>
 
 namespace torch_xla {
 namespace ir {
@@ -44,6 +45,9 @@ torch::lazy::NodePtr Var::Clone(OpList operands) const {
 }
 
 XlaOpVector Var::Lower(LoweringContext* loctx) const {
+  std::cout << "[Xla Var Node] Lower ";
+  std::cout << "GetOutputOp, BuildVar, ReturnOp ";
+  std::cout << std::endl;
   xla::XlaOp input = loctx->GetOutputOp(operand(0));
   return ReturnOp(
       BuildVar(input, dimensions_, correction_, keep_reduced_dimensions_),

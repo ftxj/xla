@@ -31,6 +31,9 @@ torch::lazy::NodePtr ArgMin::Clone(OpList operands) const {
 }
 
 XlaOpVector ArgMin::Lower(LoweringContext* loctx) const {
+  std::cout << "[Xla ArgMin Node] Lower ";
+  std::cout << "GetOutputOp, BuildArgMin, ReturnOp ";
+  std::cout << std::endl;
   xla::XlaOp input = loctx->GetOutputOp(operand(0));
   return ReturnOp(BuildArgMin(input, dim_, keepdim_), loctx);
 }

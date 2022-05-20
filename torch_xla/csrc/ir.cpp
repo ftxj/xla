@@ -2,6 +2,7 @@
 
 #include <functional>
 #include <sstream>
+#include <iostream>
 
 #include "absl/strings/str_cat.h"
 #include "tensorflow/compiler/xla/xla_client/cache.h"
@@ -102,6 +103,7 @@ XlaNode::XlaNode(torch::lazy::OpKind op, OpList operands,
       xla_shape_(std::move(xla_shape)),
       node_hash_(torch::lazy::HashCombine(op.hash(), hash_seed)),
       dag_hash_(GetOperandHashes(operands, node_hash_)) {
+  std::cout << "[XlaNode] build. Also a Lazy Node" << std::endl;
   // We have to call AddOperand here since upstream OpList is
   // an array of torch::lazy::Value while we uses XlaValue.
   for (auto& operand : operands) {
@@ -118,6 +120,7 @@ XlaNode::XlaNode(torch::lazy::OpKind op, OpList operands,
       dag_hash_(GetOperandHashes(operands, node_hash_)) {
   // We have to call AddOperand here since upstream OpList is
   // an array of torch::lazy::Value while we uses XlaValue.
+  std::cout << "[XlaNode] build. Also a Lazy Node. with Operand" << std::endl;
   for (auto& operand : operands) {
     AddOperand(operand.node, operand.index);
   }
@@ -126,13 +129,16 @@ XlaNode::XlaNode(torch::lazy::OpKind op, OpList operands,
 XlaNode::XlaNode(torch::lazy::OpKind op, OpList operands, xla::Shape xla_shape,
                  size_t num_outputs, torch::lazy::hash_t hash_seed)
     : XlaNode(op, operands, std::vector<torch::lazy::Shape>{}, xla_shape,
-              num_outputs, hash_seed) {}
+              num_outputs, hash_seed) {
+    std::cout << "[XlaNode] build. Also a XlaNode" << std::endl;
+              }
 
 XlaNode::XlaNode(torch::lazy::OpKind op, OpList operands,
                  const std::function<torch::lazy::Shape()>& shape_fn,
                  const std::function<xla::Shape()>& xla_shape_fn,
                  size_t num_outputs, torch::lazy::hash_t hash_seed)
     : XlaNode(std::move(op), operands, xla::Shape(), num_outputs, hash_seed) {
+  std::cout << "[XlaNode] build. Also a XlaNode. with computed shape" << std::endl;
   // Forward the constructor to the one above (with empty shape), so we have the
   // full hash information, then fetch/compute the real shape.
   addComputedShape(shape_fn);
@@ -145,6 +151,7 @@ XlaNode::XlaNode(torch::lazy::OpKind op, OpList operands,
     : XlaNode(std::move(op), operands, xla::Shape(), num_outputs, hash_seed) {
   // Forward the constructor to the one above (with empty shape), so we have the
   // full hash information, then fetch/compute the real shape.
+  std::cout << "[XlaNode] build. Also a XlaNode. with GetOpShape" << std::endl;
   xla_shape_ = GetOpShape(xla_shape_fn);
 }
 
@@ -154,11 +161,15 @@ XlaNode::XlaNode(torch::lazy::OpKind op, torch::lazy::Shape shape,
     : torch::lazy::Node(op, shape, num_outputs),
       xla_shape_(std::move(xla_shape)),
       node_hash_(GetOpHash(op, xla_shape_, hash_seed)),
-      dag_hash_(node_hash_) {}
+      dag_hash_(node_hash_) {
+    std::cout << "[XlaNode] build. Also a Lazy Node." << std::endl;
+    }
 
 XlaNode::XlaNode(torch::lazy::OpKind op, xla::Shape xla_shape,
                  size_t num_outputs, torch::lazy::hash_t hash_seed)
-    : XlaNode(op, torch::lazy::Shape(), xla_shape, num_outputs, hash_seed) {}
+    : XlaNode(op, torch::lazy::Shape(), xla_shape, num_outputs, hash_seed) {
+    std::cout << "[XlaNode] build. Also a XlaNode." << std::endl;
+    }
 
 XlaNode::~XlaNode() {}
 
@@ -172,6 +183,7 @@ const xla::Shape& XlaNode::xla_shape(size_t output_index) const {
 
 XlaOpVector XlaNode::ReturnOp(xla::XlaOp op, LoweringContext* loctx) const {
   XLA_CHECK_EQ(num_outputs(), 1);
+  std::cout << "[ReturnOp] call. Also Loctx AssignOutputOp." << std::endl;
   loctx->AssignOutputOp(torch::lazy::Output(this), op);
   return XlaOpVector({std::move(op)});
 }

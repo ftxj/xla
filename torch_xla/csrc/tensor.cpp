@@ -10,6 +10,7 @@
 #include <set>
 #include <stdexcept>
 #include <unordered_set>
+#include <iostream>
 
 #include "absl/memory/memory.h"
 #include "absl/strings/str_join.h"
@@ -291,6 +292,7 @@ class XLATensor::DeviceContextArena {
   }
 
   void RegisterTensor(std::shared_ptr<Data> data) {
+    std::cout << "Register Tensor to Device. push_back to device vector" << std::endl;
     DeviceContext* devctx = GetDeviceContext(data->device);
     std::lock_guard<std::mutex> lock(devctx->lock);
     devctx->tensors_data.emplace(data->unique_id, data);
@@ -298,6 +300,7 @@ class XLATensor::DeviceContextArena {
   }
 
   void UnregisterTensor(Data* data) {
+    std::cout << "Register Tensor to Device. erase to device vector" << std::endl;
     DeviceContext* devctx = GetDeviceContext(data->device);
     std::lock_guard<std::mutex> lock(devctx->lock);
     devctx->tensors_data.erase(data->unique_id);
@@ -307,6 +310,7 @@ class XLATensor::DeviceContextArena {
   std::vector<XLATensor> GetLiveTensors(
       const torch::lazy::BackendDevice* device) {
     std::vector<XLATensor> tensors;
+    std::cout << "[GetLiveTensors]" << std::endl;
     auto fn = [&](DeviceContext* devctx) {
       std::lock_guard<std::mutex> lock(devctx->lock);
       for (auto& uid_wptr : devctx->tensors_data) {
@@ -317,6 +321,7 @@ class XLATensor::DeviceContextArena {
       }
     };
     ForAllDeviceContexts(fn, device);
+    std::cout << "Live Tensor Numbers = " << tensors.size() << std::endl;
     return tensors;
   }
 
@@ -450,54 +455,67 @@ void XLATensor::Async::Wait() {
 XLATensor XLATensor::Create(const at::Tensor& tensor,
                             const torch::lazy::BackendDevice& device) {
   XLA_CHECK_EQ(tensor.device().type(), at::kCPU);
+  std::cout << "[XLATensor::Create Begin] from at::Tensor" << std::endl;
   XLATensor xtensor(tensor, device);
   DeviceContextArena::Get()->RegisterTensor(xtensor.data_ptr());
+  std::cout << "[XLATensor::Create End]" << std::endl;
   return xtensor;
 }
 
 XLATensor XLATensor::Create(
     xla::ComputationClient::DataPtr xla_data,
     c10::optional<at::ScalarType> logical_element_type) {
+  std::cout << "[XLATensor::Create Begin] from xla::CC::DataPtr" << std::endl;
   XLATensor xtensor(std::move(xla_data), logical_element_type);
   DeviceContextArena::Get()->RegisterTensor(xtensor.data_ptr());
+  std::cout << "[XLATensor::Create End]" << std::endl;
   return xtensor;
 }
 
 XLATensor XLATensor::Create(
     ir::XlaValue ir_value, const torch::lazy::BackendDevice& device,
     c10::optional<at::ScalarType> logical_element_type) {
+  std::cout << "[XLATensor::Create Begin] from ir::XlaValue" << std::endl;
   XLATensor xtensor(std::move(ir_value), device, logical_element_type);
   DeviceContextArena::Get()->RegisterTensor(xtensor.data_ptr());
   if (UseEagerDebugMode()) {
     std::vector<XLATensor> xtensors({xtensor});
     ApplyEagerSync(xtensors);
   }
+  std::cout << "[XLATensor::Create End]" << std::endl;
   return xtensor;
 }
 
 XLATensor XLATensor::Create(
     std::shared_ptr<View> view, const torch::lazy::BackendDevice& device,
     c10::optional<at::ScalarType> logical_element_type) {
+  std::cout << "[XLATensor::Create Begin] from View" << std::endl;
   XLATensor xtensor(std::move(view), device, logical_element_type);
   DeviceContextArena::Get()->RegisterTensor(xtensor.data_ptr());
+  std::cout << "[XLATensor::Create End]" << std::endl;
   return xtensor;
 }
 
 XLATensor::XLATensor(const at::Tensor& tensor,
                      const torch::lazy::BackendDevice& device)
-    : data_(std::make_shared<Data>(tensor, device)) {}
+    : data_(std::make_shared<Data>(tensor, device)) {
+    std::cout << "[XLA Tensor] Constructor from at::Tensor" << std::endl;
+}
 
 XLATensor::XLATensor(xla::ComputationClient::DataPtr xla_data,
                      c10::optional<at::ScalarType> logical_element_type)
     : data_(std::make_shared<Data>(xla_data,
                                    ParseDeviceString(xla_data->device()),
-                                   logical_element_type)) {}
+                                   logical_element_type)) {
+  std::cout << "[XLA Tensor] Constructor from xla::DataPtr" << std::endl;
+}
 
 XLATensor::XLATensor(ir::XlaValue ir_value,
                      const torch::lazy::BackendDevice& device,
                      c10::optional<at::ScalarType> logical_element_type)
     : data_(std::make_shared<Data>(std::move(ir_value), device,
                                    logical_element_type)) {
+  std::cout << "[XLA Tensor] Constructor from ir::XlaValue" << std::endl;
   TryLimitGraphSize();
 }
 
@@ -505,9 +523,13 @@ XLATensor::XLATensor(std::shared_ptr<View> view,
                      const torch::lazy::BackendDevice& device,
                      c10::optional<at::ScalarType> logical_element_type)
     : data_(std::make_shared<Data>(std::move(view), device,
-                                   logical_element_type)) {}
+                                   logical_element_type)) {
+      std::cout << "[XLA Tensor] Constructor from View" << std::endl;
+                                   }
 
-XLATensor::XLATensor(std::shared_ptr<Data> data) : data_(std::move(data)) {}
+XLATensor::XLATensor(std::shared_ptr<Data> data) : data_(std::move(data)) {
+        std::cout << "[XLA Tensor] Constructor from Data" << std::endl;
+}
 
 XLATensor::Data* XLATensor::data() const {
   XLA_CHECK(data_ != nullptr) << "Trying to access a null cursor";
@@ -879,6 +901,7 @@ XLATensor XLATensor::CreateViewTensor(ViewInfo view_info) const {
 }
 
 at::Tensor XLATensor::ToTensor(bool detached) {
+  std::cout << "[XLATensor::ToTensor Begin]" << std::endl;
   at::Tensor tensor;
   c10::optional<at::Tensor> tensor_data = CurrentTensorData();
   if (!tensor_data) {
@@ -905,6 +928,7 @@ at::Tensor XLATensor::ToTensor(bool detached) {
       }
     }
   }
+  std::cout << "[XLATensor::ToTensor End]" << std::endl;
   return tensor;
 }
 
@@ -1146,6 +1170,7 @@ ir::XlaValue XLATensor::MaybeCastIrValue(
 }
 
 XLATensor XLATensor::CreateFrom(ir::XlaValue ir_value) const {
+  std::cout << "[XLATensor::CreateFrom] ir::XlaValue" << std::endl;
   ir_value = MaybeCastIrValue(std::move(ir_value), GetDevice(),
                               /*logical_element_type=*/c10::nullopt);
   return Create(std::move(ir_value), GetDevice(), dtype_optional());
@@ -1153,6 +1178,7 @@ XLATensor XLATensor::CreateFrom(ir::XlaValue ir_value) const {
 
 XLATensor XLATensor::CreateFrom(
     ir::XlaValue ir_value, const torch::lazy::BackendDevice& device) const {
+  std::cout << "[XLATensor::CreateFrom] ir::XlaValue & Device" << std::endl;
   ir_value = MaybeCastIrValue(std::move(ir_value), device,
                               /*logical_element_type=*/c10::nullopt);
   return Create(std::move(ir_value), device, dtype_optional());
@@ -1160,6 +1186,7 @@ XLATensor XLATensor::CreateFrom(
 
 XLATensor XLATensor::CreateFrom(ir::XlaValue ir_value,
                                 at::ScalarType logical_element_type) const {
+  std::cout << "[XLATensor::CreateFrom] ir::XlaValue & ScalarType" << std::endl;
   ir_value =
       MaybeCastIrValue(std::move(ir_value), GetDevice(), logical_element_type);
   return Create(std::move(ir_value), GetDevice(), logical_element_type);
@@ -1168,6 +1195,7 @@ XLATensor XLATensor::CreateFrom(ir::XlaValue ir_value,
 XLATensor XLATensor::CreateFrom(
     ir::XlaValue ir_value,
     c10::optional<at::ScalarType> logical_element_type_opt) const {
+  std::cout << "[XLATensor::CreateFrom] ir::XlaValue & optional<ScalarType>" << std::endl;
   ir_value = MaybeCastIrValue(std::move(ir_value), GetDevice(),
                               logical_element_type_opt);
   return Create(std::move(ir_value), GetDevice(), logical_element_type_opt);
@@ -1176,6 +1204,7 @@ XLATensor XLATensor::CreateFrom(
 XLATensor XLATensor::CreateFrom(ir::XlaValue ir_value,
                                 const torch::lazy::BackendDevice& device,
                                 at::ScalarType logical_element_type) const {
+  std::cout << "[XLATensor::CreateFrom] ir::XlaValue & ScalarType & Device" << std::endl;
   ir_value =
       MaybeCastIrValue(std::move(ir_value), device, logical_element_type);
   return Create(std::move(ir_value), device, logical_element_type);
@@ -1192,19 +1221,28 @@ void XLATensor::ApplyPendingGraph() {
 }
 
 void XLATensor::ApplyEagerSync(std::vector<XLATensor>& tensors) {
+  std::cout << "[XLATensor::ApplyEagerSync Begin]" << std::endl;
   SyncTensorsGraph(&tensors, {}, /*wait=*/false, /*sync_xla_data=*/false);
+  std::cout << "[XLATensor::ApplyEagerSync End]" << std::endl;
 }
 
 XLATensor::SyncTensorCollection XLATensor::CollectSyncTensors(
     const std::vector<XLATensor>& tensors, const SyncTensorsConfig& config) {
   tensorflow::profiler::TraceMe activity(
       "CollectSyncTensors", tensorflow::profiler::TraceMeLevel::kInfo);
+  std::cout << "[CollectSyncTensors] input tensor size = " << tensors.size() << std::endl;
   xla::util::Unique<torch::lazy::BackendDevice> unique_device;
   for (size_t i = 0; i < tensors.size(); ++i) {
     unique_device.set(tensors[i].GetDevice());
   }
+  auto ftxj_tmp = unique_device.AsSet();
+  for(auto iter : ftxj_tmp) {
+    std::cout << "[CollectSyncTensors] unique_device ele " << std::endl;
+  }
+
   SyncTensorCollection coll;
   if (!unique_device) {
+    std::cout << "[CollectSyncTensors] Does not Have Unique Device " << std::endl;
     return coll;
   }
 
@@ -1448,10 +1486,13 @@ std::shared_ptr<XLATensor::Async> XLATensor::ScheduleSyncTensorsGraph(
 void XLATensor::SyncTensorsGraph(std::vector<XLATensor>* tensors,
                                  absl::Span<const std::string> devices,
                                  bool wait, bool sync_xla_data) {
+  std::cout << "[SyncTensorsGraph Begin] Tensor size = "  << tensors.size() << std::endl;
+
   TF_VLOG(4) << "Trying to sync the value of " << tensors->size()
              << " tensor(s)";
   tensorflow::profiler::TraceMe activity(
       "SyncTensorsGraph", tensorflow::profiler::TraceMeLevel::kInfo);
+
   static const bool op_by_op =
       xla::sys_util::GetEnvBool("XLA_SYNC_TENSORS_OPBYOP", false);
   SyncTensorsConfig config;
@@ -1467,28 +1508,35 @@ void XLATensor::SyncTensorsGraph(std::vector<XLATensor>* tensors,
       async->mwait.Wait();
     }
   }
+  std::cout << "[SyncTensorsGraph End]" << std::endl;
 }
 
 void XLATensor::SyncLiveTensorsGraph(const torch::lazy::BackendDevice* device,
                                      absl::Span<const std::string> devices,
                                      bool wait) {
+  std::cout << "[SyncLiveTensorsGraph Begin] " << std::endl;
   tensorflow::profiler::TraceMe activity(
       "SyncLiveTensorsGraph", tensorflow::profiler::TraceMeLevel::kInfo);
   auto tensors = GetLiveTensors(device);
   TF_VLOG(4) << tensors.size() << " live tensors: devices=("
              << absl::StrJoin(devices, ",") << ")";
   SyncTensorsGraph(&tensors, devices, wait, /*sync_xla_data=*/true);
+  std::cout << "[SyncLiveTensorsGraph End] " << std::endl;
+
 }
 
 void XLATensor::MarkStep(const torch::lazy::BackendDevice& device) {
+  std::cout << "[XLATensor::MarkStep Begin] " << std::endl;
   XLA_COUNTER("MarkStep", 1);
   DeviceContextArena::Get()->MarkStep(device);
   ir::ScopePusher::ResetScopes();
   g_tls_data.Reset();
+  std::cout << "[XLATensor::MarkStep End] " << std::endl;
 }
 
 void XLATensor::WaitDeviceOps(absl::Span<const std::string> devices) {
   std::set<torch::lazy::BackendDevice> wait_devices;
+  std::cout << "[XLATensor::WaitDeviceOps Begin] " << std::endl;
   if (!devices.empty()) {
     for (auto& device_str : devices) {
       wait_devices.insert(ParseDeviceString(device_str));
@@ -1502,6 +1550,7 @@ void XLATensor::WaitDeviceOps(absl::Span<const std::string> devices) {
   // object, which is going to be freed immediately, turning this operation into
   // a lock barrier.
   LockDevices(wait_devices);
+  std::cout << "[XLATensor::WaitDeviceOps End] " << std::endl;
 }
 
 XLATensor::OpByOpAsync XLATensor::SyncTensorsGraphOpByOp(
@@ -1522,6 +1571,8 @@ XLATensor::OpByOpAsync XLATensor::SyncTensorsGraphOpByOp(
     std::vector<ir::XlaValue> roots;
     std::vector<std::string> devices;
   };
+
+  std::cout << "[SyncTensorsGraphOpByOp Begin]" << std::endl;
 
   SyncTensorCollection coll = CollectSyncTensors(*tensors, config);
   DebugUtil::SaveTensorsGraphInfo("SyncTensorsGraphOpByOp", *tensors,
@@ -1559,6 +1610,8 @@ XLATensor::OpByOpAsync XLATensor::SyncTensorsGraphOpByOp(
     return 0;
   };
   OpByOpAsync async_op(std::move(syncfn));
+
+  std::cout << "[SyncTensorsGraphOpByOp End] then return Schedule" << std::endl;
   return async_op.Schedule();
 }
 
@@ -1602,6 +1655,8 @@ XLATensor::CompilationResult XLATensor::Compile(
     const std::vector<XLATensor>& tensors,
     absl::Span<const std::string> devices, const SyncTensorCollection& coll,
     PostOrderData* po_data) {
+
+  std::cout << "[XLATensor::Compile] Begin" << std::endl;
   tensorflow::profiler::TraceMe activity(
       [&] {
         return tensorflow::profiler::TraceMeEncode(
@@ -1687,6 +1742,7 @@ std::shared_ptr<XLATensor::Async> XLATensor::SyncTensorsGraphInternal(
     const SyncTensorsConfig& config) {
   tensorflow::profiler::TraceMe activity(
       "SyncTensorsGraphInternal", tensorflow::profiler::TraceMeLevel::kInfo);
+  std::cout << "[SyncTensorsGraphInternal] Begin" << std::endl;
   SyncTensorCollection coll = CollectSyncTensors(*tensors, config);
   if (coll.indices.empty()) {
     /* Enure previous execution is complete before exiting this

@@ -8,6 +8,7 @@
 #include <thread>
 #include <unordered_map>
 #include <vector>
+#include <iostream>
 
 #include "absl/container/flat_hash_map.h"
 #include "absl/strings/str_cat.h"
@@ -96,6 +97,8 @@ std::string GetTensorsDump(
 }
 
 std::string SetCurrentThreadDevice(const std::string& device_str) {
+  std::cout << "[SetCurrentThreadDevice] call" << std::endl;
+  std::cout << "[c10::Device] transfer..." << std::endl;
   c10::Device prev_device = bridge::SetCurrentDevice(c10::Device(device_str));
   std::stringstream ss;
   ss << prev_device;
@@ -304,6 +307,7 @@ void StepMarker(const std::string& device_str,
                 const std::vector<std::string>& devices, bool wait) {
   tensorflow::profiler::TraceMe activity(
       "StepMarker", tensorflow::profiler::TraceMeLevel::kInfo);
+  std::cout << "[StepMarker] Begin" << std::endl;
   torch::lazy::BackendDevice device = GetDeviceOrCurrent(device_str);
   XLATensor::SyncLiveTensorsGraph(&device, devices, wait);
   XLATensor::MarkStep(device);
@@ -320,6 +324,7 @@ void StepMarker(const std::string& device_str,
       }
     }
   }
+  std::cout << "[StepMarker] End" << std::endl;
 }
 
 void SetRngSeed(uint64_t seed, const std::string& device_str) {
@@ -1044,6 +1049,7 @@ void InitXlaModuleBindings(py::module m) {
   m.def("_xla_optimization_barrier_",
         [](std::vector<at::Tensor>& inputs) { OptimizationBarrier_(inputs); });
   m.def("_xla_set_default_device", [](const std::string& device) {
+    std::cout << "[_xla_set_default_device]" << std::endl;
     return SetCurrentThreadDevice(device);
   });
   m.def("_xla_get_default_device", []() { return GetCurrentThreadDevice(); });

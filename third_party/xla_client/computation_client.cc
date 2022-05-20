@@ -20,6 +20,8 @@
 #include "tensorflow/core/platform/stacktrace_handler.h"
 #include "tensorflow/core/util/device_name_utils.h"
 
+#include <iostream>
+
 namespace xla {
 namespace {
 
@@ -36,6 +38,7 @@ ComputationClient* CreateClient() {
   if (sys_util::GetEnvBool("XLA_DUMP_FATAL_STACK", false)) {
     tensorflow::testing::InstallStacktraceHandler();
   }
+  std::cout << "[CreateClient] computation_client.cpp file" << std::endl;
   auto client = ComputationClient::Create();
   return client.release();
 }
@@ -149,23 +152,31 @@ void AddXrtHostDevices(const std::string& worker_name, int task_no,
        sys_util::GetEnvInt(env::kEnvNumTpu, device_counts.num_tpus)},
       {"GPU", "XLA_GPU",
        sys_util::GetEnvInt(env::kEnvNumGpu, device_counts.num_gpus)},
-      {"CPU", "XLA_CPU", device_counts.num_cpus},
+      {"CPU", "XLA_CPU", 
+        sys_util::GetEnvInt(env::kEnvNumGpu, device_counts.num_gpus)},
   };
   options->workers_map.emplace(
       XrtComputationClient::Worker(worker_name, task_no),
       MakeGrpcEndPoint(server));
   for (auto& device : devices) {
     int& device_ordinal = (*device_ordinals)[device.name];
+    std::cout << "[AddXrtHostDevices::device_loop]" << device.name << ":" << device_ordinal << std::endl;
     for (int j = 0; j < device.count; ++j, ++device_ordinal) {
       std::string device_name = absl::StrCat(device.name, ":", device_ordinal);
       std::string xrt_device_name =
           GetXrtDevicePath(worker_name, task_no, device.tf_name, j);
+      std::cout << "[GetXrtDevicePath]" 
+        << " device_name : " << device_name << ", " 
+        << "worker_name : " << worker_name << ", " 
+        << "task_no : " << task_no << " ==>" 
+        << xrt_device_name << std::endl;
       options->global_device_map.emplace(device_name, xrt_device_name);
     }
   }
 }
 
 bool ParseEnvBasedTpuClusterConfig(XrtComputationClient::Options* options) {
+  std::cout << "[ParseEnvBasedTpuClusterConfig] this function need kEnvTpuConfig" << std::endl;
   std::string tpu_config = sys_util::GetEnvString(env::kEnvTpuConfig, "");
   if (tpu_config.empty()) {
     return false;
@@ -234,7 +245,9 @@ bool ParseEnvDeviceCounts(XrtComputationClient::Options* options) {
   DeviceCountDefaults device_counts;
   device_counts.num_tpus = sys_util::GetEnvInt(env::kEnvNumTpu, 0);
   device_counts.num_gpus = sys_util::GetEnvInt(env::kEnvNumGpu, 0);
-  if (device_counts.num_tpus > 0 || device_counts.num_gpus > 0) {
+  device_counts.num_cpus = sys_util::GetEnvInt(env::kEnvNumCpu, 0);
+  if (device_counts.num_tpus > 0 || device_counts.num_gpus > 0
+                 || device_counts.num_cpus > 0) {
     std::map<std::string, int> device_ordinals;
     std::string host_port =
         absl::StrCat("localhost:", tensorflow::internal::PickUnusedPortOrDie());
@@ -266,6 +279,7 @@ bool ParseEnvDevices(XrtComputationClient::Options* options) {
 
 std::unique_ptr<ComputationClient> ComputationClient::Create() {
   XrtComputationClient::Options options;
+  std::cout << "[ComputationClient::Create] only can create Xrt Computation Client" << std::endl;
   std::unique_ptr<tensorflow::tpu::TopologyProto> topology_proto;
   if (!ParseEnvBasedTpuClusterConfig(&options) &&
       !ParseEnvDeviceCounts(&options) && !ParseEnvDevices(&options) &&
