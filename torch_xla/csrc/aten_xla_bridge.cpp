@@ -32,7 +32,7 @@ class AtenXlaDeviceMapper {
 
  private:
   AtenXlaDeviceMapper() {
-    std::cout << "[AtenXlaDeviceMapper] init. need call xla::ComputationClient Get()" << std::endl;
+    std::cout << "[FTXJ LOG] AtenXlaDeviceMapper init. need call xla::ComputationClient Get()" << std::endl;
     for (auto& device_str : xla::ComputationClient::Get()->GetLocalDevices()) {
       devices_.emplace_back(ParseDeviceString(device_str));
       devices_ordinals_[devices_.back()] = devices_.size() - 1;
@@ -205,60 +205,76 @@ void XlaUpdateTensors(absl::Span<const at::Tensor> dest_xla_tensors,
 
 c10::optional<torch::lazy::BackendDevice> GetXlaDevice(
     const at::Tensor& tensor) {
-        std::cout << "[GetXlaDevice]" << std::endl;
+  std::cout << "[FTXJ LOG] GetXlaDevice. input=at::Tensor" << std::endl;
   auto xtensor = TryGetXlaTensor(tensor);
   if (!xtensor) {
     return c10::nullopt;
   }
-  return xtensor->GetDevice();
+  auto tmp = xtensor->GetDevice();
+  std::cout << "[FTXJ LOG] GetXlaDevice End" << std::endl;
+  return tmp;
 }
 
 c10::optional<torch::lazy::BackendDevice> GetXlaDevice(
     const c10::optional<at::Tensor>& tensor) {
-      std::cout << "[GetXlaDevice]" << std::endl;
+  std::cout << "[FTXJ LOG] GetXlaDevice.opt input=optional<at::Tensor>" << std::endl;
   if (!tensor.has_value()) {
+    std::cout << "[FTXJ LOG] GetXlaDevice.opt End with nullopt" << std::endl;
     return c10::nullopt;
   }
-  return GetXlaDevice(*tensor);
+  auto tmp = GetXlaDevice(*tensor);
+  std::cout << "[FTXJ LOG] GetXlaDevice.opt End with at::Tensor" << std::endl;
+  return tmp;
 }
 
 c10::optional<torch::lazy::BackendDevice> GetXlaDevice(
     const at::TensorList& tensors) {
-        std::cout << "[GetXlaDevice]" << std::endl;
+  std::cout << "[FTXJ LOG] GetXlaDevice.<> input=vec<at::Tensor>" << std::endl;
   for (const auto& tensor : tensors) {
     auto device = GetXlaDevice(tensor);
     if (device) {
+      std::cout << "[FTXJ LOG] GetXlaDevice.<> End." << std::endl;
       return device;
     }
   }
+  std::cout << "[FTXJ LOG] GetXlaDevice.<> End with nullopt" << std::endl;
   return c10::nullopt;
 }
 
 c10::optional<torch::lazy::BackendDevice> GetXlaDevice(
     const at::TensorOptions& tensor_options) {
-    std::cout << "[GetXlaDevice]" << std::endl;
+  std::cout << "[FTXJ LOG] GetXlaDevice.TensorOptions " << std::endl;
   if (!tensor_options.has_device()) {
+    std::cout << "[FTXJ LOG] GetXlaDevice.TensorOptions End with nullopt" << std::endl;
     return c10::nullopt;
   }
-  return GetXlaDevice(tensor_options.device());
+  auto tmp = GetXlaDevice(tensor_options.device());
+  std::cout << "[FTXJ LOG] GetXlaDevice.TensorOptions End" << std::endl;
+  return tmp;
 }
 
 c10::optional<torch::lazy::BackendDevice> GetXlaDevice(
     const c10::Device& device) {
-    std::cout << "[GetXlaDevice]" << std::endl;
+  std::cout << "[FTXJ LOG] GetXlaDevice.device " << std::endl;
   if (device.type() != at::kXLA) {
+    std::cout << "[FTXJ LOG] GetXlaDevice.device End with nullopt" << std::endl;
     return c10::nullopt;
   }
-  return AtenDeviceToXlaDevice(device);
+  auto tmp = AtenDeviceToXlaDevice(device);
+  std::cout << "[FTXJ LOG] GetXlaDevice.device End" << std::endl;
+  return tmp;
 }
 
 c10::optional<torch::lazy::BackendDevice> GetXlaDevice(
     const c10::optional<c10::Device>& device) {
-  std::cout << "[GetXlaDevice]" << std::endl;
+  std::cout << "[FTXJ LOG] GetXlaDevice.device.opt " << std::endl;
   if (!device) {
+    std::cout << "[FTXJ LOG] GetXlaDevice.device.opt End with nullopt" << std::endl;
     return c10::nullopt;
   }
-  return GetXlaDevice(*device);
+  auto tmp = GetXlaDevice(*device);
+  std::cout << "[FTXJ LOG] GetXlaDevice.device.opt End" << std::endl;
+  return tmp;
 }
 
 torch::lazy::BackendDevice AtenDeviceToXlaDevice(const c10::Device& device) {

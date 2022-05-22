@@ -1053,6 +1053,7 @@ void InitXlaModuleBindings(py::module m) {
         [](std::vector<at::Tensor>& inputs) { OptimizationBarrier_(inputs); });
   m.def("_xla_set_default_device", [](const std::string& device) {
     std::cout << "[FTXJ LOG] _xla_set_default_device" << std::endl;
+    std::cout << "[FTXJ LOG] _xla_set_default_device call SetCurrentThreadDevice" << std::endl;
     auto tmp = SetCurrentThreadDevice(device);
     std::cout << "[FTXJ LOG] _xla_set_default_device End" << std::endl;
     return tmp;

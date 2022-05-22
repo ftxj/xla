@@ -1,0 +1,645 @@
+[FTXJ LOG] InitXlaModuleBindings
+-----------------------------------------------
+[FTXJ LOG] xla_device. xla_model.py
+[FTXJ LOG] xla_device call _xla_set_default_device
+[FTXJ LOG] _xla_set_default_device
+[FTXJ LOG] SetCurrentThreadDevice xla:0
+[FTXJ LOG] SetCurrentThreadDevice call bridge::SetCurrentDevice. do data format transfer (string -> c10::Device)
+[FTXJ LOG] bridge::SetCurrentDevice. input=c10:Device
+[FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[AtenXlaDeviceMapper] init. need call xla::ComputationClient Get()
+[FTXH LOG] ComputationClient::Get. singleton
+[CreateClient] computation_client.cpp file
+[ComputationClient::Create] only can create Xrt Computation Client
+[ParseEnvBasedTpuClusterConfig] this function need kEnvTpuConfig
+[AddXrtHostDevices::device_loop]TPU:0
+[AddXrtHostDevices::device_loop]GPU:0
+[GetXrtDevicePath] device_name : GPU:0, worker_name : localservice, task_no : 0 ==>/job:localservice/replica:0/task:0/device:XLA_GPU:0
+[AddXrtHostDevices::device_loop]CPU:0
+[GetXrtDevicePath] device_name : CPU:0, worker_name : localservice, task_no : 0 ==>/job:localservice/replica:0/task:0/device:XLA_CPU:0
+[XrtComputationClient] Init....
+[FTXJ LOG] DeviceType default construction CPU
+[FTXJ LOG] DeviceType default construction CPU
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] DeviceType default construction CPU
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] bridge::SetCurrentDevice End
+[FTXJ LOG] SetCurrentThreadDevice call end.
+[FTXJ LOG] SetCurrentThreadDevice End.
+[FTXJ LOG] _xla_set_default_device End
+[FTXJ LOG] xla_device call torch.device
+[FTXJ LOG] xla_device End
+------------------------------------------------------------------
+[GetXlaDevice]
+[GetXlaDevice]
+[FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice End
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] InferOutputShape
+[FTXJ LOG] XlaBuilder InferOutputShape
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
+[FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
+[FTXJ LOG] Register Tensor to Device. push data into device vector
+[FTXJ LOG] [XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[XLATensorImpl] constructor
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] InferOutputShape
+[FTXJ LOG] XlaBuilder InferOutputShape
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] DeviceContextArena::GetRngSeed
+[FTXH LOG] ComputationClient::Get. singleton
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] DeviceContextArena::GetRngSeed End
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XLATensor::SetInPlaceIrValue
+[FTXJ LOG] XLATensor::SetIrValue
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetIrValue End
+[FTXJ LOG] XLATensor::SetInPlaceIrValue End
+------------------------------------------------------------------
+[GetXlaDevice]
+[GetXlaDevice]
+[FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice End
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
+[FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
+[FTXJ LOG] Register Tensor to Device. push data into device vector
+[FTXJ LOG] [XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[XLATensorImpl] constructor
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] DeviceContextArena::GetRngSeed
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] DeviceContextArena::GetRngSeed End
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XLATensor::SetInPlaceIrValue
+[FTXJ LOG] XLATensor::SetIrValue
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetIrValue End
+[FTXJ LOG] XLATensor::SetInPlaceIrValue End
+------------------------------------------------------------------
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] InferOutputShape
+[FTXJ LOG] XlaBuilder InferOutputShape
+[FTXJ LOG] BuildRelu
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] get shape...
+element_type: F32
+dimensions: 2
+dimensions: 2
+layout {
+  minor_to_major: 1
+  minor_to_major: 0
+  format: DENSE
+}
+is_dynamic_dimension: false
+is_dynamic_dimension: false
+
+[FTXJ LOG] End BuildRelu
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[XLATensor::CreateFrom] ir::XlaValue
+[FTXJ LOG] XLATensor::MaybeCastIrValue
+[FTXJ LOG] XLATensor::MaybeCastIrValue End
+[FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
+[FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
+[FTXJ LOG] Register Tensor to Device. push data into device vector
+[FTXJ LOG] [XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[XLATensorImpl] constructor
+------------------------------------------------------------------
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XLATensor::CreateFrom] ir::XlaValue
+[FTXJ LOG] XLATensor::MaybeCastIrValue
+[FTXJ LOG] XLATensor::MaybeCastIrValue End
+[FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
+[FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
+[FTXJ LOG] Register Tensor to Device. push data into device vector
+[FTXJ LOG] [XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[XLATensorImpl] constructor
+------------------------------------------------------------------
+[DoBinaryOp] from at::Tensor & binary Op
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[GetOrCreateXlaTensor] convert at::Tensor & Device -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XLATensor::add]
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] InferOutputShape
+[FTXJ LOG] XlaBuilder InferOutputShape
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XLATensor::CreateFrom] ir::XlaValue & optional<ScalarType>
+[FTXJ LOG] XLATensor::MaybeCastIrValue
+[FTXJ LOG] XLATensor::MaybeCastIrValue End
+[FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
+[FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
+[FTXJ LOG] Register Tensor to Device. push data into device vector
+[FTXJ LOG] [XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[XLATensorImpl] constructor
+------------------------------------------------------------------
+[GetCurrentAtenDevice]
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[StepMarker] Begin
+[FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice End
+[SyncLiveTensorsGraph Begin]
+call XLATensor::GetLiveTensors
+[FTXJ LOG] DeviceContextArena::GetLiveTensors
+[FTXJ LOG] [XLA Tensor] Constructor from Data
+[FTXJ LOG] [XLA Tensor] Constructor from Data
+[FTXJ LOG] [XLA Tensor] Constructor from Data
+[FTXJ LOG] [XLA Tensor] Constructor from Data
+[FTXJ LOG] [XLA Tensor] Constructor from Data
+[FTXJ LOG] DeviceContextArena::GetLiveTensors, Live Tensor Numbers = 5
+[SyncTensorsGraph Begin] Tensor size = 5
+[SyncTensorsGraphInternal] Begin
+[CollectSyncTensors] input tensor size = 5
+[CollectSyncTensors] unique_device ele
+[FTXH LOG] ComputationClient::Get. singleton
+node([] aten::normal, aten::normal), node([] aten::add, aten::add), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, xla::device_data), node([UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, xla::device_data), node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, prim::Constant), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([] aten::add, aten::add), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::normal, aten::normal),
+PostOrder
+node([UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, xla::device_data), node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, prim::Constant), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([] aten::add, aten::add), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::normal, aten::normal),
+node([] aten::normal, aten::normal), node([] aten::add, aten::add), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, 
+prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, prim::Constant), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([] aten::add, aten::add), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, 
+prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::normal, aten::normal),
+PostOrder
+node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, prim::Constant), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([] aten::add, aten::add), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([] aten::expand, size=(2, 2), 
+aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::normal, 
+aten::normal),
+node([] aten::relu, aten::relu), node([] aten::relu, aten::relu),
+PostOrder
+node([] aten::relu, aten::relu),
+node([] aten::abs, aten::abs), node([] aten::abs, aten::abs),
+PostOrder
+node([] aten::abs, aten::abs),
+node([] aten::add, aten::add), node([] aten::mul, aten::mul), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::mul, aten::mul), node([] aten::add, aten::add),
+PostOrder
+node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::mul, aten::mul), node([] aten::add, aten::add),
+[XLATensor::Compile] Begin
+[LoweringContext] construct with post_order. SyncTensorsGraph
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[LoweringContext] GetParameter.
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] BuildRelu
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] get shape...
+element_type: F32
+dimensions: 2
+dimensions: 2
+layout {
+  minor_to_major: 1
+  minor_to_major: 0
+  format: DENSE
+}
+is_dynamic_dimension: false
+is_dynamic_dimension: false
+
+[FTXJ LOG] End BuildRelu
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::SetXlaData with sync
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetXlaData with sync End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::SetXlaData with sync
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetXlaData with sync End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::SetXlaData with sync
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetXlaData with sync End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::SetXlaData with sync
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetXlaData with sync End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::SetXlaData with sync
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetXlaData with sync End
+[FTXJ LOG] [ScheduleSyncTensorsGraph]
+call XLATensor::TensorCollectionBarrier
+[SyncTensorsGraph End]
+[SyncLiveTensorsGraph End]
+[FTXH LOG] ComputationClient::Get. singleton[XLATensor::MarkStep Begin]
+[FTXJ LOG] DeviceContextArena::MarkStep.
+
+[FTXJ LOG] DeviceContextArena::MarkStep End
+[XLATensor::MarkStep End]
+[StepMarker] End
+[GetCurrentAtenDevice]
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[GetCurrentAtenDevice]
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+------------------------------------------------------------------
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[FTXJ LOG] [XLATensor::ToTensor Begin]
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] [XLATensor::ToTensor End]
+tensor([[2.9941, 2.0624],
+        [0.3019, 1.1809]], device='xla:0')
+[XLATensor::WaitDeviceOps Begin]
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] DeviceType default construction CPU
+[FTXJ LOG] DeviceType default construction CPU
+[XLATensor::WaitDeviceOps End]
+[FTXJ LOG] Deconstructor XLATensor::Data
+[FTXJ LOG] Unregister Tensor to Device. erase data in device vector
+[FTXJ LOG] Deconstructor XLATensor::Data End
+[FTXJ LOG] Deconstructor XLATensor::Data
+[FTXJ LOG] Unregister Tensor to Device. erase data in device vector
+[FTXJ LOG] Deconstructor XLATensor::Data End
+[FTXJ LOG] Deconstructor XLATensor::Data
+[FTXJ LOG] Unregister Tensor to Device. erase data in device vector
+[FTXJ LOG] Deconstructor XLATensor::Data End
+[FTXJ LOG] Deconstructor XLATensor::Data
+[FTXJ LOG] Unregister Tensor to Device. erase data in device vector
+[FTXJ LOG] Deconstructor XLATensor::Data End
+[FTXJ LOG] Deconstructor XLATensor::Data
+[FTXJ LOG] Unregister Tensor to Device. erase data in device vector
+[FTXJ LOG] Deconstructor XLATensor::Data End

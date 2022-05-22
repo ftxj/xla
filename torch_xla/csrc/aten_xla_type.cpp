@@ -43,8 +43,13 @@ namespace {
 
 torch::lazy::BackendDevice GetXlaDeviceOrCurrent(
     const c10::optional<c10::Device>& device) {
+  std::cout << "[FTXJ LOG] GetXlaDeviceOrCurrent " << std::endl;
+  std::cout << "[FTXJ LOG] GetXlaDeviceOrCurrent call GetXlaDevice" << std::endl;
   auto xla_device_opt = bridge::GetXlaDevice(device);
-  return xla_device_opt ? *xla_device_opt : GetCurrentDevice();
+  std::cout << "[FTXJ LOG] GetXlaDeviceOrCurrent may call GetCurrentDevice" << std::endl;
+  auto tmp = xla_device_opt ? *xla_device_opt : GetCurrentDevice();
+  std::cout << "[FTXJ LOG] GetXlaDeviceOrCurrent End" << std::endl;
+  return tmp;
 }
 
 at::ScalarType GetScalarTypeOrFloat(c10::optional<at::ScalarType> scalar_type) {
@@ -1608,6 +1613,7 @@ at::Tensor XLANativeFunctions::index(
     const at::Tensor& self,
     const c10::List<c10::optional<at::Tensor>>& indices) {
   XLA_FN_COUNTER("xla::");
+  std::cout << "[FTXJ LOG] XLANativeFunctions::index " << std::endl;
   CanonicalIndexInfo canonical_index_info =
       GetCanonicalIndexInfo(self, indices);
   c10::optional<torch::lazy::BackendDevice> device =
@@ -1616,10 +1622,12 @@ at::Tensor XLANativeFunctions::index(
     device = bridge::GetXlaDevice(canonical_index_info.indices);
   }
   XLA_CHECK(device.has_value());
-  return bridge::AtenFromXlaTensor(XLATensor::index(
+  auto tmp = bridge::AtenFromXlaTensor(XLATensor::index(
       bridge::GetOrCreateXlaTensor(canonical_index_info.base, *device),
       bridge::GetOrCreateXlaTensors(canonical_index_info.indices, *device),
       canonical_index_info.start_dim));
+  std::cout << "[FTXJ LOG] XLANativeFunctions::index End" << std::endl;
+  return tmp;
 }
 
 at::Tensor XLANativeFunctions::index_add(const at::Tensor& self, int64_t dim,
@@ -1664,6 +1672,7 @@ at::Tensor& XLANativeFunctions::index_fill_(at::Tensor& self, int64_t dim,
 at::Tensor& XLANativeFunctions::index_put_(
     at::Tensor& self, const c10::List<c10::optional<at::Tensor>>& indices,
     const at::Tensor& values, bool accumulate) {
+  std::cout << "[FTXJ LOG] XLANativeFunctions::index_put_" << std::endl;
   XLA_FN_COUNTER("xla::");
   XLA_CHECK(self.scalar_type() == values.scalar_type());
   CanonicalIndexInfo canonical_index_info =
@@ -1682,6 +1691,7 @@ at::Tensor& XLANativeFunctions::index_put_(
       canonical_index_info.start_dim,
       bridge::GetOrCreateXlaTensor(values, *device), accumulate,
       canonical_index_info.result_permutation);
+  std::cout << "[FTXJ LOG] XLANativeFunctions::index_put_ End" << std::endl;
   return self;
 }
 
