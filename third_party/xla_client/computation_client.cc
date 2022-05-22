@@ -343,6 +343,7 @@ int64_t ComputationClient::GetDeviceOrdinal(const std::string& device) {
 }
 
 ComputationClient* ComputationClient::Get() {
+  std::cout << "[FTXH LOG] ComputationClient::Get. singleton" << std::endl;
   std::call_once(g_computation_client_once,
                  [&]() { g_computation_client = CreateClient(); });
   return g_computation_client.load();

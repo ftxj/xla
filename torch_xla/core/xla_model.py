@@ -227,7 +227,7 @@ def xla_device(n=None, devkind=None):
   Returns:
     A `torch.device` with the requested instance.
   """
-  print("[xla_device] call")
+  print("[FTXJ LOG] xla_device. xla_model.py")
   if n is None:
     devices = get_xla_supported_devices(
         devkind=devkind if devkind is not None else None)
@@ -238,8 +238,13 @@ def xla_device(n=None, devkind=None):
     device = devices[0]
   else:
     device = 'xla:{}'.format(n)
+
+  print("[FTXJ LOG] xla_device call _xla_set_default_device")
   torch_xla._XLAC._xla_set_default_device(device)
-  return torch.device(device)
+  print("[FTXJ LOG] xla_device call torch.device")
+  tmp = torch.device(device)
+  print("[FTXJ LOG] xla_device End")
+  return tmp
 
 
 def _xla_real_device(device):
