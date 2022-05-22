@@ -5,7 +5,7 @@ import torch_xla
 import torch_xla.core.xla_model as xm
 
 os.environ['GPU_NUM_DEVICES']="1"
-
+print('------------------------------------------------------------------')
 d=xm.xla_device()
 print('------------------------------------------------------------------')
 t1 = torch.randn(2, 2, device=d)
