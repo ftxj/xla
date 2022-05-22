@@ -1,0 +1,292 @@
+------------------------------------------------------------------
+[xla_device] call
+[_xla_set_default_device]
+[SetCurrentThreadDevice] call
+[c10::Device] transfer...
+[bridge::SetCurrentDevice] input: c10::Device
+[AtenDeviceToXlaDevice] call. input = c10::Device, output = lazy::BackendDevice
+[AtenXlaDeviceMapper::Get]
+[AtenXlaDeviceMapper] init. need call xla::ComputationClient Get()
+[CreateClient] computation_client.cpp file
+[ComputationClient::Create] only can create Xrt Computation Client
+[ParseEnvBasedTpuClusterConfig] this function need kEnvTpuConfig
+[AddXrtHostDevices::device_loop]TPU:0
+[AddXrtHostDevices::device_loop]GPU:0
+[GetXrtDevicePath] device_name : GPU:0, worker_name : localservice, task_no : 0 ==>/job:localservice/replica:0/task:0/device:XLA_GPU:0
+[AddXrtHostDevices::device_loop]CPU:0
+[GetXrtDevicePath] device_name : CPU:0, worker_name : localservice, task_no : 0 ==>/job:localservice/replica:0/task:0/device:XLA_CPU:0
+[XrtComputationClient] Init....
+[FTXJ LOG] DeviceType default construction CPU
+[FTXJ LOG] DeviceType default construction CPU
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[FTXJ LOG] DeviceType default construction CPU
+[XlaDeviceToAtenDevice]
+[AtenXlaDeviceMapper::Get]
+------------------------------------------------------------------
+[GetXlaDevice]
+[GetXlaDevice]
+[AtenDeviceToXlaDevice] call. input = c10::Device, output = lazy::BackendDevice
+[AtenXlaDeviceMapper::Get]
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[XLATensor::Create Begin] from ir::XlaValue
+[XLA Tensor] Constructor from ir::XlaValue
+Register Tensor to Device. push_back to device vector
+[XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[AtenXlaDeviceMapper::Get]
+[XLATensorImpl] constructor
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+------------------------------------------------------------------
+[GetXlaDevice]
+[GetXlaDevice]
+[AtenDeviceToXlaDevice] call. input = c10::Device, output = lazy::BackendDevice
+[AtenXlaDeviceMapper::Get]
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[XLATensor::Create Begin] from ir::XlaValue
+[XLA Tensor] Constructor from ir::XlaValue
+Register Tensor to Device. push_back to device vector
+[XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[AtenXlaDeviceMapper::Get]
+[XLATensorImpl] constructor
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+------------------------------------------------------------------
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] BuildRelu
+[FTXJ LOG] End BuildRelu
+[XLATensor::CreateFrom] ir::XlaValue
+[XLATensor::Create Begin] from ir::XlaValue
+[XLA Tensor] Constructor from ir::XlaValue
+Register Tensor to Device. push_back to device vector
+[XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[AtenXlaDeviceMapper::Get]
+[XLATensorImpl] constructor
+------------------------------------------------------------------
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XLATensor::CreateFrom] ir::XlaValue
+[XLATensor::Create Begin] from ir::XlaValue
+[XLA Tensor] Constructor from ir::XlaValue
+Register Tensor to Device. push_back to device vector
+[XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[AtenXlaDeviceMapper::Get]
+[XLATensorImpl] constructor
+------------------------------------------------------------------
+[DoBinaryOp] from at::Tensor & binary Op
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[GetOrCreateXlaTensor] convert at::Tensor & Device -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XLATensor::add]
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XLATensor::CreateFrom] ir::XlaValue & optional<ScalarType>
+[XLATensor::Create Begin] from ir::XlaValue
+[XLA Tensor] Constructor from ir::XlaValue
+Register Tensor to Device. push_back to device vector
+[XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[AtenXlaDeviceMapper::Get]
+[XLATensorImpl] constructor
+------------------------------------------------------------------
+[GetCurrentAtenDevice]
+[XlaDeviceToAtenDevice]
+[AtenXlaDeviceMapper::Get]
+[StepMarker] Begin
+[AtenDeviceToXlaDevice] call. input = c10::Device, output = lazy::BackendDevice
+[AtenXlaDeviceMapper::Get]
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[SyncLiveTensorsGraph Begin]
+[GetLiveTensors]
+[XLA Tensor] Constructor from Data
+[XLA Tensor] Constructor from Data
+[XLA Tensor] Constructor from Data
+[XLA Tensor] Constructor from Data
+[XLA Tensor] Constructor from Data
+Live Tensor Numbers = 5
+[SyncTensorsGraph Begin] Tensor size = 5
+[SyncTensorsGraphInternal] Begin
+[CollectSyncTensors] input tensor size = 5
+[CollectSyncTensors] unique_device ele
+node([] aten::normal, aten::normal), node([] aten::add, aten::add), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, xla::device_data), node([UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, xla::device_data), node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, prim::Constant), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([] aten::add, aten::add), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::normal, aten::normal),
+PostOrder
+node([UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, xla::device_data), node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, prim::Constant), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([] aten::add, aten::add), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::normal, aten::normal),
+node([] aten::normal, aten::normal), node([] aten::add, aten::add), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, 
+prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, prim::Constant), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([] aten::add, aten::add), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, 
+prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::normal, aten::normal),
+PostOrder
+node([UNKNOWN_SCALAR[]] prim::Constant, value=214013, prim::Constant), node([] aten::mul, aten::mul), node([UNKNOWN_SCALAR[]] prim::Constant, value=2531011, prim::Constant), node([] aten::add, aten::add), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([] aten::expand, size=(2, 2), 
+aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=0, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::normal, 
+aten::normal),
+node([] aten::relu, aten::relu), node([] aten::relu, aten::relu),
+PostOrder
+node([] aten::relu, aten::relu),
+node([] aten::abs, aten::abs), node([] aten::abs, aten::abs),
+PostOrder
+node([] aten::abs, aten::abs),
+node([] aten::add, aten::add), node([] aten::mul, aten::mul), node([] aten::expand, size=(2, 2), aten::expand), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::mul, aten::mul), node([] aten::add, aten::add),
+PostOrder
+node([UNKNOWN_SCALAR[]] prim::Constant, value=1, prim::Constant), node([] aten::expand, size=(2, 2), aten::expand), node([] aten::mul, aten::mul), node([] aten::add, aten::add),
+[XLATensor::Compile] Begin
+[LoweringContext] construct with post_order. SyncTensorsGraph
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[LoweringContext] GetParameter.
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[FTXJ LOG] BuildRelu
+[FTXJ LOG] End BuildRelu
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[LoweringContext] Lower Node cast (Lazy node) -> (XlaNode)
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[SyncTensorsGraph End]
+[SyncLiveTensorsGraph End]
+[XLATensor::MarkStep Begin]
+[XLATensor::MarkStep End]
+[StepMarker] End
+[GetCurrentAtenDevice]
+[XlaDeviceToAtenDevice]
+[AtenXlaDeviceMapper::Get]
+[GetCurrentAtenDevice]
+[XlaDeviceToAtenDevice]
+[AtenXlaDeviceMapper::Get]
+------------------------------------------------------------------
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XLATensor::ToTensor Begin]
+[XLATensor::ToTensor End]
+tensor([[2.9941, 2.0624],
+        [0.3019, 1.1809]], device='xla:0')
+[XLATensor::WaitDeviceOps Begin]
+[FTXJ LOG] DeviceType default construction CPU
+[FTXJ LOG] DeviceType default construction CPU
+[XLATensor::WaitDeviceOps End]
+Register Tensor to Device. erase to device vector
+Register Tensor to Device. erase to device vector
+Register Tensor to Device. erase to device vector
+Register Tensor to Device. erase to device vector
+Register Tensor to Device. erase to device vector

@@ -44,7 +44,7 @@ class AtenXlaDeviceMapper {
 };
 
 AtenXlaDeviceMapper* AtenXlaDeviceMapper::Get() {
-  std::cout << "[AtenXlaDeviceMapper::Get]" << std::endl;
+  std::cout << "[FTXJ LOG] AtenXlaDeviceMapper::Get" << std::endl;
   static AtenXlaDeviceMapper* device_mapper = new AtenXlaDeviceMapper();
   return device_mapper;
 }
@@ -262,21 +262,25 @@ c10::optional<torch::lazy::BackendDevice> GetXlaDevice(
 }
 
 torch::lazy::BackendDevice AtenDeviceToXlaDevice(const c10::Device& device) {
-  std::cout << "[AtenDeviceToXlaDevice] call. input = c10::Device, output = lazy::BackendDevice" << std::endl;
+  std::cout << "[FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice" << std::endl;
   XLA_CHECK_EQ(device.type(), at::kXLA) << device;
   int ordinal = device.has_index() ? device.index() : -1;
   if (ordinal < 0) {
-    std::cout << "[AtenDeviceToXlaDevice] fall in index < 0" << std::endl;
+    std::cout << "[FTXJ LOG] AtenDeviceToXlaDevice fall in index < 0" << std::endl;
     c10::Device current_device = GetCurrentAtenDevice();
     if (current_device.has_index()) {
       ordinal = current_device.index();
     }
   }
   if (ordinal < 0) {
-    std::cout << "[AtenDeviceToXlaDevice] fall in index < 0 two" << std::endl;
+    std::cout << "[FTXJ LOG] AtenDeviceToXlaDevice fall in index < 0 two" << std::endl;
     return GetCurrentDevice();
   }
-  return AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal(ordinal);
+
+  std::cout << "[FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal" << std::endl;
+  auto tmp = AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal(ordinal);
+  std::cout << "[FTXJ LOG] AtenDeviceToXlaDevice End" << std::endl;
+  return tmp;
 }
 
 c10::Device XlaDeviceToAtenDevice(const torch::lazy::BackendDevice& device) {
@@ -296,16 +300,20 @@ c10::Device AtenDefaultDevice() {
 }
 
 c10::Device SetCurrentDevice(const c10::Device& device) {
-  std::cout << "[bridge::SetCurrentDevice] input: c10::Device" << std::endl;
+  std::cout << "[FTXJ LOG] bridge::SetCurrentDevice. input=c10:Device" << std::endl;
   torch::lazy::BackendDevice prev_device =
       torch_xla::SetCurrentDevice(AtenDeviceToXlaDevice(device));
-  return XlaDeviceToAtenDevice(prev_device);
+  auto tmp = XlaDeviceToAtenDevice(prev_device);
+  std::cout << "[FTXJ LOG] bridge::SetCurrentDevice End" << std::endl;
+  return tmp;
 }
 
 torch::lazy::BackendDevice SetCurrentDevice(
     const torch::lazy::BackendDevice& device) {
-  std::cout << "[SetCurrentDevice]" << std::endl;
-  return torch_xla::SetCurrentDevice(device);
+  std::cout << "[FTXJ LOG] bridge::SetCurrentDevice. input=lazy:Device" << std::endl;
+  auto tmp = torch_xla::SetCurrentDevice(device);
+  std::cout << "[FTXJ LOG] bridge::SetCurrentDevice End. input=lazy:Device" << std::endl;
+  return tmp;
 }
 
 c10::Device GetCurrentAtenDevice() {

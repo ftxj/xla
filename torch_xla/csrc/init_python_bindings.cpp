@@ -97,9 +97,11 @@ std::string GetTensorsDump(
 }
 
 std::string SetCurrentThreadDevice(const std::string& device_str) {
-  std::cout << "[SetCurrentThreadDevice] call" << std::endl;
-  std::cout << "[c10::Device] transfer..." << std::endl;
+  std::cout << "[FTXJ LOG] SetCurrentThreadDevice " << device_str << std::endl;
+  std::cout << "[FTXJ LOG] SetCurrentThreadDevice call bridge::SetCurrentDevice. do data format transfer (string -> c10::Device)" << std::endl;
   c10::Device prev_device = bridge::SetCurrentDevice(c10::Device(device_str));
+  std::cout << "[FTXJ LOG] SetCurrentThreadDevice call end." << std::endl;
+  std::cout << "[FTXJ LOG] SetCurrentThreadDevice End." << std::endl;
   std::stringstream ss;
   ss << prev_device;
   return ss.str();
