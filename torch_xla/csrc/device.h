@@ -8,13 +8,25 @@
 #include "torch/csrc/lazy/core/hash.h"
 #include "torch/csrc/lazy/core/util.h"
 
+#include <iostream>
+
 namespace torch_xla {
 
 enum class XlaDeviceType { CPU, GPU, TPU };
 
 struct DeviceType : public torch::lazy::BackendDeviceType {
-  DeviceType() { type = static_cast<int>(XlaDeviceType::CPU); }
+  DeviceType() { 
+    std::cout << "[FTXJ LOG] " << "DeviceType default construction CPU" << std::endl;
+    type = static_cast<int>(XlaDeviceType::CPU); 
+  }
+  
   DeviceType(XlaDeviceType xla_device_type) {
+    if(xla_device_type == XlaDeviceType::GPU)
+      std::cout << "[FTXJ LOG] " << "DeviceType construction GPU" << std::endl;
+    if(xla_device_type == XlaDeviceType::CPU)
+      std::cout << "[FTXJ LOG] " << "DeviceType construction CPU" << std::endl;
+    if(xla_device_type == XlaDeviceType::TPU)
+      std::cout << "[FTXJ LOG] " << "DeviceType construction TPU" << std::endl;
     type = static_cast<int>(xla_device_type);
   }
 

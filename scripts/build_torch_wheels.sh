@@ -58,7 +58,7 @@ function install_cudnn {
   sudo chmod -R a+r /usr/local/cuda/lib64/
   rm -rf cudnn-linux-x86_64-8.4.0.27_cuda10.2-archive/
 
-  ls /usr/local/cuda/include
+  # ls /usr/local/cuda/include
   
   rm -f "$CUDNN_FILE"
 }
@@ -234,11 +234,11 @@ function build_and_install_torch_xla() {
   pwd
   echo "FTXJ ERROR 2....."
 
-  ls /usr/local/cuda/include
+  # ls /usr/local/cuda/include
 
   python setup.py bdist_wheel
    
-  ls /usr/local/cuda/include
+  # ls /usr/local/cuda/include
 
   pip install dist/*.whl
 }

@@ -10,6 +10,8 @@
 #include "torch_xla/csrc/tensor_util.h"
 #include "torch_xla/csrc/xla_lower_util.h"
 
+#include <iostream>
+
 namespace torch_xla {
 namespace {
 
@@ -64,9 +66,12 @@ xla::XlaOp BuildThreshold(xla::XlaOp input, xla::XlaOp output,
 }
 
 xla::XlaOp BuildRelu(xla::XlaOp input) {
+  std::cout << "[FTXJ LOG] " << "BuildRelu" << std::endl;
   const xla::Shape& input_shape = XlaHelpers::ShapeOfXlaOp(input);
-  return xla::Max(input, XlaHelpers::ScalarValue<float>(
+  auto res = xla::Max(input, XlaHelpers::ScalarValue<float>(
                              0, input_shape.element_type(), input.builder()));
+  std::cout << "[FTXJ LOG] " << "End BuildRelu" << std::endl;
+  return res;
 }
 
 xla::XlaOp BuildHardshrink(xla::XlaOp input, const at::Scalar& lambda) {

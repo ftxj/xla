@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "Begin XLA Generate Code.sh"
 CDIR="$(cd "$(dirname "$0")" ; pwd -P)"
 XDIR="$CDIR/.."
 PTDIR="$XDIR/.."

@@ -256,8 +256,6 @@ XrtComputationClient::XrtComputationClient(
       compilation_cache_(sys_util::GetEnvInt("XLA_COMPILATION_CACHE_SIZE", 64)),
       rng_seed_(0x5a2d296e9) {
   std::cout << "[XrtComputationClient] Init...." << std::endl;
-  std::cout << "Break Init...." << std::endl;
-  return;
   tensorflow::ConfigProto config = CreateConfigProto(options_);
   std::string local_target = GetLocalTarget(options_);
   session_cache_ = absl::make_unique<XrtSessionCache>(
