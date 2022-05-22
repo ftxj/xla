@@ -1822,20 +1822,24 @@ at::Tensor XLANativeFunctions::linspace(const at::Scalar& start,
                                         c10::optional<at::Layout> layout,
                                         c10::optional<at::Device> device,
                                         c10::optional<bool> pin_memory) {
+  std::cout << "[FTXJ LOG] XLANativeFunctions::linspace" << std::endl;
   XLA_FN_COUNTER("xla::");
   // Fall back to CPU if layout or pin_memory are not default
   if (layout.value_or(at::Layout::Strided) != at::Layout::Strided ||
       pin_memory.value_or(false)) {
+    std::cout << "[FTXJ LOG] XLANativeFunctions::linspace End fallback" << std::endl;
     return at::native::call_fallback_fn<&xla_cpu_fallback,
                                         ATEN_OP(linspace)>::call(start, end,
                                                                  steps, dtype,
                                                                  layout, device,
                                                                  pin_memory);
   }
-
-  return bridge::AtenFromXlaTensor(
+  std::cout << "[FTXJ LOG] XLANativeFunctions::linspace call XLATensor::linspace(GetXlaDeviceOrCurrent)" << std::endl;
+  auto tmp = bridge::AtenFromXlaTensor(
       XLATensor::linspace(start, end, steps, GetScalarTypeOrFloat(dtype),
                           GetXlaDeviceOrCurrent(device)));
+  std::cout << "[FTXJ LOG] XLANativeFunctions::linspace End" << std::endl;
+  return tmp;
 }
 
 at::Tensor XLANativeFunctions::log(const at::Tensor& self) {

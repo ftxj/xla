@@ -1,15 +1,16 @@
 [FTXJ LOG] InitXlaModuleBindings
------------------------------------------------
+------------------------------------------------------------------
 [FTXJ LOG] xla_device. xla_model.py
 [FTXJ LOG] xla_device call _xla_set_default_device
 [FTXJ LOG] _xla_set_default_device
+[FTXJ LOG] _xla_set_default_device call SetCurrentThreadDevice
 [FTXJ LOG] SetCurrentThreadDevice xla:0
 [FTXJ LOG] SetCurrentThreadDevice call bridge::SetCurrentDevice. do data format transfer (string -> c10::Device)
 [FTXJ LOG] bridge::SetCurrentDevice. input=c10:Device
 [FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
 [FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
 [FTXJ LOG] AtenXlaDeviceMapper::Get
-[AtenXlaDeviceMapper] init. need call xla::ComputationClient Get()
+[FTXJ LOG] AtenXlaDeviceMapper init. need call xla::ComputationClient Get()
 [FTXH LOG] ComputationClient::Get. singleton
 [CreateClient] computation_client.cpp file
 [ComputationClient::Create] only can create Xrt Computation Client
@@ -35,13 +36,19 @@
 [FTXJ LOG] xla_device call torch.device
 [FTXJ LOG] xla_device End
 ------------------------------------------------------------------
-[GetXlaDevice]
-[GetXlaDevice]
+[FTXJ LOG] GetXlaDeviceOrCurrent
+[FTXJ LOG] GetXlaDeviceOrCurrent call GetXlaDevice
+[FTXJ LOG] GetXlaDevice.device.opt
+[FTXJ LOG] GetXlaDevice.device
 [FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
 [FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
 [FTXJ LOG] AtenXlaDeviceMapper::Get
 [GetDeviceFromOrdinal] from device index to lazy::BackendDevice
 [FTXJ LOG] AtenDeviceToXlaDevice End
+[FTXJ LOG] GetXlaDevice.device End
+[FTXJ LOG] GetXlaDevice.device.opt End
+[FTXJ LOG] GetXlaDeviceOrCurrent may call GetCurrentDevice
+[FTXJ LOG] GetXlaDeviceOrCurrent End
 [XlaNode] build. Also a Lazy Node.
 [XlaNode] build. Also a XlaNode.
 [XlaNode] build. Also a Lazy Node
@@ -106,13 +113,19 @@
 [FTXJ LOG] XLATensor::SetIrValue End
 [FTXJ LOG] XLATensor::SetInPlaceIrValue End
 ------------------------------------------------------------------
-[GetXlaDevice]
-[GetXlaDevice]
+[FTXJ LOG] GetXlaDeviceOrCurrent
+[FTXJ LOG] GetXlaDeviceOrCurrent call GetXlaDevice
+[FTXJ LOG] GetXlaDevice.device.opt
+[FTXJ LOG] GetXlaDevice.device
 [FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
 [FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
 [FTXJ LOG] AtenXlaDeviceMapper::Get
 [GetDeviceFromOrdinal] from device index to lazy::BackendDevice
 [FTXJ LOG] AtenDeviceToXlaDevice End
+[FTXJ LOG] GetXlaDevice.device End
+[FTXJ LOG] GetXlaDevice.device.opt End
+[FTXJ LOG] GetXlaDeviceOrCurrent may call GetCurrentDevice
+[FTXJ LOG] GetXlaDeviceOrCurrent End
 [XlaNode] build. Also a Lazy Node.
 [XlaNode] build. Also a XlaNode.
 [XlaNode] build. Also a Lazy Node
@@ -601,12 +614,12 @@ is_dynamic_dimension: false
 call XLATensor::TensorCollectionBarrier
 [SyncTensorsGraph End]
 [SyncLiveTensorsGraph End]
-[FTXH LOG] ComputationClient::Get. singleton[XLATensor::MarkStep Begin]
+[XLATensor::MarkStep Begin]
 [FTXJ LOG] DeviceContextArena::MarkStep.
-
 [FTXJ LOG] DeviceContextArena::MarkStep End
 [XLATensor::MarkStep End]
 [StepMarker] End
+[FTXH LOG] ComputationClient::Get. singleton
 [GetCurrentAtenDevice]
 [XlaDeviceToAtenDevice]
 [FTXJ LOG] AtenXlaDeviceMapper::Get
