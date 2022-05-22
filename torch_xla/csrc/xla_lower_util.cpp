@@ -21,6 +21,8 @@
 #include "torch_xla/csrc/random.h"
 #include "torch_xla/csrc/tensor_util.h"
 
+#include <iostream>
+
 namespace torch_xla {
 namespace {
 
@@ -134,6 +136,10 @@ std::pair<xla::XlaOp, xla::XlaOp> DotBroadcast(xla::XlaOp lhs,
 xla::XlaComputation MakeScatterComputation(
     const std::function<xla::XlaOp(xla::XlaOp, xla::XlaOp)>& combiner,
     xla::PrimitiveType element_type) {
+  std::cout << "[FTXJ LOG] MakeScatterComputation " << std::endl;
+  
+  std::cout << "[FTXJ LOG] XlaBuilder ScatterCombiner" << std::endl;
+
   xla::XlaBuilder cb("ScatterCombiner");
   xla::Shape xla_scalar_shape = xla::ShapeUtil::MakeShape(element_type, {});
   xla::XlaOp p0 = xla::Parameter(&cb, 0, xla_scalar_shape, "p0");
@@ -437,13 +443,19 @@ xla::XlaOp BuildGer(xla::XlaOp lhs, xla::XlaOp rhs) {
 }
 
 xla::XlaOp BuildMatMul(xla::XlaOp lhs, xla::XlaOp rhs, xla::XlaOp bias) {
+  std::cout << "[FTXJ LOG] BuildMatMul " << std::endl;
+  std::cout << "[FTXJ LOG] BuildMatMul call BuildDot " << std::endl;
   xla::XlaOp dot = BuildDot(lhs, rhs);
+  std::cout << "[FTXJ LOG] BuildMatMul Get Shape Info " << std::endl;
   const xla::Shape& dot_shape = XlaHelpers::ShapeOfXlaOp(dot);
   const xla::Shape& bias_shape = XlaHelpers::ShapeOfXlaOp(bias);
   if (bias_shape.dimensions() != dot_shape.dimensions()) {
     bias = BuildExpand(bias, dot_shape.dimensions());
   }
-  return dot + bias;
+  std::cout << "[FTXJ LOG] BuildMatMul call XlaOp add " << std::endl;
+  auto tmp = dot + bias;
+  std::cout << "[FTXJ LOG] BuildMatMul End" << std::endl;
+  return tmp;
 }
 
 xla::XlaOp BuildMatMulWithMultiplier(xla::XlaOp lhs, xla::XlaOp rhs,

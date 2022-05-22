@@ -14,7 +14,7 @@
 #include "torch/csrc/lazy/core/util.h"
 #include "torch_xla/csrc/convert_ops.h"
 #include "torch_xla/csrc/tensor_util.h"
-
+#include <iostream>
 namespace torch_xla {
 namespace {
 
@@ -32,6 +32,7 @@ xla::XlaOp ConvertBinaryOpResult(xla::XlaOp op1, xla::XlaOp op2,
 xla::XlaComputation CreateComputation(
     const std::string& name, xla::PrimitiveType type,
     const std::function<xla::XlaOp(xla::XlaOp, xla::XlaOp)>& op) {
+  std::cout << "[FTXJ LOG] CreateComputation name=[" << name << "]" << std::endl;
   xla::XlaBuilder builder(name);
   xla::XlaOp x =
       xla::Parameter(&builder, 0, xla::ShapeUtil::MakeShape(type, {}), "x");
@@ -223,7 +224,9 @@ xla::XlaComputation XlaHelpers::CreateOrComputation(xla::PrimitiveType type) {
 }
 
 const xla::Shape& XlaHelpers::ShapeOfXlaOp(xla::XlaOp op) {
+  std::cout << "[FTXJ LOG] " << "XlaHelpers::ShapeOfXlaOp" << std::endl;
   const xla::Shape* shape = ConsumeValue(op.builder()->GetShapePtr(op));
+  std::cout << "[FTXJ LOG] " << "XlaHelpers::ShapeOfXlaOp End" << std::endl;
   return *shape;
 }
 

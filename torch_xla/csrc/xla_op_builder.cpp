@@ -15,6 +15,8 @@
 #include "torch_xla/csrc/helpers.h"
 #include "torch_xla/csrc/tensor_util.h"
 
+#include <iostream>
+
 namespace torch_xla {
 namespace op_builder {
 namespace {
@@ -34,12 +36,14 @@ using XlaOpFunctionMap = std::map<std::string, XlaOpFunction>;
 #define XLA_UNARY_OP(name)                                               \
   xla::XlaOp name(const BuilderPtr&, const std::vector<OpPtr>& operands, \
                   py::dict /* args */) {                                 \
+    std::cout << "[FTXJ LOG] XLA_UNARY_OP " << #name << std::endl;       \
     return xla::name(operands.at(0)->op);                                \
   }
 
 #define XLA_BINARY_OP(name)                                              \
   xla::XlaOp name(const BuilderPtr&, const std::vector<OpPtr>& operands, \
                   py::dict /* args */) {                                 \
+    std::cout << "[FTXJ LOG] XLA_BINARY_OP " << #name << std::endl;      \
     return xla::name(operands.at(0)->op, operands.at(1)->op);            \
   }
 
@@ -221,6 +225,7 @@ xla::XlaOp Dot(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
 
 xla::XlaOp Constant(const BuilderPtr& builder,
                     const std::vector<OpPtr>& operands, py::dict args) {
+   std::cout << "[FTXJ LOG] Constant" << std::endl;
   at::Tensor tensor = args["value"].cast<at::Tensor>();
   xla::Literal literal =
       GetTensorLiteral(tensor, /*shape=*/nullptr, /*device=*/nullptr);
@@ -635,6 +640,7 @@ xla::XlaOp MaxPool(const BuilderPtr& builder,
 
 xla::XlaOp Sort(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
                 py::dict args) {
+  std::cout << "[FTXJ LOG] Sort" << std::endl;
   bool is_stable = ArgOrDefault<bool>(args, "is_stable", false);
   int64_t dimension = ArgOrDefault<int64_t>(args, "dimension", -1);
   ComputationPtr comparator = args["comparator"].cast<ComputationPtr>();
@@ -644,6 +650,7 @@ xla::XlaOp Sort(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
 
 xla::XlaOp Iota(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
                 py::dict args) {
+  std::cout << "[FTXJ LOG] Iota" << std::endl;
   xla::Shape shape = PyShapeToShape(args["shape"]);
   int64_t iota_dimension = args["iota_dimension"].cast<int64_t>();
   return xla::Iota(builder.get(), shape, iota_dimension);
@@ -651,17 +658,20 @@ xla::XlaOp Iota(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
 
 xla::XlaOp Clamp(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
                  py::dict args) {
+  std::cout << "[FTXJ LOG] Clamp" << std::endl;
   return xla::Clamp(operands.at(1)->op, operands.at(0)->op, operands.at(2)->op);
 }
 
 xla::XlaOp Rev(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
                py::dict args) {
+  std::cout << "[FTXJ LOG] Rev" << std::endl;
   std::vector<int64_t> dimensions = GetTupleVector<int64_t>(args["dimensions"]);
   return xla::Rev(operands.at(0)->op, dimensions);
 }
 
 xla::XlaOp ConcatInDim(const BuilderPtr& builder,
                        const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] ConcatInDim" << std::endl;
   int64_t dimension = args["dimension"].cast<int64_t>();
   std::vector<xla::XlaOp> ops = ExtractXlaOps(operands);
   return xla::ConcatInDim(builder.get(), ops, dimension);
@@ -669,6 +679,7 @@ xla::XlaOp ConcatInDim(const BuilderPtr& builder,
 
 xla::XlaOp Convert(const BuilderPtr& builder,
                    const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] Convert" << std::endl;
   std::string type = args["to_type"].cast<std::string>();
   xla::PrimitiveType xla_type =
       ConsumeValue(xla::primitive_util::StringToPrimitiveType(type));
@@ -677,18 +688,21 @@ xla::XlaOp Convert(const BuilderPtr& builder,
 
 xla::XlaOp GetTupleElement(const BuilderPtr& builder,
                            const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] GetTupleElement" << std::endl;
   int64_t index = args["index"].cast<int64_t>();
   return xla::GetTupleElement(operands.at(0)->op, index);
 }
 
 xla::XlaOp GetDimensionSize(const BuilderPtr& builder,
                             const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] GetDimensionSize" << std::endl;
   int64_t dimension = args["dimension"].cast<int64_t>();
   return xla::GetDimensionSize(operands.at(0)->op, dimension);
 }
 
 xla::XlaOp SetDimensionSize(const BuilderPtr& builder,
                             const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] SetDimensionSize" << std::endl;
   int64_t dimension = args["dimension"].cast<int64_t>();
   return xla::SetDimensionSize(operands.at(0)->op, operands.at(1)->op,
                                dimension);
@@ -696,6 +710,7 @@ xla::XlaOp SetDimensionSize(const BuilderPtr& builder,
 
 xla::XlaOp BitcastConvert(const BuilderPtr& builder,
                           const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] BitcastConvert" << std::endl;
   std::string type = args["to_type"].cast<std::string>();
   xla::PrimitiveType xla_type =
       ConsumeValue(xla::primitive_util::StringToPrimitiveType(type));
@@ -704,6 +719,7 @@ xla::XlaOp BitcastConvert(const BuilderPtr& builder,
 
 xla::XlaOp TriangularSolve(const BuilderPtr& builder,
                            const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] TriangularSolve" << std::endl;
   bool left_side = ArgOrDefault<bool>(args, "left_side", true);
   bool lower = ArgOrDefault<bool>(args, "lower", false);
   bool unit_diagonal = ArgOrDefault<bool>(args, "unit_diagonal", false);
@@ -715,6 +731,7 @@ xla::XlaOp TriangularSolve(const BuilderPtr& builder,
 }
 
 const XlaOpFunctionMap* CreateXlaOpFunctionMap() {
+  std::cout << "[FTXJ LOG] Init Step CreateXlaOpFunctionMap" << std::endl;
   XlaOpFunctionMap* fn_map = new XlaOpFunctionMap();
 
 #define XLA_OPADD(name) fn_map->emplace(#name, name)
@@ -865,11 +882,13 @@ xla::Shape PyShapeToShape(py::object shape) {
 
 OpPtr CreateOp(BuilderPtr builder, const std::string& opname,
                const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] CreateOp: " << opname << std::endl;
   const XlaOpFunctionMap* fn_map = GetXlaOpFunctionMap();
   auto it = fn_map->find(opname);
   if (it == fn_map->end()) {
     XLA_ERROR() << "Unknown XLA op name: " << opname;
   }
+  std::cout << "[FTXJ LOG] CreateOp call op: " << opname << std::endl;
   xla::XlaOp result = (*it->second)(builder, operands, args);
   return std::make_shared<Op>(std::move(builder), std::move(result));
 }

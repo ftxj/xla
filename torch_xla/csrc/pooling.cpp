@@ -14,6 +14,8 @@
 #include "torch_xla/csrc/tensor_util.h"
 #include "torch_xla/csrc/xla_lower_util.h"
 
+#include <iostream>
+
 namespace torch_xla {
 namespace {
 
@@ -39,6 +41,10 @@ struct InitValues {
 };
 
 xla::XlaComputation CreateGeComputation(xla::PrimitiveType type) {
+  std::cout << "[FTXJ LOG] CreateGeComputation " << std::endl;
+  
+  std::cout << "[FTXJ LOG] build xla_ge_computation" << std::endl;
+  
   xla::XlaBuilder reduction_builder("xla_ge_computation");
   xla::XlaOp x = xla::Parameter(&reduction_builder, 0,
                                 xla::ShapeUtil::MakeShape(type, {}), "x");

@@ -68,6 +68,9 @@ xla::XlaOp BuildThreshold(xla::XlaOp input, xla::XlaOp output,
 xla::XlaOp BuildRelu(xla::XlaOp input) {
   std::cout << "[FTXJ LOG] " << "BuildRelu" << std::endl;
   const xla::Shape& input_shape = XlaHelpers::ShapeOfXlaOp(input);
+  std::cout << "[FTXJ LOG] " << "get shape..." << std::endl;
+  std::cout << input_shape.DebugString() << std::endl;
+  
   auto res = xla::Max(input, XlaHelpers::ScalarValue<float>(
                              0, input_shape.element_type(), input.builder()));
   std::cout << "[FTXJ LOG] " << "End BuildRelu" << std::endl;

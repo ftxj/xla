@@ -790,6 +790,7 @@ void BuildProfilerSubmodule(py::module* m) {
 }
 
 void InitXlaModuleBindings(py::module m) {
+  std::cout << "[FTXJ LOG] InitXlaModuleBindings" << std::endl;
   m.def("_prepare_to_exit", []() { PrepareToExit(); });
   m.def("_get_git_revs", []() { return GetRevisions(); });
   m.def("_map_xla_env_vars_to_lazy", []() { return MapXlaEnvVarsToLazy(); });
@@ -1189,6 +1190,7 @@ void InitXlaModuleBindings(py::module m) {
   py::class_<op_builder::Op, op_builder::OpPtr>(m, "XlaOp");
   py::class_<Computation, ComputationPtr>(m, "XlaComputation");
   m.def("_xla_op_create_builder", [](const std::string& name) {
+    std::cout << "[FTXJ LOG]  python call _xla_op_create_builder" << std::endl;
     return std::make_shared<xla::XlaBuilder>(name);
   });
   m.def("_xla_op_tensor_shape",

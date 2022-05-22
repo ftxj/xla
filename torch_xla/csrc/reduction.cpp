@@ -46,6 +46,10 @@ ReductionInfo GetReductionInfo(xla::XlaOp input, const xla::Shape& shape,
 }
 
 xla::XlaComputation CreateAllComputation(xla::PrimitiveType type) {
+  std::cout << "[FTXJ LOG] CreateAllComputation " << std::endl;
+  
+  std::cout << "[FTXJ LOG] XlaBuilder AllComputation" << std::endl;
+
   xla::XlaBuilder builder("AllComputation");
   xla::XlaOp x =
       xla::Parameter(&builder, 0, xla::ShapeUtil::MakeShape(type, {}), "x");
@@ -58,6 +62,11 @@ xla::XlaComputation CreateAllComputation(xla::PrimitiveType type) {
 }
 
 xla::XlaComputation CreateAnyComputation(xla::PrimitiveType type) {
+  std::cout << "[FTXJ LOG] CreateAnyComputation " << std::endl;
+  
+  std::cout << "[FTXJ LOG] XlaBuilder AnyComputation" << std::endl;
+
+
   xla::XlaBuilder builder("AnyComputation");
   xla::XlaOp x =
       xla::Parameter(&builder, 0, xla::ShapeUtil::MakeShape(type, {}), "x");
