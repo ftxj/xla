@@ -615,11 +615,11 @@ call XLATensor::TensorCollectionBarrier
 [SyncTensorsGraph End]
 [SyncLiveTensorsGraph End]
 [XLATensor::MarkStep Begin]
+[FTXH LOG] ComputationClient::Get. singleton
 [FTXJ LOG] DeviceContextArena::MarkStep.
 [FTXJ LOG] DeviceContextArena::MarkStep End
 [XLATensor::MarkStep End]
 [StepMarker] End
-[FTXH LOG] ComputationClient::Get. singleton
 [GetCurrentAtenDevice]
 [XlaDeviceToAtenDevice]
 [FTXJ LOG] AtenXlaDeviceMapper::Get

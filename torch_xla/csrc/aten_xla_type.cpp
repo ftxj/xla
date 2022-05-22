@@ -1345,9 +1345,14 @@ at::Tensor XLANativeFunctions::empty(
   // does not actually end up doing any memory initialization, we use that and
   // avoid going to CPU for it. A common PT pattern is indeed doing empty() plus
   // s_copy_().
-  return bridge::AtenFromXlaTensor(XLATensor::full(
+  std::cout << "[FTXJ LOG] XLANativeFunctions::empty " << std::endl;
+  std::cout << "[FTXJ LOG] XLANativeFunctions::empty call \
+    AtenFromXlaTensor->XLATensor::full->GetXlaDeviceOrCurrent" << std::endl;
+  auto tmp = bridge::AtenFromXlaTensor(XLATensor::full(
       XlaHelpers::I64List(size), 0, GetXlaDeviceOrCurrent(device),
       GetScalarTypeOrFloat(dtype)));
+  std::cout << "[FTXJ LOG] XLANativeFunctions::empty End" << std::endl;
+  return tmp;
 }
 
 at::Tensor XLANativeFunctions::empty_strided(
@@ -1355,9 +1360,16 @@ at::Tensor XLANativeFunctions::empty_strided(
     c10::optional<at::ScalarType> dtype, c10::optional<at::Layout> layout,
     c10::optional<at::Device> device, c10::optional<bool> pin_memory) {
   XLA_FN_COUNTER("xla::");
+  
+  std::cout << "[FTXJ LOG] XLANativeFunctions::empty_strided" << std::endl;
+
+  std::cout << "[FTXJ LOG] XLANativeFunctions::empty_strided call empty" << std::endl;
   at::Tensor t = empty(size, dtype, layout, device, pin_memory, c10::nullopt);
-  return torch_xla::XLANativeFunctions::as_strided(t, size, stride,
-                                                   /*storage_offset=*/0);
+  
+  std::cout << "[FTXJ LOG] XLANativeFunctions::empty_strided call as_strided" << std::endl;
+  auto tmp = torch_xla::XLANativeFunctions::as_strided(t, size, stride, /*storage_offset=*/0);
+  std::cout << "[FTXJ LOG] XLANativeFunctions::empty_strided End" << std::endl;
+  return tmp;
 }
 
 at::Tensor XLANativeFunctions::eq(const at::Tensor& self,

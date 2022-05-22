@@ -478,6 +478,7 @@ bool RecordRead(const std::shared_ptr<xla::util::RecordReader>& reader,
 
 py::object RecordReadExample(
     const std::shared_ptr<xla::util::RecordReader>& reader) {
+  std::cout << "[FTXJ LOG] RecordReadExample" << std::endl;
   auto make_r1_size = [](int64_t size) -> std::vector<int64_t> {
     return std::vector<int64_t>({size});
   };
