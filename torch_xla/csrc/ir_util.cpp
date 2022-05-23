@@ -31,7 +31,7 @@ std::vector<const torch::lazy::Node*> Util::ComputePostOrder(
         
         auto oit = emap->find(output.node);
         if (oit == emap->end()) {
-          std::cout << "first traversal this node, push into queue" << std::cout;
+          std::cout << "first traversal this node, push into queue" << std::endl;
           queue.push_back(output.node);
         } else if (oit->second == torch::lazy::Util::kEmitting) {
           XLA_ERROR() << "Graph loop found at " << *output.node;
