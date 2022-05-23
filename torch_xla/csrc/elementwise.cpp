@@ -82,7 +82,7 @@ xla::XlaOp BuildRelu(xla::XlaOp input) {
   std::cout << "[FTXJ LOG] " << "BuildRelu call ShapeOfXlaOp" << std::endl;
   const xla::Shape& input_shape = XlaHelpers::ShapeOfXlaOp(input);
   std::cout << "[FTXJ LOG] " << "BuildRelu call ShapeOfXlaOp result is " << std::endl;
-  std::cout << shape.DebugString() << std::endl;
+  std::cout << input_shape.DebugString() << std::endl;
 
   std::cout << "[FTXJ LOG] " << "BuildRelu call xla::Max, add inst to Builder" << std::endl;
   auto res = xla::Max(input, XlaHelpers::ScalarValue<float>(
