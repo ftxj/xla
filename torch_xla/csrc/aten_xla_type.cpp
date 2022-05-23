@@ -586,7 +586,7 @@ at::Tensor XLANativeFunctions::add(const at::Tensor& self,
                     [&](const XLATensor& xself, const at::Scalar& other,
                         at::ScalarType dtype) {
                       std::cout << "[FTXJ LOG] DoBinaryOp call XLATensor::add" << std::endl;
-                      auto tmp = XLATensor::add(xself, xother, alpha, dtype);
+                      auto tmp = XLATensor::add(xself, other, alpha, dtype);
                       std::cout << "[FTXJ LOG] DoBinaryOp call XLATensor::add End" << std::endl;
                       return tmp;
                     });
