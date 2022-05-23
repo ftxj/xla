@@ -8,6 +8,7 @@ namespace ir {
 
 std::vector<const torch::lazy::Node*> Util::ComputePostOrder(
     const torch::lazy::Node* node, EmissionMap* emap) {
+  std::cout << "[FTXJ LOG] Util::ComputePostOrder" << std::endl;
   std::vector<const torch::lazy::Node*> post_order;
   std::vector<const torch::lazy::Node*> queue;
   queue.push_back(node);
@@ -16,7 +17,7 @@ std::vector<const torch::lazy::Node*> Util::ComputePostOrder(
 
     std::string node_string = node->ToString();
     std::string op_string = node->op().ToString();
-    std::cout << "node(" << node_string << ", " << op_string << "), ";
+    std::cout << "node(str=" << node_string << ", op=" << op_string << ")\n";
 
     auto it = emap->find(node);
     if (it == emap->end()) {
@@ -45,11 +46,11 @@ std::vector<const torch::lazy::Node*> Util::ComputePostOrder(
       queue.pop_back();
     }
   }
-  std::cout << "\nPostOrder" << std::endl;
+  std::cout << "\nAfter ComputePostOrder, return data is" << std::endl;
   for(auto node : post_order) {
     std::string node_string = node->ToString();
     std::string op_string = node->op().ToString();
-    std::cout << "node(" << node_string << ", " << op_string << "), ";
+    std::cout << "node(str=" << node_string << ", op=" << op_string << ")\n";
   }
   std::cout << std::endl;
   return post_order;

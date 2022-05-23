@@ -126,6 +126,7 @@ std::vector<std::string> GetXlaDevices(
 std::vector<XLATensor> GetXlaTensors(const std::vector<at::Tensor>& tensors,
                                      bool want_all) {
   std::vector<XLATensor> xtensors;
+  std::cout << "[FTXJ LOG] GetXlaTensors" << std::endl;
   xtensors.reserve(tensors.size());
   if (want_all) {
     for (auto& tensor : tensors) {
@@ -139,6 +140,7 @@ std::vector<XLATensor> GetXlaTensors(const std::vector<at::Tensor>& tensors,
       }
     }
   }
+  std::cout << "[FTXJ LOG] GetXlaTensors End" << std::endl;
   return xtensors;
 }
 
@@ -683,12 +685,15 @@ ComputationPtr CreateComputationFromProto(const std::string& name,
 
 xla::Shape GetTensorShape(const at::Tensor& tensor,
                           const std::string& device_str) {
+  std::cout << "[FTXJ LOG] GetTensorShape" << std::endl;
   auto xtensor = bridge::TryGetXlaTensor(tensor);
   if (xtensor) {
     return xtensor->shape();
   }
   torch::lazy::BackendDevice device = GetDeviceOrCurrent(device_str);
-  return CreateComputationShapeFromTensor(tensor, &device);
+  auto tmp = CreateComputationShapeFromTensor(tensor, &device);
+  std::cout << "[FTXJ LOG] GetTensorShape End" << std::endl;
+  return tmp;
 }
 
 py::dict GetMemoryInfo(const std::string& device_str) {

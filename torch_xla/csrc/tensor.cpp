@@ -817,10 +817,13 @@ ir::XlaValue XLATensor::GetIrValueForConstant(const at::Scalar& value,
 ir::XlaValue XLATensor::GetIrValueForScalar(
     const at::Scalar& value, xla::PrimitiveType type,
     const torch::lazy::BackendDevice& device) {
+  std::cout << "[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d" << std::endl;
   if (IsSpecialScalar(value)) {
     return ir::ops::ScalarOp(std::move(value), type);
   }
-  return GetDeviceDataIrValue(value, type, device);
+  auto tmp = GetDeviceDataIrValue(value, type, device);
+  std::cout << "[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d End" << std::endl;
+  return tmp;
 }
 
 ir::XlaValue XLATensor::GetIrValueForScalar(
@@ -833,11 +836,13 @@ ir::XlaValue XLATensor::GetIrValueForScalar(
     const at::Scalar& value, xla::PrimitiveType type,
     absl::Span<const int64_t> dimensions,
     const torch::lazy::BackendDevice& device) {
+  std::cout << "[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d" << std::endl;
   ir::XlaValue ir_value = GetIrValueForScalar(value, type, device);
   if (!dimensions.empty()) {
     ir_value = ir::MakeNode<ir::ops::Expand>(
         ir_value, torch::lazy::ToVector<int64_t>(dimensions));
   }
+  std::cout << "[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d End" << std::endl;
   return ir_value;
 }
 
@@ -1384,6 +1389,7 @@ XLATensor::PostOrderData XLATensor::RunPostOrder(
     const std::vector<XLATensor>& tensors, SyncTensorCollection* coll) {
   tensorflow::profiler::TraceMe activity(
       "RunPostOrder", tensorflow::profiler::TraceMeLevel::kInfo);
+  std::cout << "[FRXJ LOG] XLATensor::RunPostOrder" << std::endl;
   absl::Span<const size_t> indices = coll->indices;
   std::vector<const torch::lazy::Node*> roots;
   roots.reserve(indices.size());
@@ -1783,15 +1789,21 @@ std::shared_ptr<XLATensor::Async> XLATensor::SyncTensorsGraphInternal(
     const SyncTensorsConfig& config) {
   tensorflow::profiler::TraceMe activity(
       "SyncTensorsGraphInternal", tensorflow::profiler::TraceMeLevel::kInfo);
-  std::cout << "[SyncTensorsGraphInternal] Begin" << std::endl;
+  std::cout << "[FTXJ LOG] SyncTensorsGraphInternal" << std::endl;
+  std::cout << "[FTXJ LOG] SyncTensorsGraphInternal call CollectSyncTensors" << std::endl;
   SyncTensorCollection coll = CollectSyncTensors(*tensors, config);
   if (coll.indices.empty()) {
     /* Enure previous execution is complete before exiting this
      * function */
+    std::cout << "[FTXJ LOG] SyncTensorsGraphInternal call TensorCollectionBarrier" << std::endl;
     TensorCollectionBarrier(&coll);
+    std::cout << "[SyncTensorsGraphInternal] End with nullptr" << std::endl;
     return nullptr;
   }
+  std::cout << "[FTXJ LOG] SyncTensorsGraphInternal call RunPostOrder" << std::endl;
   PostOrderData po_data = RunPostOrder(*tensors, &coll);
+
+  std::cout << "[FTXJ LOG] SyncTensorsGraphInternal call SaveTensorsGraphInfo" << std::endl;
   DebugUtil::SaveTensorsGraphInfo("ScheduleSyncTensorsGraph", *tensors,
                                   &coll.indices);
 
@@ -1799,11 +1811,15 @@ std::shared_ptr<XLATensor::Async> XLATensor::SyncTensorsGraphInternal(
       coll.hash, torch::lazy::Hash(po_data.parameter_sequence));
   TF_VLOG(4) << "Parameter sequence graph hash "
              << torch::lazy::HashToString(coll.hash);
+
+  std::cout << "[FTXJ LOG] SyncTensorsGraphInternal call TryRunCachedSync" << std::endl;
   std::shared_ptr<Async> async = TryRunCachedSync(tensors, &coll, &po_data);
   if (async != nullptr) {
+    std::cout << "[SyncTensorsGraphInternal] End with async" << std::endl;
     return async;
   }
 
+  std::cout << "[FTXJ LOG] SyncTensorsGraphInternal call Compile" << std::endl;
   CompilationResult compile_result = Compile(*tensors, devices, coll, &po_data);
 
   XLA_VALUE_METRIC("TensorsGraphSize", compile_result.emitted_nodes);
@@ -1811,11 +1827,17 @@ std::shared_ptr<XLATensor::Async> XLATensor::SyncTensorsGraphInternal(
 
   auto cached_computation = std::make_shared<CachedComputation>(
       std::move(compile_result.computation));
+
+  std::cout << "[FTXJ LOG] SyncTensorsGraphInternal call GetComputationCache()->Add" << std::endl;
   GetComputationCache()->Add(coll.hash, cached_computation);
 
-  return ScheduleSyncTensorsGraph(
+  std::cout << "[FTXJ LOG] SyncTensorsGraphInternal call GetComputationCache()->Add" << std::endl;
+  auto tmp =  ScheduleSyncTensorsGraph(
       tensors, &coll, std::move(compile_result.parameters_data),
       compile_result.device.toString(), std::move(cached_computation));
+  
+  std::cout << "[FTXJ LOG] SyncTensorsGraphInternal End" << std::endl;
+  return tmp;
 }
 
 int64_t XLATensor::GetNextTensorId() {

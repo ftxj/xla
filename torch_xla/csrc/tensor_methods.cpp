@@ -1388,13 +1388,18 @@ XLATensor XLATensor::full(absl::Span<const int64_t> size,
                           const at::Scalar& fill_value,
                           const torch::lazy::BackendDevice& device,
                           at::ScalarType scalar_type) {
+  std::cout << "[FTXJ LOG] XLATensor::full" << std::endl;
   CheckShapeDimensions(size);
   xla::Shape shape =
       MakeArrayShapeFromDimensions(size, /*dynamic_dimensions=*/{},
                                    MakeXlaPrimitiveType(scalar_type, &device),
                                    static_cast<XlaDeviceType>(device.type()));
-  return Create(GetIrValueForScalar(fill_value, shape, device), device,
+  auto tmp = Create(GetIrValueForScalar(fill_value, shape, device), device,
                 scalar_type);
+                
+  std::cout << "[FTXJ LOG] XLATensor::full End" << std::endl;
+  return tmp;
+
 }
 
 XLATensor XLATensor::full_like(const XLATensor& input,

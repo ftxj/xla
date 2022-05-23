@@ -122,17 +122,25 @@ void CheckRangeValues(torch::ScalarType dtype, int64_t from, int64_t to) {
 
 std::pair<XLATensor, XLATensor> GetBinaryOperands(const at::Tensor& self,
                                                   const at::Tensor& other) {
+  std::cout << "[FTXJ LOG] GetBinaryOperands" << std::endl;
   XLATensor self_tensor;
   XLATensor other_tensor;
+
+  std::cout << "[FTXJ LOG] GetBinaryOperands call TryGetXlaTensor" << std::endl;
   auto self_xtensor = bridge::TryGetXlaTensor(self);
   if (!self_xtensor) {
+    std::cout << "[FTXJ LOG] GetBinaryOperands call GetXlaTensor" << std::endl;
     other_tensor = bridge::GetXlaTensor(other);
+    std::cout << "[FTXJ LOG] GetBinaryOperands call GetOrCreateXlaTensor" << std::endl;
     self_tensor = bridge::GetOrCreateXlaTensor(self, other_tensor.GetDevice());
   } else {
     self_tensor = *self_xtensor;
+    std::cout << "[FTXJ LOG] GetBinaryOperands call GetOrCreateXlaTensor" << std::endl;
     other_tensor = bridge::GetOrCreateXlaTensor(other, self_tensor.GetDevice());
   }
-  return std::pair<XLATensor, XLATensor>(self_tensor, other_tensor);
+  auto tmp = std::pair<XLATensor, XLATensor>(self_tensor, other_tensor);
+  std::cout << "[FTXJ LOG] GetBinaryOperands End" << std::endl;
+  return tmp;
 }
 
 // The input is in format of {N, C, H, W} and the output will be {H, W}.
@@ -417,6 +425,7 @@ at::Tensor XLANativeFunctions::_copy_from(const at::Tensor& self,
                                           const at::Tensor& dst,
                                           bool non_blocking) {
   XLA_FN_COUNTER("xla::");
+  std::cout << "[FTXJ LOG] XLANativeFunctions::_copy_from" << std::endl;
   auto dst_tensor = bridge::TryGetXlaTensor(dst);
   auto self_tensor = bridge::TryGetXlaTensor(self);
   if (!self_tensor) {
@@ -433,12 +442,14 @@ at::Tensor XLANativeFunctions::_copy_from(const at::Tensor& self,
     XLATensor::copy_(*dst_tensor, *self_tensor);
     bridge::ReplaceXlaTensor(dst, *dst_tensor);
   }
+  std::cout << "[FTXJ LOG] XLANativeFunctions::_copy_from End" << std::endl;
   return dst;
 }
 
 at::Tensor XLANativeFunctions::_copy_from_and_resize(const at::Tensor& self,
                                                      const at::Tensor& dst) {
   XLA_FN_COUNTER("xla::");
+  std::cout << "[FTXJ LOG] XLANativeFunctions::_copy_from_and_resize" << std::endl;
   auto dst_tensor = bridge::TryGetXlaTensor(dst);
   auto self_tensor = bridge::TryGetXlaTensor(self);
   if (!self_tensor) {
@@ -456,6 +467,7 @@ at::Tensor XLANativeFunctions::_copy_from_and_resize(const at::Tensor& self,
     dest_impl->tensor().UpdateFromTensorOut(*self_tensor);
     dest_impl->force_refresh_sizes();
   }
+  std::cout << "[FTXJ LOG] XLANativeFunctions::_copy_from_and_resize End" << std::endl;
   return dst;
 }
 

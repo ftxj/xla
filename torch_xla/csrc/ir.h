@@ -39,7 +39,9 @@ struct XlaValue : public torch::lazy::Value {
   XlaValue() = default;
   XlaValue(torch::lazy::NodePtr node, size_t index = 0)
       : torch::lazy::Value(std::dynamic_pointer_cast<torch::lazy::Node>(node),
-                           index) {}
+                           index) {
+  std::cout << "[FTXJ LOG] XlaValue construct" << std::endl;
+                           }
 
   // Retrieves the shape of this value. If the IR XlaNode generating the value
   // is a multi-output node, the shape returned by this API will not be the full
