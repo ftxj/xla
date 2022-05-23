@@ -96,7 +96,7 @@ LoweringContext::LoweringContext(
 
 xla::XlaOp LoweringContext::GetParameter(
     const std::shared_ptr<xla::ComputationClient::Data>& data) {
-  std::cout << "[LoweringContext] GetParameter. " << std::endl;
+  std::cout << "[FTXJ LOG] LoweringContext::GetParameter from xla::ComputationClient::Data" << std::endl;
   xla::ComputationClient::Data::OpaqueHandle handle = data->GetOpaqueHandle();
   auto it = parameters_map_.find(handle);
   if (it == parameters_map_.end()) {
@@ -172,14 +172,13 @@ xla::XlaOp LoweringContext::GetOutputOp(const torch::lazy::Output& output) {
 XlaOpVector LoweringContext::LowerNode(const torch::lazy::Node* node) {
   XlaOpVector result_ops;
   try {
-    std::cout << "[LoweringContext] Lower Node ";
-    std::cout << "cast (Lazy node) -> (XlaNode) ";
-    std::cout << std::endl;
+    std::cout << "[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower " << std::endl;
 
     HloMetadataSetter meta_setter(this, node);
-
     const XlaNode* casted = dynamic_cast<const XlaNode*>(node);
+
     result_ops = casted->Lower(this);
+    
   } catch (const std::exception& ex) {
     ReportBuilderError(node, ex.what());
   }
