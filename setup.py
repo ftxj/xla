@@ -119,7 +119,7 @@ def generate_xla_aten_code(base_dir):
         file=sys.stderr)
     sys.exit(1)
 
-
+# build tensorflow xla_client code
 def build_extra_libraries(base_dir, build_mode=None):
   build_libs_cmd = [os.path.join(base_dir, 'build_torch_xla_libs.sh')]
   cxx_abi = getattr(torch._C, '_GLIBCXX_USE_CXX11_ABI', None)
