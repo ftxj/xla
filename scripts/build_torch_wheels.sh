@@ -109,7 +109,7 @@ function maybe_install_cuda {
 function maybe_install_sources {
   if [ ! -d "torch" ]; then
     sudo apt-get install -y git
-    git clone --recursive https://github.com/pytorch/pytorch.git
+    git clone --recursive https://github.com/ftxj/pytorch.git
     cd pytorch
     git clone --recursive https://github.com/ftxj/xla.git
     export RELEASE_VERSION="nightly"
@@ -264,8 +264,8 @@ function main() {
   pushd xla
   build_and_install_torch_xla
   popd
-  install_torchvision_from_source
-  install_gcloud
+  # install_torchvision_from_source
+  # install_gcloud
 }
 
 main
