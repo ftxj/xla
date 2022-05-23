@@ -15,7 +15,7 @@ static std::unordered_map<std::string, ::xla::metrics::Counter*>
 
 void xla_cpu_fallback(const c10::OperatorHandle& op, torch::jit::Stack* stack) {
   XLA_FN_TRACK(3);
-  std::cout << "[xla_cpu_fallback Begin]" << std::endl; 
+  std::cout << "[FTXJ LOG] xla_cpu_fallback" << std::endl; 
   const auto name = c10::toString(op.operator_name());
   std::cout << "\t[op name] " << name << std::endl;
   // Manually applying the XLA_COUNTER macro.
@@ -40,8 +40,9 @@ void xla_cpu_fallback(const c10::OperatorHandle& op, torch::jit::Stack* stack) {
   }
 
   // Call the actual boxed CPU fallback.
+  std::cout << "[FTXJ LOG] xla_cpu_fallback call at::native::cpu_fallback" << std::endl;
   at::native::cpu_fallback(op, stack);
-  std::cout << "[xla_cpu_fallback End]" << std::endl;
+  std::cout << "[FTXJ LOG] xla_cpu_fallback End" << std::endl;
 }
 
 TORCH_LIBRARY_IMPL(_, XLA, m) {

@@ -17,22 +17,34 @@ namespace {
 
 xla::XlaOp Between(xla::XlaOp input, const at::Scalar& min_val,
                    const at::Scalar& max_val) {
+  std::cout << "[FTXJ LOG] Between Op Builder. Check input is in (min, max)" << std::endl;
   const xla::Shape& shape = XlaHelpers::ShapeOfXlaOp(input);
   xla::PrimitiveType element_type = shape.element_type();
   xla::XlaBuilder* builder = input.builder();
+
+  std::cout << "[FTXJ LOG] Between Op Builder. call build Comparision Op" << std::endl;
   xla::XlaOp check_low = BuildComparisonOp(
       at::aten::ge, input,
       XlaHelpers::ScalarValue(min_val, element_type, builder));
+
+  std::cout << "[FTXJ LOG] Between Op Builder. call build Comparision Op" << std::endl;
   xla::XlaOp check_high = BuildComparisonOp(
       at::aten::le, input,
       XlaHelpers::ScalarValue(max_val, element_type, builder));
-  return xla::And(check_low, check_high);
+
+  std::cout << "[FTXJ LOG] Between Op Builder. call build xla::And Op" << std::endl;
+  std::cout << "[FTXJ MSG] xla::And will use the XlaBuilder " << std::endl;
+  auto tmp = xla::And(check_low, check_high);
+  std::cout << "[FTXJ LOG] Between Op Builder End." << std::endl;
+  return tmp;
 }
 
 }  // namespace
 
 xla::XlaOp BuildComparisonOp(c10::Symbol kind, xla::XlaOp lhs, xla::XlaOp rhs) {
+  std::cout << "[FTXJ LOG] BuildComparisonOp. call XlaHelpers::Promote" << std::endl;
   std::tie(lhs, rhs) = XlaHelpers::Promote(lhs, rhs);
+  std::cout << "[FTXJ LOG] BuildComparisonOp End. call xla::Ne/Eq... Op" << std::endl;
   switch (kind) {
     case at::aten::ne:
       return xla::Ne(lhs, rhs);
@@ -67,10 +79,12 @@ xla::XlaOp BuildThreshold(xla::XlaOp input, xla::XlaOp output,
 
 xla::XlaOp BuildRelu(xla::XlaOp input) {
   std::cout << "[FTXJ LOG] " << "BuildRelu" << std::endl;
+  std::cout << "[FTXJ LOG] " << "BuildRelu call ShapeOfXlaOp" << std::endl;
   const xla::Shape& input_shape = XlaHelpers::ShapeOfXlaOp(input);
-  std::cout << "[FTXJ LOG] " << "get shape..." << std::endl;
-  std::cout << input_shape.DebugString() << std::endl;
-  
+  std::cout << "[FTXJ LOG] " << "BuildRelu call ShapeOfXlaOp result is " << std::endl;
+  std::cout << shape->DebugString() << std::endl;
+
+  std::cout << "[FTXJ LOG] " << "BuildRelu call xla::Max, add inst to Builder" << std::endl;
   auto res = xla::Max(input, XlaHelpers::ScalarValue<float>(
                              0, input_shape.element_type(), input.builder()));
   std::cout << "[FTXJ LOG] " << "End BuildRelu" << std::endl;

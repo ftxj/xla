@@ -557,29 +557,41 @@ at::Tensor XLANativeFunctions::add(const at::Tensor& self,
                                    const at::Tensor& other,
                                    const at::Scalar& alpha) {
   XLA_FN_COUNTER("xla::");
+  std::cout << "[FTXJ LOG] XLANativeFunctions::add" << std::endl;
+  
+  std::cout << "[FTXJ LOG] add accept input from at::Tensor, output to at::Tensor" << std::endl;
+
   at::native::alpha_check(at::result_type(self, other), alpha);
-  return DoBinaryOp(self, other,
+  auto tmp = DoBinaryOp(self, other,
                     [&](const XLATensor& xself, const XLATensor& xother,
                         at::ScalarType dtype) {
-                      return XLATensor::add(xself, xother, alpha, dtype);
+                      std::cout << "[FTXJ LOG] DoBinaryOp call XLATensor::add" << std::endl;
+                      auto tmp = XLATensor::add(xself, xother, alpha, dtype);
+                      std::cout << "[FTXJ LOG] DoBinaryOp call XLATensor::add End" << std::endl;
+                      return tmp;
                     });
+  std::cout << "[FTXJ LOG] XLANativeFunctions::add End" << std::endl;
+  return tmp;
 }
 
 at::Tensor XLANativeFunctions::add(const at::Tensor& self,
                                    const at::Scalar& other,
                                    const at::Scalar& alpha) {
   XLA_FN_COUNTER("xla::");
-  std::cout << "[XLANativeFunctions::add]" << std::endl;
+  std::cout << "[FTXJ LOG] XLANativeFunctions::add" << std::endl;
   
-  std::cout << "\tfrom at::Tensor to at::Tensor" << std::endl;
-  
-  return DoBinaryOp(self, other,
+  std::cout << "[FTXJ LOG] add accept input from at::Tensor, output to at::Tensor" << std::endl;
+
+  auto tmp = DoBinaryOp(self, other,
                     [&](const XLATensor& xself, const at::Scalar& other,
                         at::ScalarType dtype) {
-                      std::cout << "Binary Add Op" << std::endl;
-                      std::cout << "do XLATensor::add" << std::endl;
-                      return XLATensor::add(xself, other, alpha, dtype);
+                      std::cout << "[FTXJ LOG] DoBinaryOp call XLATensor::add" << std::endl;
+                      auto tmp = XLATensor::add(xself, xother, alpha, dtype);
+                      std::cout << "[FTXJ LOG] DoBinaryOp call XLATensor::add End" << std::endl;
+                      return tmp;
                     });
+  std::cout << "[FTXJ LOG] XLANativeFunctions::add End" << std::endl;
+  return tmp;
 }
 
 at::Tensor XLANativeFunctions::addcdiv(const at::Tensor& self,

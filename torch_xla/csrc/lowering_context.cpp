@@ -78,7 +78,7 @@ class HloMetadataSetter {
 LoweringContext::LoweringContext(const std::string& name,
                                  torch::lazy::BackendDevice device)
     : builder_(name), device_(std::move(device)) {
-      std::cout << "[LoweringContext] construct : " << name << std::endl;
+    std::cout << "[FTXJ LOG] LoweringContext::LoweringContext End" << name << std::endl;
 }
 
 LoweringContext::LoweringContext(
@@ -88,18 +88,22 @@ LoweringContext::LoweringContext(
     : builder_(name),
       device_(std::move(device)),
       emit_status_(std::move(emit_status)) {
-  std::cout << "[LoweringContext] construct with post_order. " << name << std::endl;
+  std::cout << "[FTXJ LOG] LoweringContext::LoweringContext" << name << std::endl;
   for (auto node : post_order) {
+    std::cout << "[FTXJ LOG] LoweringContext::LoweringContext call LowerNode" << name << std::endl;
     LowerNode(node);
   }
+  std::cout << "[FTXJ LOG] LoweringContext::LoweringContext End" << name << std::endl;
 }
 
 xla::XlaOp LoweringContext::GetParameter(
     const std::shared_ptr<xla::ComputationClient::Data>& data) {
-  std::cout << "[FTXJ LOG] LoweringContext::GetParameter from xla::ComputationClient::Data" << std::endl;
+  std::cout << "[FTXJ LOG] LoweringContext::GetParameter.d from ComputationClient::Data" << std::endl;
+  std::cout << "[FTXJ LOG] LoweringContext::GetParameter.d call ComputationClient:GetOpaqueHandle" << std::endl;
   xla::ComputationClient::Data::OpaqueHandle handle = data->GetOpaqueHandle();
   auto it = parameters_map_.find(handle);
   if (it == parameters_map_.end()) {
+    std::cout << "[FTXJ LOG] LoweringContext::GetParameter.d not find param, build a new parameter" << std::endl;
     xla::XlaOp param =
         xla::Parameter(builder(), parameters_.size(), data->shape(),
                        absl::StrCat("p", parameters_.size()));
@@ -108,56 +112,80 @@ xla::XlaOp LoweringContext::GetParameter(
     parameters_.push_back(data);
   }
   parameter_sequence_.push_back(it->second.index);
+  std::cout << "[FTXJ LOG] LoweringContext::GetParameter.d End" << std::endl;
   return it->second.param;
 }
 
 const std::vector<xla::ComputationClient::DataPtr>&
 LoweringContext::GetParametersData() const {
+  std::cout << "[FTXJ LOG] LoweringContext::GetParametersData End" << std::endl;
   return parameters_;
 }
 
 const std::vector<size_t>& LoweringContext::GetParameterSequence() const {
+  std::cout << "[FTXJ LOG] LoweringContext::GetParameterSequence End" << std::endl;
   return parameter_sequence_;
 }
 
 size_t LoweringContext::AddResult(xla::XlaOp op) {
+  std::cout << "[FTXJ LOG] LoweringContext::AddResult End" << std::endl;
   root_tuple_.push_back(std::move(op));
   return root_tuple_.size() - 1;
 }
 
 xla::XlaOp LoweringContext::GetResult(size_t index) const {
+  std::cout << "[FTXJ LOG] LoweringContext::GetResult End" << std::endl;
   return root_tuple_.at(index);
 }
 
 void LoweringContext::SetResult(size_t index, xla::XlaOp op) {
+  std::cout << "[FTXJ LOG] LoweringContext::SetResult assign op2root" << std::endl;
   root_tuple_.at(index) = std::move(op);
+  std::cout << "[FTXJ LOG] LoweringContext::SetResult End" << std::endl;
 }
 
 xla::StatusOr<xla::XlaComputation> LoweringContext::Build() {
+  std::cout << "[FTXJ LOG] LoweringContext::Build" << std::endl;
+  std::cout << "[FTXJ MSG] build xla::XlaComputation from nodes" << std::endl;
   if (!root_tuple_.empty()) {
+    std::cout << "[FTXJ LOG] LoweringContext::Build from root" << std::endl;
     xla::XlaOp root = xla::Tuple(builder(), root_tuple_);
-    return builder()->Build(root);
+    auto tmp = builder()->Build(root);
+    std::cout << "[FTXJ LOG] LoweringContext::Build End" << std::endl;
+    return tmp;
   }
-  std::cout << "[Xla::Builder::Build()]" << std::endl;
-  return builder()->Build();
+  std::cout << "[FTXJ LOG] LoweringContext::Build End" << std::endl;
+  auto tmp = builder()->Build();
+  return tmp;
 }
 
 xla::StatusOr<xla::XlaComputation> LoweringContext::Build(xla::XlaOp root) {
   XLA_CHECK(root_tuple_.empty());
-  std::cout << "[Xla::Builder::Build()] with root" << std::endl;
-  return builder()->Build(root);
+  std::cout << "[FTXJ LOG] LoweringContext::Build.r" << std::endl;
+  std::cout << "[FTXJ MSG] build xla::XlaComputation from nodes" << std::endl;
+  auto tmp = builder()->Build(root);
+  std::cout << "[FTXJ LOG] LoweringContext::Build.r End" << std::endl;
+  return tmp;
 }
 
 void LoweringContext::AssignOutputOp(const torch::lazy::Output& output,
                                      xla::XlaOp op) {
+  std::cout << "[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer" << std::endl;
   emitted_outputs_[output] = std::move(op);
+  std::cout << "[FTXJ LOG] LoweringContext::AssignOutputOp End" << std::endl;
 }
 
 xla::XlaOp LoweringContext::GetOutputOp(const torch::lazy::Output& output) {
+  std::cout << "[FTXJ LOG] LoweringContext::GetOutputOp" << std::endl;
+  std::cout << "find output in emitted_outputs_ context, if not, build post_order, and lower, then get" << std::endl;
+  
   auto it = emitted_outputs_.find(output);
   if (it == emitted_outputs_.end()) {
+    std::cout << "[FTXJ LOG] LoweringContext::GetOutputOp find in context fail" << std::endl;
+    std::cout << "[FTXJ LOG] LoweringContext::GetOutputOp call ComputePostOrder" << std::endl;
     auto post_order = Util::ComputePostOrder(output.node, &emit_status_);
     for (auto node : post_order) {
+      std::cout << "[FTXJ LOG] LoweringContext::GetOutputOp call LowerNode" << std::endl;
       LowerNode(node);
     }
     // At this point the outpout better be present, otherwise there is an issue
@@ -166,30 +194,31 @@ xla::XlaOp LoweringContext::GetOutputOp(const torch::lazy::Output& output) {
     XLA_CHECK(it != emitted_outputs_.end())
         << "No XLA operation emitted for output: " << output;
   }
+  std::cout << "[FTXJ LOG] LoweringContext::GetOutputOp End" << std::endl;
   return it->second;
 }
 
 XlaOpVector LoweringContext::LowerNode(const torch::lazy::Node* node) {
   XlaOpVector result_ops;
+  std::cout << "[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower " << std::endl;
   try {
-    std::cout << "[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower " << std::endl;
-
     HloMetadataSetter meta_setter(this, node);
     const XlaNode* casted = dynamic_cast<const XlaNode*>(node);
-
+    std::cout << "[FTXJ LOG] LoweringContext::LowerNode call Lower" << std::endl;
     result_ops = casted->Lower(this);
-    
   } catch (const std::exception& ex) {
     ReportBuilderError(node, ex.what());
   }
   if (!builder()->first_error().ok()) {
     ReportBuilderError(node, /*error_msg=*/nullptr);
   }
+  std::cout << "[FTXJ LOG] LoweringContext::LowerNode End" << std::endl;
   return result_ops;
 }
 
 void LoweringContext::ReportBuilderError(const torch::lazy::Node* node,
                                          const char* error_msg) {
+  std::cout << "[FTXJ ERROR]" << std::endl;
   std::stringstream ss;
   ss << "Error while lowering: " << node->ToString() << "\n";
   if (!builder()->first_error().ok()) {

@@ -20,6 +20,7 @@ class AtenXlaDeviceMapper {
   static AtenXlaDeviceMapper* Get();
 
   size_t GetDeviceOrdinal(const torch::lazy::BackendDevice& device) const {
+    std::cout << "[FTXJ LOG] GetDeviceOrdinal End. from device to get index" << std::endl;
     auto it = devices_ordinals_.find(device);
     XLA_CHECK(it != devices_ordinals_.end()) << device;
     return it->second;
@@ -155,6 +156,7 @@ std::vector<at::Tensor> XlaCreateTensorList(const at::TensorList& tensors) {
       aten_xla_tensors[i] = std::move(defined_aten_xla_tensors[defined_pos++]);
     }
   }
+  std::cout << "[FTXJ LOG] XlaCreateTensorList End" << std::endl;
   return aten_xla_tensors;
 }
 
@@ -178,6 +180,7 @@ std::vector<c10::optional<at::Tensor>> XlaCreateOptTensorList(
           std::move(aten_materialzied_tensors[defined_pos++]);
     }
   }
+  std::cout << "[FTXJ] XlaCreateOptTensorList End" << std::endl;
   return opt_aten_xla_tensors;
 }
 

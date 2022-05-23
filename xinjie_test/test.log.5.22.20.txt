@@ -38,6 +38,7 @@
 ------------------------------------------------------------------
 [FTXJ LOG] XLANativeFunctions::empty
 [FTXJ LOG] XLANativeFunctions::empty call     AtenFromXlaTensor->XLATensor::full->GetXlaDeviceOrCurrent
+
 [FTXJ LOG] GetXlaDeviceOrCurrent
 [FTXJ LOG] GetXlaDeviceOrCurrent call GetXlaDevice
 [FTXJ LOG] GetXlaDevice.device.opt
@@ -51,6 +52,7 @@
 [FTXJ LOG] GetXlaDevice.device.opt End
 [FTXJ LOG] GetXlaDeviceOrCurrent may call GetCurrentDevice
 [FTXJ LOG] GetXlaDeviceOrCurrent End
+
 [XlaNode] build. Also a Lazy Node.
 [XlaNode] build. Also a XlaNode.
 [XlaNode] build. Also a Lazy Node
@@ -64,6 +66,7 @@
 [FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
 [FTXJ LOG] XlaHelpers::ShapeOfXlaOp
 [FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+
 [FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
 [FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
 [FTXJ LOG] Register Tensor to Device. push data into device vector
@@ -227,6 +230,7 @@ is_dynamic_dimension: false
 [FTXJ LOG] AtenXlaDeviceMapper::Get
 [GetDeviceFromOrdinal] from device index to lazy::BackendDevice
 [FTXJ LOG] AtenDeviceToXlaDevice End
+
 [SyncLiveTensorsGraph Begin]
 call XLATensor::GetLiveTensors
 [FTXJ LOG] DeviceContextArena::GetLiveTensors
@@ -237,6 +241,7 @@ call XLATensor::GetLiveTensors
 [FTXJ LOG] [XLA Tensor] Constructor from Data
 [FTXJ LOG] DeviceContextArena::GetLiveTensors, Live Tensor Numbers = 5
 [  Begin] Tensor size = 5
+
 [SyncTensorsGraphInternal] Begin
 [CollectSyncTensors] input tensor size = 5
 [CollectSyncTensors] unique_device ele

@@ -38,7 +38,9 @@ xla::XlaComputation CreateComputation(
       xla::Parameter(&builder, 0, xla::ShapeUtil::MakeShape(type, {}), "x");
   xla::XlaOp y =
       xla::Parameter(&builder, 1, xla::ShapeUtil::MakeShape(type, {}), "y");
-  return ConsumeValue(builder.Build(op(x, y)));
+  auto tmp = ConsumeValue(builder.Build(op(x, y)));
+  std::cout << "[FTXJ LOG] CreateComputation name=[" << name << "] End" << std::endl;
+  return tmp;
 }
 
 }  // namespace
@@ -186,11 +188,13 @@ xla::PaddingConfig XlaHelpers::MakeXlaPaddingConfigFromNdPadding(
 }
 
 xla::XlaComputation XlaHelpers::CreateAddComputation(xla::PrimitiveType type) {
-  return CreateComputation(
+  auto tmp = CreateComputation(
       "AddComputation", type, [&](xla::XlaOp x, xla::XlaOp y) {
+        std::cout << "[FTXJ MSG] CreateAddComputation func" << std::endl;
         return type == xla::PrimitiveType::PRED ? xla::Or(x, y)
                                                 : xla::Add(x, y);
       });
+  return tmp;
 }
 
 xla::XlaComputation XlaHelpers::CreateMulComputation(xla::PrimitiveType type) {

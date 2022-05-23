@@ -1703,7 +1703,9 @@ XLATensor::CompilationResult XLATensor::Compile(
     absl::Span<const std::string> devices, const SyncTensorCollection& coll,
     PostOrderData* po_data) {
 
-  std::cout << "[XLATensor::Compile] Begin" << std::endl;
+  std::cout << "[FTXJ LOG] XLATensor::Compiler." << std::endl;
+  std::cout << "[FTXJ MSG] using activate tensor and post order to get Complication Result." << std::endl;
+
   tensorflow::profiler::TraceMe activity(
       [&] {
         return tensorflow::profiler::TraceMeEncode(
@@ -1713,15 +1715,25 @@ XLATensor::CompilationResult XLATensor::Compile(
       tensorflow::profiler::TraceMeLevel::kInfo);
   static const bool enable_aliasing =
       xla::sys_util::GetEnvBool("XLA_ENABLE_PARAM_ALIASING", true);
+
+  std::cout << "[FTXJ LOG] XLATensor::Compiler call build LoweringContext." << std::endl;
   ir::LoweringContext lowering_ctx("SyncTensorsGraph", coll.device,
                                    po_data->post_order,
                                    std::move(po_data->emission_map));
+  
+  std::cout << "[FTXJ LOG] XLATensor::Compiler mid info" << std::endl;
   for (auto index : coll.indices) {
+    
     ir::XlaValue ir_value = tensors[index].CurrentIrValue();
     xla::XlaOp root = lowering_ctx.GetOutputOp(
         torch::lazy::Output(ir_value.node.get(), ir_value.index));
+
+    std::cout << "index = " << index << ", XlaOp = " << root << std::endl;
+
     lowering_ctx.AddResult(root);
   }
+
+
   if (enable_aliasing && coll.config.sync_xla_data) {
     // We can only alias at the step barrier, when force_xla_data is true.
     // Consider the case:
@@ -1764,12 +1776,27 @@ XLATensor::CompilationResult XLATensor::Compile(
   TF_VLOG(3) << "Compiling IR graph hash "
              << torch::lazy::HashToString(coll.hash) << " on device "
              << coll.device << " ...";
+
+
+  std::cout << "[FTXJ LOG] XLATensor::Compile call xla::ComputationClient::Compile" << std::endl;
+
   std::vector<std::shared_ptr<xla::ComputationClient::Computation>>
       computations =
           xla::ComputationClient::Get()->Compile(std::move(instances));
+  
+  std::cout << "[FTXJ MSG] " << "Compiling IR graph hash "
+             << torch::lazy::HashToString(coll.hash) << " on device "
+             << coll.device << " done!";
+  
   TF_VLOG(3) << "Compiling IR graph hash "
              << torch::lazy::HashToString(coll.hash) << " on device "
              << coll.device << " done!";
+  
+  std::cout << "[FTXJ MSG] " << "Graph hash " << torch::lazy::HashToString(coll.hash)
+      << " is computation hash "
+      << torch::lazy::HashToString(torch::lazy::Hash(
+             computations.front()->computation().proto().SerializeAsString()));
+  
   TF_VLOG(5)
       << "Graph hash " << torch::lazy::HashToString(coll.hash)
       << " is computation hash "

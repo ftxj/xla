@@ -661,23 +661,30 @@ XLATensor XLATensor::acosh(const XLATensor& input) {
 XLATensor XLATensor::add(const XLATensor& input, const XLATensor& other,
                          const at::Scalar& alpha,
                          c10::optional<at::ScalarType> logical_element_type) {
-  std::cout << "[XLATensor::add]" << std::endl;
+  std::cout << "[FTXJ LOG] XLATensor::add" << std::endl;
+  std::cout << "[FTXJ LOG] XLATensor::add call GetIrValueForScalar" << std::endl;
   ir::XlaValue constant = GetIrValueForScalar(
       alpha, other.shape(), logical_element_type, input.GetDevice());
-  return input.CreateFrom(input.GetIrValue() + other.GetIrValue() * constant,
+  std::cout << "[FTXJ LOG] XLATensor::add call GetIrValue & CreateFrom" << std::endl;
+  auto tmp = input.CreateFrom(input.GetIrValue() + other.GetIrValue() * constant,
                           logical_element_type);
+  return tmp;
 }
 
 XLATensor XLATensor::add(const XLATensor& input, const at::Scalar& other,
                          const at::Scalar& alpha,
                          c10::optional<at::ScalarType> logical_element_type) {
-  std::cout << "[XLATensor::add]" << std::endl;
+  std::cout << "[FTXJ LOG] XLATensor::add" << std::endl;
+  std::cout << "[FTXJ LOG] XLATensor::add call GetIrValueForScalar" << std::endl;
   ir::XlaValue other_constant = GetIrValueForScalar(
       other, input.shape(), logical_element_type, input.GetDevice());
+  std::cout << "[FTXJ LOG] XLATensor::add call GetIrValueForScalar" << std::endl;
   ir::XlaValue alpha_constant = GetIrValueForScalar(
       alpha, input.shape(), logical_element_type, input.GetDevice());
-  return input.CreateFrom(input.GetIrValue() + other_constant * alpha_constant,
+  std::cout << "[FTXJ LOG] XLATensor::add call GetIrValue & CreateFrom" << std::endl;
+  auto tmp = input.CreateFrom(input.GetIrValue() + other_constant * alpha_constant,
                           logical_element_type);
+  return tmp;
 }
 
 XLATensor XLATensor::addcdiv(const XLATensor& input, const at::Scalar& value,
@@ -1396,7 +1403,7 @@ XLATensor XLATensor::full(absl::Span<const int64_t> size,
                                    static_cast<XlaDeviceType>(device.type()));
   auto tmp = Create(GetIrValueForScalar(fill_value, shape, device), device,
                 scalar_type);
-                
+
   std::cout << "[FTXJ LOG] XLATensor::full End" << std::endl;
   return tmp;
 
