@@ -34,17 +34,8 @@
 
 from __future__ import print_function
 
-print("------------------------------------------------------ftxj -2-----------------------------------------------------")
-
-
 from setuptools import setup, find_packages, distutils
-
-print("------------------------------------------------------ftxj -before import -----------------------------------------------------")
-from torch.utils.cpp_extension import BuildExtension
-print("------------------------------------------------------ftxj -after import -----------------------------------------------------")
-from torch.utils.cpp_extension import CppExtension
-print("------------------------------------------------------ftxj -after import -----------------------------------------------------")
-
+from torch.utils.cpp_extension import BuildExtension, CppExtension
 import distutils.ccompiler
 import distutils.command.clean
 import glob
@@ -61,9 +52,6 @@ import torch
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 third_party_path = os.path.join(base_dir, 'third_party')
-
-print("------------------------------------------------------ftxj -1-----------------------------------------------------")
-
 
 _libtpu_version = '0.1.dev20220303'
 _litbpu_storage_path = f'https://storage.googleapis.com/cloud-tpu-tpuvm-artifacts/wheels/libtpu-nightly/libtpu_nightly-{_libtpu_version}-py3-none-any.whl'
@@ -194,8 +182,6 @@ def _compile_parallel(self,
   return objects
 
 
-print("------------------------------------------------------ftxj 0-----------------------------------------------------")
-
 # Plant the parallel compile function.
 if _check_env_flag('COMPILE_PARALLEL', default='1'):
   try:
@@ -250,7 +236,7 @@ class Build(BuildExtension):
 
 xla_git_sha, torch_git_sha = get_git_head_sha(base_dir)
 version = get_build_version(xla_git_sha)
-print("------------------------------------------------------ftxj 2-----------------------------------------------------")
+print("------------------------------------------------------ftxj-----------------------------------------------------")
 
 build_mode = _get_build_mode()
 if build_mode not in ['clean']:

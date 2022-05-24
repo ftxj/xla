@@ -1,0 +1,1918 @@
+37484a37485,39400
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_pool2d, overload_name =
+> dispatch_key = AutogradXLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_pool3d, overload_name =
+> dispatch_key = AutogradXLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::abs, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::abs, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::abs_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sgn, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sgn, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sgn_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::acos, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::acos, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::acos_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::add, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::add, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::add_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::add, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::add, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::add_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::all, overload_name = dim
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::all, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::any, overload_name = dim
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::any, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::arange, overload_name = start_out
+> dispatch_key = XLA
+> singature = at::Tensor& (c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::argmax, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::argmax, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::optional<long>, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::argmin, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::argmin, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::optional<long>, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::acosh, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::acosh, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::acosh_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::asinh, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::asinh, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::asinh_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::atanh, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::atanh, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::atanh_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::as_strided, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::optional<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::as_strided_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor const& (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::optional<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::asin, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::asin, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::asin_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::atan, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::atan, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::atan_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::baddbmm, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::baddbmm, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::baddbmm_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bernoulli, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bernoulli, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::optional<at::Generator>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bernoulli_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bernoulli_, overload_name = float
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, double, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::binary_cross_entropy, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::binary_cross_entropy, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::binary_cross_entropy_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::binary_cross_entropy_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::binary_cross_entropy_with_logits, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_not, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_not, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_not, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_not_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_xor, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_xor, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_xor_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_and, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_and, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_and_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_or, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_or, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logical_or_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bmm, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bmm, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cat, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (c10::ArrayRef<at::Tensor>, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cat, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (c10::ArrayRef<at::Tensor>, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ceil, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ceil, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ceil_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<c10::Scalar> const&, c10::optional<c10::Scalar> const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::optional<c10::Scalar> const&, c10::optional<c10::Scalar> const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::optional<c10::Scalar> const&, c10::optional<c10::Scalar> const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp_max, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp_max, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp_max_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp_max, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp_min, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp_min, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp_min_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clamp_min, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::constant_pad_nd, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::convolution_overrideable, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, c10::ArrayRef<long>, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::convolution_backward_overrideable, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor, at::Tensor> (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, c10::ArrayRef<long>, long, std::array<bool, 3ul>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_copy_from, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_copy_from_and_resize, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cos, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cos, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cos_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cosh, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cosh, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cosh_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cumprod, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, c10::optional<c10::ScalarType>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cumprod, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, c10::optional<c10::ScalarType>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cumprod_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, c10::optional<c10::ScalarType>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cumsum, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, c10::optional<c10::ScalarType>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cumsum, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, c10::optional<c10::ScalarType>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cumsum_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, c10::optional<c10::ScalarType>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::diagonal, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, long, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::div, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::div, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::div_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::div, overload_name = Tensor_mode
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::optional<c10::basic_string_view<char> >)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::div, overload_name = out_mode
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::optional<c10::basic_string_view<char> >, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::div_, overload_name = Tensor_mode
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, c10::optional<c10::basic_string_view<char> >)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::div, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::div, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::div_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::dot, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::dot, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::embedding, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, long, bool, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::embedding_dense_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, long, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::empty, overload_name = memory_format
+> dispatch_key = XLA
+> singature = at::Tensor (c10::ArrayRef<long>, c10::optional<c10::ScalarType>, c10::optional<c10::Layout>, c10::optional<c10::Device>, c10::optional<bool>, c10::optional<c10::MemoryFormat>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::empty, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (c10::ArrayRef<long>, c10::optional<c10::MemoryFormat>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::resize_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor const& (at::Tensor const&, c10::ArrayRef<long>, c10::optional<c10::MemoryFormat>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::empty_strided, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (c10::ArrayRef<long>, c10::ArrayRef<long>, c10::optional<c10::ScalarType>, c10::optional<c10::Layout>, c10::optional<c10::Device>, c10::optional<bool>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::erf, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::erf, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::erf_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::erfc, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::erfc, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::erfc_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::exp, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::exp, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::exp_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::expm1, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::expm1, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::expm1_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::expand, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::eye, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::eye, overload_name = m_out
+> dispatch_key = XLA
+> singature = at::Tensor& (long, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::fill_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::fill_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::floor, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::floor, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::floor_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::frac, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::frac, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::frac_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::List<c10::optional<at::Tensor> > const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_copy, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_copy, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_copy_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_put_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::List<c10::optional<at::Tensor> > const&, at::Tensor const&, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_index_put_impl_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::List<c10::optional<at::Tensor> > const&, at::Tensor const&, bool, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::inverse, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::inverse, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::isnan, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::kl_div, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::kl_div_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::kthvalue, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, long, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::kthvalue, overload_name = values
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, long, long, bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nan_to_num, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<double>, c10::optional<double>, c10::optional<double>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nan_to_num, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::optional<double>, c10::optional<double>, c10::optional<double>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nan_to_num_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::optional<double>, c10::optional<double>, c10::optional<double>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::linspace, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (c10::Scalar const&, c10::Scalar const&, long, c10::optional<c10::ScalarType>, c10::optional<c10::Layout>, c10::optional<c10::Device>, c10::optional<bool>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::linspace, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (c10::Scalar const&, c10::Scalar const&, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log10, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log10, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log10_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log1p, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log1p, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log1p_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log2, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log2, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log2_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::xlogy, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::xlogy, overload_name = OutTensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::xlogy_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logdet, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_log_softmax, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_log_softmax, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_log_softmax_backward_data, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, long, c10::ScalarType)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_log_softmax_backward_data, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, long, c10::ScalarType, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logsumexp, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::logsumexp, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max, overload_name = dim
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max, overload_name = dim_max
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, long, bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::amax, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::amax, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mean, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<c10::ScalarType>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mean, overload_name = dim
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, bool, c10::optional<c10::ScalarType>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mean, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, bool, c10::optional<c10::ScalarType>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::min, overload_name = dim
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::min, overload_name = dim_min
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, long, bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::amin, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::amin, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mm, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mm, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mul, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mul, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mul_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mul, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mul, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mul_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mv, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mv, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::native_batch_norm, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor, at::Tensor> (at::Tensor const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, bool, double, double)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::native_batch_norm, overload_name = out
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&, at::Tensor&> (at::Tensor const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, bool, double, double, at::Tensor&, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::native_batch_norm_backward, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor, at::Tensor> (at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, c10::optional<at::Tensor> const&, bool, double, std::array<bool, 3ul>)  
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::permute, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::reciprocal, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::reciprocal, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::reciprocal_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::neg, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::neg, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::neg_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::repeat, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::round, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::round, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::round_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::relu, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::relu, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::relu_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::prelu, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gelu, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::basic_string_view<char>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gelu, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::basic_string_view<char>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gelu_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::basic_string_view<char>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gelu_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::basic_string_view<char>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gelu_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::basic_string_view<char>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardshrink, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardshrink, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardshrink_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardshrink_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::rsqrt, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::rsqrt, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::rsqrt_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::select, overload_name = int
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::silu, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::silu_backward, overload_name = 
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::silu_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mish, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mish, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mish_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sigmoid, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sigmoid, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sigmoid_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sin, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sin, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sin_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sinh, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sinh, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sinh_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::slice, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, c10::optional<long>, c10::optional<long>, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::slogdet, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_softmax, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_softmax, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_softmax_backward_data, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, long, c10::ScalarType)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_softmax_backward_data, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, long, c10::ScalarType, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::split, overload_name = Tensor
+> dispatch_key = XLA
+> singature = std::vector<at::Tensor, std::allocator<at::Tensor> > (at::Tensor const&, long, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::split_with_sizes, overload_name =
+> dispatch_key = XLA
+> singature = std::vector<at::Tensor, std::allocator<at::Tensor> > (at::Tensor const&, c10::ArrayRef<long>, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::squeeze, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::squeeze_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::squeeze, overload_name = dim
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::squeeze_, overload_name = dim
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::stack, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (c10::ArrayRef<at::Tensor>, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::stack, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (c10::ArrayRef<at::Tensor>, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sum, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<c10::ScalarType>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sum, overload_name = dim_IntList
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, bool, c10::optional<c10::ScalarType>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sum, overload_name = IntList_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, bool, c10::optional<c10::ScalarType>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sqrt, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sqrt, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sqrt_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::std, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::std, overload_name = dim
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, bool, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::std, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, bool, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::std, overload_name = correction
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::OptionalArrayRef<long>, c10::optional<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::std, overload_name = correction_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::OptionalArrayRef<long>, c10::optional<long>, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::std_mean, overload_name = correction
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, c10::OptionalArrayRef<long>, c10::optional<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::prod, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<c10::ScalarType>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::prod, overload_name = dim_int
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, bool, c10::optional<c10::ScalarType>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::prod, overload_name = int_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, bool, c10::optional<c10::ScalarType>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::t, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::t_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tan, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tan, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tan_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tanh, overload_name = 
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tanh, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tanh_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::threshold, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::threshold, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::threshold_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::threshold_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::threshold_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::transpose, overload_name = int
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::transpose_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::flip, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::roll, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_trilinear, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::trunc, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::trunc, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::trunc_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_unsafe_view, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::unsqueeze, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::unsqueeze_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::var, overload_name = correction
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::OptionalArrayRef<long>, c10::optional<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::var, overload_name = correction_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::OptionalArrayRef<long>, c10::optional<long>, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::var_mean, overload_name = correction
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, c10::OptionalArrayRef<long>, c10::optional<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::where, overload_name = self
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::where, overload_name = self_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::norm, overload_name = ScalarOpt_dtype
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<c10::Scalar> const&, c10::ScalarType)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::norm, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::norm, overload_name = ScalarOpt_dim_dtype
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<c10::Scalar> const&, c10::ArrayRef<long>, bool, c10::ScalarType)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::norm, overload_name = dtype_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::optional<c10::Scalar> const&, c10::ArrayRef<long>, bool, c10::ScalarType, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::norm, overload_name = ScalarOpt_dim
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<c10::Scalar> const&, c10::ArrayRef<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::norm, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::optional<c10::Scalar> const&, c10::ArrayRef<long>, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::clone, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::optional<c10::MemoryFormat>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::zero_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sub, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sub, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sub_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sub, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sub, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sub_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::rsub, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::rsub, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::addmm, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::addmm, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::addmm_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_to_cpu, overload_name = 
+> dispatch_key = XLA
+> singature = std::vector<at::Tensor, std::allocator<at::Tensor> > (c10::ArrayRef<at::Tensor>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::unbind, overload_name = int
+> dispatch_key = XLA
+> singature = std::vector<at::Tensor, std::allocator<at::Tensor> > (at::Tensor const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_local_scalar_dense, overload_name =
+> dispatch_key = XLA
+> singature = c10::Scalar (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_pack_padded_sequence, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, at::Tensor const&, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::masked_fill_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::masked_fill_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::masked_scatter_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::view, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::put_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, at::Tensor const&, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_add, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_add, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor const&, at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_add_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_fill_, overload_name = int_Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_fill_, overload_name = int_Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter, overload_name = src
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter, overload_name = src_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter_, overload_name = src
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter, overload_name = value
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter, overload_name = value_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter_, overload_name = value
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter, overload_name = reduce
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, at::Tensor const&, at::Tensor const&, c10::basic_string_view<char>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter, overload_name = reduce_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor const&, at::Tensor const&, c10::basic_string_view<char>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter_, overload_name = reduce
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, at::Tensor const&, at::Tensor const&, c10::basic_string_view<char>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter, overload_name = value_reduce
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, at::Tensor const&, c10::Scalar const&, c10::basic_string_view<char>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter, overload_name = value_reduce_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor const&, c10::Scalar const&, c10::basic_string_view<char>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter_, overload_name = value_reduce
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, at::Tensor const&, c10::Scalar const&, c10::basic_string_view<char>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter_add, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter_add, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::scatter_add_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::eq, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::eq, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::eq_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::eq, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::eq, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::eq_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_and, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_and, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_and_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_and, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_and, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_and_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_or, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_or, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_xor, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::bitwise_xor, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__lshift__, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__lshift__, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__ilshift__, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__lshift__, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__lshift__, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__ilshift__, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__rshift__, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__rshift__, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__irshift__, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__rshift__, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__rshift__, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::__irshift__, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tril, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tril, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tril_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::triu, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::triu, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::triu_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lerp, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lerp, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lerp_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lerp, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lerp, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lerp_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::random_, overload_name = from
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, c10::optional<long>, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::random_, overload_name = to
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, long, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::random_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::uniform_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, double, double, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::exponential_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, double, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::diag, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::diag, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cross, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::optional<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cross, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::optional<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::trace, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ne, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ne, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ne_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ne, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ne, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ne_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ge, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ge, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ge_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ge, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ge, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ge_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::le, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::le, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::le_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::le, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::le, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::le_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gt, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gt, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gt_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gt, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gt, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gt_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lt, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lt, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lt_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lt, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lt, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::lt_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::take, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::take, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_select, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::index_select, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::masked_select, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::masked_select, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nonzero, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nonzero, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gather, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, long, at::Tensor const&, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::gather, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, long, at::Tensor const&, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::addcmul, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::addcmul, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::addcmul_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::addcdiv, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::addcdiv, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::addcdiv_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::triangular_solve, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, at::Tensor const&, bool, bool, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::triangular_solve, overload_name = X
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, at::Tensor const&, bool, bool, bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::symeig, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, bool, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::symeig, overload_name = e
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, bool, bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::svd, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor, at::Tensor> (at::Tensor const&, bool, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::svd, overload_name = U
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&, at::Tensor&> (at::Tensor const&, bool, bool, at::Tensor&, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cholesky, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::cholesky, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::qr, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::qr, overload_name = Q
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::erfinv, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::erfinv, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::erfinv_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sign, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sign, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sign_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::atan2, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::atan2, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::atan2_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::fmod, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::fmod, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::fmod_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::fmod, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::fmod, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::fmod_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::remainder, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::remainder, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::remainder_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::remainder, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::remainder, overload_name = Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::remainder_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::min, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::maximum, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::maximum, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::minimum, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::minimum, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sort, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sort, overload_name = values
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, long, bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sort, overload_name = stable
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, c10::optional<bool>, long, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sort, overload_name = values_stable
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, c10::optional<bool>, long, bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::topk, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, long, long, bool, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::topk, overload_name = values
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, long, long, bool, bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::all, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::all, overload_name = all_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::any, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::any, overload_name = all_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::pow, overload_name = Tensor_Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::pow, overload_name = Tensor_Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::pow_, overload_name = Tensor
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::pow, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (c10::Scalar const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::pow, overload_name = Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (c10::Scalar const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::pow, overload_name = Tensor_Scalar
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::pow, overload_name = Tensor_Scalar_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::pow_, overload_name = Scalar
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::normal_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, double, double, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::normal, overload_name = Tensor_float
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, double, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::normal, overload_name = Tensor_float_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, double, c10::optional<at::Generator>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::normal, overload_name = float_Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (double, at::Tensor const&, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::normal, overload_name = float_Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (double, at::Tensor const&, c10::optional<at::Generator>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::normal, overload_name = Tensor_Tensor
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::normal, overload_name = Tensor_Tensor_out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::optional<at::Generator>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::alias, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_amp_foreach_non_finite_check_and_unscale_, overload_name =
+> dispatch_key = XLA
+> singature = void (c10::ArrayRef<at::Tensor>, at::Tensor&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_amp_update_scale_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor&, at::Tensor const&, double, double, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mse_loss, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mse_loss, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mse_loss_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::mse_loss_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::l1_loss, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::l1_loss, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::l1_loss_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::l1_loss_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, long, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nll_loss_forward, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nll_loss_forward, overload_name = output
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long, long, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nll_loss_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long, long, at::Tensor const&)        
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nll_loss_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long, long, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nll_loss2d_forward, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long, long)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nll_loss2d_forward, overload_name = output
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long, long, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nll_loss2d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long, long, at::Tensor const&)        
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::nll_loss2d_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::optional<at::Tensor> const&, long, long, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::smooth_l1_loss, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, long, double)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::smooth_l1_loss, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, long, double, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::smooth_l1_loss_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, long, double)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::smooth_l1_loss_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, long, double, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::elu, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::elu, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::elu_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::elu_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, bool, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::elu_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, bool, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardsigmoid, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardsigmoid, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardsigmoid_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardsigmoid_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardsigmoid_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardtanh, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardtanh, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardtanh_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardtanh_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardtanh_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardswish, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardswish, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardswish_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::hardswish_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::leaky_relu, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::leaky_relu, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::leaky_relu_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::leaky_relu_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::leaky_relu_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::Scalar const&, bool, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log_sigmoid_forward, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log_sigmoid_forward, overload_name = output
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log_sigmoid_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::log_sigmoid_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::rrelu_with_noise, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&, bool, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::rrelu_with_noise, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&, bool, c10::optional<at::Generator>, at::Tensor&)  
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::rrelu_with_noise_, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&, bool, c10::optional<at::Generator>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::rrelu_with_noise_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&, bool, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::softplus, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::softplus, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::softplus_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::softplus_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::softshrink, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::softshrink, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::softshrink_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::Scalar const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::softshrink_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::Scalar const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_adaptive_avg_pool2d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_adaptive_avg_pool2d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_adaptive_avg_pool3d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::_adaptive_avg_pool3d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::adaptive_max_pool2d, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::adaptive_max_pool2d, overload_name = out
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, c10::ArrayRef<long>, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::adaptive_max_pool2d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::adaptive_max_pool2d_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::avg_pool2d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, bool, c10::optional<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::avg_pool2d, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, bool, c10::optional<long>, at::Tensor&) 
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::avg_pool2d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, bool, c10::optional<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::avg_pool2d_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, bool, c10::optional<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::avg_pool3d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, bool, c10::optional<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::avg_pool3d, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, bool, c10::optional<long>, at::Tensor&) 
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::avg_pool3d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, bool, c10::optional<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::avg_pool3d_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, bool, c10::optional<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_pool2d_with_indices, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_pool2d_with_indices, overload_name = out
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, 
+> bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_pool2d_with_indices_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_pool2d_with_indices_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, 
+> at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_pool3d_with_indices, overload_name =
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor, at::Tensor> (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_pool3d_with_indices, overload_name = out
+> dispatch_key = XLA
+> singature = std::tuple<at::Tensor&, at::Tensor&> (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, 
+> bool, at::Tensor&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_pool3d_with_indices_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_pool3d_with_indices_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, 
+> at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_unpool2d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_unpool2d, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_unpool3d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::max_unpool3d, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::reflection_pad2d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::reflection_pad2d, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::reflection_pad2d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::reflection_pad2d_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::replication_pad1d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::replication_pad1d, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::replication_pad1d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::replication_pad1d_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::replication_pad2d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::replication_pad2d, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::replication_pad2d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::replication_pad2d_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::upsample_nearest2d, overload_name = vec
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::OptionalArrayRef<long>, c10::optional<c10::ArrayRef<double> >)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::upsample_nearest2d_backward, overload_name = vec
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::OptionalArrayRef<long>, c10::ArrayRef<long>, c10::optional<c10::ArrayRef<double> >)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::upsample_bilinear2d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, bool, c10::optional<double>, c10::optional<double>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::upsample_bilinear2d, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, bool, c10::optional<double>, c10::optional<double>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::upsample_bilinear2d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, c10::optional<double>, c10::optional<double>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::upsample_bilinear2d_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, c10::optional<double>, c10::optional<double>, at::Tensor&)   
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::upsample_nearest2d, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, c10::optional<double>, c10::optional<double>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::upsample_nearest2d, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, c10::optional<double>, c10::optional<double>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::upsample_nearest2d_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::optional<double>, c10::optional<double>)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::upsample_nearest2d_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::optional<double>, c10::optional<double>, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sigmoid_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::sigmoid_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tanh_backward, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::tanh_backward, overload_name = grad_input
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ger, overload_name =
+> dispatch_key = XLA
+> singature = at::Tensor (at::Tensor const&, at::Tensor const&)
+> [FTXJ LOG] Dispatcher::registerImpl, op_name = aten::ger, overload_name = out
+> dispatch_key = XLA
+> singature = at::Tensor& (at::Tensor const&, at::Tensor const&, at::Tensor&)
+> [FTXJ LOG] InitXlaModuleBindings
+\ No newline at end of file
