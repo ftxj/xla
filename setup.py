@@ -38,7 +38,11 @@ print("------------------------------------------------------ftxj -2------------
 
 
 from setuptools import setup, find_packages, distutils
+
+print("------------------------------------------------------ftxj -before import -----------------------------------------------------")
 from torch.utils.cpp_extension import BuildExtension, CppExtension
+print("------------------------------------------------------ftxj -after import -----------------------------------------------------")
+
 import distutils.ccompiler
 import distutils.command.clean
 import glob
