@@ -133,6 +133,7 @@ T ArgOrDefault(py::dict args, const char* name, T defval) {
 }
 
 std::vector<xla::XlaOp> ExtractXlaOps(const std::vector<OpPtr>& operands) {
+  std::cout << "[FTXJ LOG] ExtractXlaOps Op 2 XlaOp" << std::endl;
   std::vector<xla::XlaOp> ops;
   for (auto& operand : operands) {
     ops.push_back(operand->op);
@@ -141,6 +142,7 @@ std::vector<xla::XlaOp> ExtractXlaOps(const std::vector<OpPtr>& operands) {
 }
 
 std::vector<xla::XlaOp> GetOpVector(py::tuple tuple) {
+  std::cout << "[FTXJ LOG] GetOpVector Op 2 XlaOp" << std::endl;
   std::vector<xla::XlaOp> ops;
   for (auto& op : tuple) {
     ops.push_back(op.cast<OpPtr>()->op);
@@ -149,10 +151,13 @@ std::vector<xla::XlaOp> GetOpVector(py::tuple tuple) {
 }
 
 xla::Padding ParsePadding(const std::string& padding_str) {
+  std::cout << "[FTXJ LOG] ParsePadding" << std::endl;
   if (padding_str == "same") {
+    std::cout << "[FTXJ LOG] ParsePadding End kSame" << std::endl;
     return xla::Padding::kSame;
   }
   if (padding_str == "valid") {
+    std::cout << "[FTXJ LOG] ParsePadding End valid" << std::endl;
     return xla::Padding::kValid;
   }
   XLA_ERROR() << "Invalid padding: " << padding_str;
@@ -160,26 +165,37 @@ xla::Padding ParsePadding(const std::string& padding_str) {
 
 xla::XlaOp Reshape(const BuilderPtr& builder,
                    const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] Reshape" << std::endl;
   std::vector<int64_t> sizes = GetTupleVector<int64_t>(args["sizes"]);
   absl::optional<py::tuple> arg_dimensions =
       ArgOptional<py::tuple>(args, "dimensions");
   if (arg_dimensions) {
     std::vector<int64_t> dimensions = GetTupleVector<int64_t>(*arg_dimensions);
-    return xla::Reshape(operands.at(0)->op, dimensions, sizes);
+    auto tmp = xla::Reshape(operands.at(0)->op, dimensions, sizes);
+    std::cout << "[FTXJ LOG] Reshape End with dim" << std::endl;
+    return tmp;
   }
   int64_t inferred_dimension =
       ArgOrDefault<int64_t>(args, "inferred_dimension", -1);
   if (inferred_dimension >= 0) {
-    return xla::ReshapeWithInferredDimension(operands.at(0)->op, sizes,
+    auto tmp = xla::ReshapeWithInferredDimension(operands.at(0)->op, sizes,
                                              inferred_dimension);
+    std::cout << "[FTXJ LOG] Reshape End with infer_dim" << std::endl;
+    return tmp;
   }
-  return xla::Reshape(operands.at(0)->op, sizes);
+  auto tmp = xla::Reshape(operands.at(0)->op, sizes);
+  std::cout << "[FTXJ LOG] Reshape End with size" << std::endl;
+  return tmp;
 }
 
 xla::XlaOp DynamicReshape(const BuilderPtr& builder,
                           const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] DynamicReshape" << std::endl;
   std::vector<int64_t> sizes = GetTupleVector<int64_t>(args["sizes"]);
-  return XlaHelpers::DynamicReshape(operands.at(0)->op, sizes);
+  std::cout << "[FTXJ LOG] DynamicReshape call XlaHelpers::DynamicReshape" << std::endl;
+  auto tmp = XlaHelpers::DynamicReshape(operands.at(0)->op, sizes);
+  std::cout << "[FTXJ LOG] DynamicReshape End" << std::endl;
+  return tmp;
 }
 
 xla::XlaOp Broadcast(const BuilderPtr& builder,
@@ -219,17 +235,25 @@ xla::PrecisionConfig DotPrecisonConfig(py::dict args) {
 
 xla::XlaOp Dot(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
                py::dict args) {
+  std::cout << "[FTXJ LOG] Dot" << std::endl;
+  std::cout << "[FTXJ LOG] Dot call DotPrecisonConfig" << std::endl;
   xla::PrecisionConfig precision_config = DotPrecisonConfig(args);
-  return xla::Dot(operands.at(0)->op, operands.at(1)->op, &precision_config);
+  std::cout << "[FTXJ LOG] Dot call xla::Dot" << std::endl;
+  auto tmp = xla::Dot(operands.at(0)->op, operands.at(1)->op, &precision_config);
+  std::cout << "[FTXJ LOG] Dot End" << std::endl;
+  return tmp;
 }
 
 xla::XlaOp Constant(const BuilderPtr& builder,
                     const std::vector<OpPtr>& operands, py::dict args) {
-   std::cout << "[FTXJ LOG] Constant" << std::endl;
+  std::cout << "[FTXJ LOG] Constant" << std::endl;
   at::Tensor tensor = args["value"].cast<at::Tensor>();
+  std::cout << "[FTXJ LOG] Constant call GetTensorLiteral" << std::endl;
   xla::Literal literal =
       GetTensorLiteral(tensor, /*shape=*/nullptr, /*device=*/nullptr);
-  return xla::ConstantLiteral(builder.get(), literal);
+  std::cout << "[FTXJ LOG] Constant call xla::ConstantLiteral" << std::endl;
+  auto tmp = xla::ConstantLiteral(builder.get(), literal);
+  return tmp;
 }
 
 xla::PaddingConfig ParsePaddingConfig(py::tuple cfg) {
@@ -454,30 +478,47 @@ xla::XlaOp Map(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
 
 xla::XlaOp Call(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
                 py::dict args) {
+  std::cout << "[FTXJ LOG] XlaOpBuilder::Call" << std::endl;
   ComputationPtr computation = args["computation"].cast<ComputationPtr>();
+  std::cout << "[FTXJ LOG] XlaOpBuilder::Call call ExtractXlaOps" << std::endl;
   std::vector<xla::XlaOp> ops = ExtractXlaOps(operands);
-  return xla::Call(builder.get(), computation->computation(), ops);
+  std::cout << "[FTXJ LOG] XlaOpBuilder::Call call xla::Call" << std::endl;
+  auto tmp = xla::Call(builder.get(), computation->computation(), ops);
+  std::cout << "[FTXJ LOG] XlaOpBuilder::Call End" << std::endl;
+  return tmp;
 }
 
 xla::XlaOp Conditional(const BuilderPtr& builder,
                        const std::vector<OpPtr>& operands, py::dict args) {
+  std::cout << "[FTXJ LOG] XlaOpBuilder::Conditional" << std::endl;
+  std::cout << "[FTXJ LOG] XlaOpBuilder::Conditional call cmp_ptr" << std::endl;
   ComputationPtr true_computation =
       args["true_computation"].cast<ComputationPtr>();
+  std::cout << "[FTXJ LOG] XlaOpBuilder::Conditional call cmp_ptr" << std::endl;
   ComputationPtr false_computation =
       args["false_computation"].cast<ComputationPtr>();
-  return xla::Conditional(operands.at(0)->op, operands.at(1)->op,
+  std::cout << "[FTXJ LOG] XlaOpBuilder::Conditional call xla::COnditional" << std::endl;
+  auto tmp = xla::Conditional(operands.at(0)->op, operands.at(1)->op,
                           true_computation->computation(), operands.at(2)->op,
                           false_computation->computation());
+  std::cout << "[FTXJ LOG] XlaOpBuilder::Conditional End" << std::endl;
+  return tmp;
 }
 
 xla::XlaOp While(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
                  py::dict args) {
+  std::cout << "[FTXJ LOG] XlaOpBuilder::While" << std::endl;
+  std::cout << "[FTXJ LOG] XlaOpBuilder::While call cmp_ptr" << std::endl;
   ComputationPtr condition_computation =
       args["condition_computation"].cast<ComputationPtr>();
+  std::cout << "[FTXJ LOG] XlaOpBuilder::While call cmp_ptr" << std::endl;
   ComputationPtr body_computation =
       args["body_computation"].cast<ComputationPtr>();
-  return xla::While(condition_computation->computation(),
+  std::cout << "[FTXJ LOG] XlaOpBuilder::While call xla::While" << std::endl;
+  auto tmp = xla::While(condition_computation->computation(),
                     body_computation->computation(), operands.at(0)->op);
+  std::cout << "[FTXJ LOG] XlaOpBuilder::While End" << std::endl;
+  return tmp;
 }
 
 xla::XlaOp Select(const BuilderPtr& builder, const std::vector<OpPtr>& operands,
@@ -731,7 +772,7 @@ xla::XlaOp TriangularSolve(const BuilderPtr& builder,
 }
 
 const XlaOpFunctionMap* CreateXlaOpFunctionMap() {
-  std::cout << "[FTXJ LOG] Init Step CreateXlaOpFunctionMap" << std::endl;
+  std::cout << "[FTXJ LOG] CreateXlaOpFunctionMap. Init Step" << std::endl;
   XlaOpFunctionMap* fn_map = new XlaOpFunctionMap();
 
 #define XLA_OPADD(name) fn_map->emplace(#name, name)
@@ -828,7 +869,7 @@ const XlaOpFunctionMap* CreateXlaOpFunctionMap() {
   XLA_OPADD(Xor);
 
 #undef XLA_OPADD
-
+  std::cout << "[FTXJ LOG] CreateXlaOpFunctionMap End" << std::endl;
   return fn_map;
 }
 
@@ -882,15 +923,17 @@ xla::Shape PyShapeToShape(py::object shape) {
 
 OpPtr CreateOp(BuilderPtr builder, const std::string& opname,
                const std::vector<OpPtr>& operands, py::dict args) {
-  std::cout << "[FTXJ LOG] CreateOp: " << opname << std::endl;
+  std::cout << "[FTXJ LOG] CreateOp. name = " << opname << std::endl;
   const XlaOpFunctionMap* fn_map = GetXlaOpFunctionMap();
   auto it = fn_map->find(opname);
   if (it == fn_map->end()) {
     XLA_ERROR() << "Unknown XLA op name: " << opname;
   }
-  std::cout << "[FTXJ LOG] CreateOp call op: " << opname << std::endl;
+  std::cout << "[FTXJ LOG] CreateOp call op_builder, name = " << opname << std::endl;
   xla::XlaOp result = (*it->second)(builder, operands, args);
-  return std::make_shared<Op>(std::move(builder), std::move(result));
+  auto tmp = std::make_shared<Op>(std::move(builder), std::move(result));
+  std::cout << "[FTXJ LOG] CreateOp End. name = " << opname << std::endl;
+  return tmp;
 }
 
 }  // namespace op_builder

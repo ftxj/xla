@@ -1251,6 +1251,7 @@ void InitXlaModuleBindings(py::module m) {
   m.def("_xla_op_create",
         [](op_builder::BuilderPtr builder, const std::string& opname,
            const std::vector<op_builder::OpPtr>& operands, py::dict args) {
+          std::cout << "[FTXJ LOG] _xla_op_create" << std::endl;
           return op_builder::CreateOp(builder, opname, operands, args);
         });
   m.def("_run_xrt_local_service", [](uint64_t service_port) {

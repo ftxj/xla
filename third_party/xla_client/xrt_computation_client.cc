@@ -7,6 +7,7 @@
 #include <list>
 #include <sstream>
 #include <unordered_map>
+#include <iostream>
 
 #include "absl/memory/memory.h"
 #include "absl/strings/str_cat.h"
@@ -158,22 +159,27 @@ class TensorAllocator : public tensorflow::Allocator {
 
 bool ShouldStartLocalService(const std::set<std::string>& devices) {
   // In the tpuvm pod setup, LocalService will be started in a separate process
+  std::cout << "[FTXJ LOG] xla_client::ShouldStartLocalService" << std::endl;
   bool tpuvm_mode = sys_util::GetEnvBool(env::kEnvTpuvmMode, false);
   int shard_ordinal = sys_util::GetEnvInt(env::kEnvShardOrdinal, -1);
   int world_size = sys_util::GetEnvInt(env::kEnvWorldSize, -1);
   if (tpuvm_mode && (shard_ordinal % 8 == 0) && (world_size > 8)) {
+    std::cout << "[FTXJ LOG] xla_client::ShouldStartLocalService End false" << std::endl;
     return false;
   }
   if (!sys_util::GetEnvBool(env::kEnvStartService, true)) {
+    std::cout << "[FTXJ LOG] xla_client::ShouldStartLocalService End false" << std::endl;
     return false;
   }
   // Only the process with CPU device and GPU device should start the local
   // service.
   for (const std::string& device : devices) {
     if (device.find("CPU", 0) == 0 || device.find("GPU", 0) == 0) {
+      std::cout << "[FTXJ LOG] xla_client::ShouldStartLocalService End true" << std::endl;
       return true;
     }
   }
+  std::cout << "[FTXJ LOG] xla_client::ShouldStartLocalService End false" << std::endl;
   return false;
 }
 
@@ -675,12 +681,15 @@ std::vector<ComputationClient::DataPtr>
 XrtComputationClient::ExecuteComputation(
     const Computation& computation, absl::Span<const DataPtr> arguments,
     const std::string& device, const ExecuteComputationOptions& options) {
+
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteComputation" << std::endl;
   metrics::TimedSection timed(ExecuteMetric());
   tensorflow::profiler::TraceMe activity(
       "ExecuteComputation", tensorflow::profiler::TraceMeLevel::kInfo);
 
   XrtSessionCache::SessionMap session_map;
   tensorflow::ClientSession::FeedType feed_inputs;
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteComputation call CreateExecuteOps" << std::endl;
   std::vector<tensorflow::Output> exec_ops = CreateExecuteOps(
       &session_map, dynamic_cast<const XrtComputation&>(computation),
       BuildParallelArguments(arguments), options.explode_tuple, {device},
@@ -693,9 +702,11 @@ XrtComputationClient::ExecuteComputation(
       session->session()->Run(feed_inputs, {exec_ops.front()}, &outputs),
       {&computation.computation()}, {&computation.program_shape().result()});
   XLA_CHECK_EQ(outputs.size(), 1);
-
-  return GetComputationResults(outputs[0], computation.program_shape().result(),
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteComputation call GetComputationResults" << std::endl;
+  auto tmp = GetComputationResults(outputs[0], computation.program_shape().result(),
                                device);
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteComputation End" << std::endl;
+  return tmp;
 }
 
 std::vector<std::vector<ComputationClient::DataPtr>>
@@ -704,20 +715,27 @@ XrtComputationClient::ExecuteReplicated(
     const std::vector<std::vector<DataPtr>>& arguments,
     absl::Span<const std::string> devices,
     const ExecuteReplicatedOptions& options) {
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteReplicated" << std::endl;
+  
   metrics::TimedSection timed(ExecuteReplicatedMetric());
   tensorflow::profiler::TraceMe activity(
       "ExecuteReplicated", tensorflow::profiler::TraceMeLevel::kInfo);
 
   XrtSessionCache::SessionMap session_map;
   tensorflow::ClientSession::FeedType feed_inputs;
+
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteReplicated call CreateExecuteOps" << std::endl;
+
   std::vector<tensorflow::Output> exec_ops = CreateExecuteOps(
       &session_map, dynamic_cast<const XrtComputation&>(computation), arguments,
       options.explode_tuple, devices, &feed_inputs);
   std::vector<const Computation*> computations(devices.size());
   std::fill(computations.begin(), computations.end(), &computation);
 
-  return RunComputations(session_map, exec_ops, computations, devices,
+  auto tmp = RunComputations(session_map, exec_ops, computations, devices,
                          feed_inputs);
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteReplicated End" << std::endl;
+  return tmp;
 }
 
 std::vector<std::vector<ComputationClient::DataPtr>>
@@ -727,6 +745,8 @@ XrtComputationClient::RunComputations(
     absl::Span<const Computation* const> computations,
     absl::Span<const std::string> devices,
     const tensorflow::ClientSession::FeedType& feed_inputs) {
+  std::cout << "[FTXJ LOG] XrtComputationClient::RunComputations" << std::endl;
+
   tensorflow::profiler::TraceMe activity(
       "RunComputations", tensorflow::profiler::TraceMeLevel::kInfo);
   // In the PyTorch/XRT interface we keep a map (options_.workers_map) from a
@@ -773,16 +793,19 @@ XrtComputationClient::RunComputations(
       XLA_CHECK_EQ(outputs.size(), exec_nodes.size());
 
       for (size_t i = 0; i < outputs.size(); ++i) {
+        std::cout << "[FTXJ LOG] XrtComputationClient::RunComputations call GetComputationResults" << std::endl;
         auto replica = replicas[i];
         results[replica] = GetComputationResults(
             outputs[i], computations[replica]->program_shape().result(),
             devices[replica]);
       }
     };
+    std::cout << "[FTXJ LOG] XrtComputationClient::RunComputations call ScheduleIoClosure" << std::endl;
     env::ScheduleIoClosure(
         util::MultiWait::Completer(mwait, std::move(session_runner)));
   }
   mwait->Wait();
+  std::cout << "[FTXJ LOG] XrtComputationClient::RunComputations End" << std::endl;
   return results;
 }
 
@@ -792,22 +815,29 @@ XrtComputationClient::ExecuteParallel(
     const std::vector<std::vector<DataPtr>>& arguments,
     absl::Span<const std::string> devices,
     const ExecuteParallelOptions& options) {
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteParallel" << std::endl;
   metrics::TimedSection timed(ExecuteParallelMetric());
   tensorflow::profiler::TraceMe activity(
       "ExecuteParallel", tensorflow::profiler::TraceMeLevel::kInfo);
 
   XrtSessionCache::SessionMap session_map;
   tensorflow::ClientSession::FeedType feed_inputs;
+  std::cout << "[FTXJ LOG] XrtComputationClient::CreateExecuteOps" << std::endl;
   std::vector<tensorflow::Output> exec_ops =
       CreateExecuteOps(&session_map, computations, arguments,
                        options.explode_tuple, devices, &feed_inputs);
-  return RunComputations(session_map, exec_ops, computations, devices,
+  
+  std::cout << "[FTXJ LOG] XrtComputationClient::RunComputations" << std::endl;
+  auto tmp = RunComputations(session_map, exec_ops, computations, devices,
                          feed_inputs);
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteParallel End" << std::endl;
+  return tmp;
 }
 
 template <typename T>
 void XrtComputationClient::SetupExecConfig(const Device& device,
                                            T* exec_config) const {
+  std::cout << "[FTXJ LOG] XrtComputationClient::SetupExecConfig" << std::endl;
   exec_config->set_core_index_in_replica(0);
   exec_config->set_rng_seed(rng_seed_);
   if (device.kind != "TPU") {
@@ -824,22 +854,30 @@ void XrtComputationClient::SetupExecConfig(const Device& device,
       }
     }
   }
+  std::cout << "[FTXJ LOG] XrtComputationClient::SetupExecConfig End" << std::endl;
 }
 
 std::vector<ComputationClient::DataPtr> XrtComputationClient::ExecuteChained(
     absl::Span<const ExecuteChainedOp> ops, const std::string& device) {
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteChained" << std::endl;
   tensorflow::profiler::TraceMe activity(
       "ExecuteChained", tensorflow::profiler::TraceMeLevel::kInfo);
   static int64_t split_mode = sys_util::GetEnvInt("XRT_SPLIT_CHAINED_EXEC", 0);
-  return split_mode ? ExecuteChainedSplit(ops, device)
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteChained call ExecuteChainedSplit/ExecuteChainedXrt" << std::endl;
+  auto tmp = split_mode ? ExecuteChainedSplit(ops, device)
                     : ExecuteChainedXrt(ops, device);
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteChained End" << std::endl;
+  return tmp;
 }
 
 std::vector<ComputationClient::DataPtr> XrtComputationClient::ExecuteChainedXrt(
     absl::Span<const ExecuteChainedOp> ops, const std::string& device) {
+
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteChainedXrt" << std::endl;
   metrics::TimedSection timed(ExecuteChainedMetric());
 
   XrtSessionCache::SessionMap session_map;
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteChainedXrt call TorchDeviceToXrtDevice" << std::endl;
   const std::string& xrt_device = TorchDeviceToXrtDevice(device);
   tensorflow::ClientSession::FeedType feed_inputs;
   XrtSession* session =
@@ -892,6 +930,7 @@ std::vector<ComputationClient::DataPtr> XrtComputationClient::ExecuteChainedXrt(
     }
   }
 
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteChainedXrt call GetExecuteChainedNode" << std::endl;
   const XrtSession::CachedNode& cached_node =
       GetExecuteChainedNode(session, device_scope, device);
   feed_inputs.insert({cached_node.holders[0], plan.SerializeAsString()});
@@ -910,12 +949,14 @@ std::vector<ComputationClient::DataPtr> XrtComputationClient::ExecuteChainedXrt(
         this, device, std::move(result_shapes.at(i)), handles_vec(i)));
   }
   CreateDataHandlesCounter()->AddValue(results.size());
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteChainedXrt End" << std::endl;
   return results;
 }
 
 std::vector<ComputationClient::DataPtr>
 XrtComputationClient::ExecuteChainedSplit(
     absl::Span<const ExecuteChainedOp> ops, const std::string& device) {
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteChainedSplit" << std::endl;
   metrics::TimedSection timed(ExecuteChainedMetric());
 
   std::vector<int64_t> uses(ops.size(), 0);
@@ -981,6 +1022,7 @@ XrtComputationClient::ExecuteChainedSplit(
     // TF op nodes on the session graph.
     session->Reset();
   }
+  std::cout << "[FTXJ LOG] XrtComputationClient::ExecuteChainedSplit End" << std::endl;
   return results;
 }
 

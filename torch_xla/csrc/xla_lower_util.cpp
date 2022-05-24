@@ -472,9 +472,13 @@ xla::XlaOp BuildMatMulWithMultiplier(xla::XlaOp lhs, xla::XlaOp rhs,
 }
 
 xla::XlaOp BuildDot(xla::XlaOp lhs, xla::XlaOp rhs) {
+  std::cout << "[FTXJ LOG] xla_lower_util.cpp BuildDot" << std::endl;
   xla::PrecisionConfig precision_config =
       XlaHelpers::BuildPrecisionConfig(XlaHelpers::mat_mul_precision());
-  return xla::Dot(lhs, rhs, &precision_config);
+  std::cout << "[FTXJ LOG] xla_lower_util.cpp BuildDot call xla::Dot" << std::endl;
+  auto tmp =  xla::Dot(lhs, rhs, &precision_config);
+  std::cout << "[FTXJ LOG] xla_lower_util.cpp BuildDot End" << std::endl;
+  return tmp;
 }
 
 xla::XlaOp BuildBernoulli(xla::XlaOp probability, xla::XlaOp seed,

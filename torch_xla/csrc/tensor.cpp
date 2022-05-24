@@ -796,21 +796,26 @@ ir::XlaValue XLATensor::GetIrValueForTensor(
 ir::XlaValue XLATensor::GetDeviceDataIrValue(
     const at::Scalar& value, xla::PrimitiveType type,
     const torch::lazy::BackendDevice& device) {
+  std::cout << "[FTXJ LOG] XLATensor::GetDeviceDataIrValue.v.t.d" << std::endl;
   xla::ComputationClient::DataPtr data =
       GetDeviceData(value, TensorTypeFromXlaType(type), device);
   data->SetInfo(
       std::make_shared<DeviceDataInfo>(/*tensor_id=*/-1, /*read_only=*/true));
-  return ir::MakeNode<ir::ops::DeviceData>(std::move(data));
+  auto tmp = ir::MakeNode<ir::ops::DeviceData>(std::move(data));
+  std::cout << "[FTXJ LOG] XLATensor::GetDeviceDataIrValue.v.t.d End" << std::endl;
+  return tmp;
 }
 
 ir::XlaValue XLATensor::GetIrValueForConstant(const at::Scalar& value,
                                               const xla::Shape& shape) {
+  std::cout << "[FTXJ LOG] XLATensor::GetIrValueForConstant" << std::endl;
   ir::XlaValue ir_value =
       ir::ops::ScalarOp(std::move(value), shape.element_type());
   if (!shape.dimensions().empty()) {
     ir_value = ir::MakeNode<ir::ops::Expand>(
         ir_value, torch::lazy::ToVector<int64_t>(shape.dimensions()));
   }
+  std::cout << "[FTXJ LOG] XLATensor::GetIrValueForConstant End" << std::endl;
   return ir_value;
 }
 
@@ -1017,7 +1022,9 @@ void XLATensor::UpdateFromTensorOut(const XLATensor& tensor) {
 std::vector<XLATensor> XLATensor::GetLiveTensors(
     const torch::lazy::BackendDevice* device) {
   std::cout << "call XLATensor::GetLiveTensors" << std::endl;
-  return DeviceContextArena::Get()->GetLiveTensors(device);
+  auto tmp = DeviceContextArena::Get()->GetLiveTensors(device);
+  std::cout << "call XLATensor::GetLiveTensors End" << std::endl;
+  return tmp;
 }
 
 std::vector<xla::ComputationClient::DataPtr> XLATensor::GatherTensorsXlaData(
@@ -1805,6 +1812,7 @@ XLATensor::CompilationResult XLATensor::Compile(
   XLA_CHECK_EQ(program_shape.parameters_size(),
                po_data->parameters_data.size());
 
+  std::cout << "[FTXJ MSG] " << "Compiling En. then call GetEmittedNodeCount" << std::endl;
   return {/*device=*/coll.device,
           /*emitted_nodes=*/lowering_ctx.GetEmittedNodeCount(),
           /*computation=*/std::move(computations.front()),

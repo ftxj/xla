@@ -6,6 +6,7 @@
 
 #include "tensorflow/compiler/xla/client/xla_builder.h"
 #include "torch/csrc/jit/python/pybind.h"
+#include <iostream>
 
 namespace torch_xla {
 namespace op_builder {
@@ -14,7 +15,9 @@ using BuilderPtr = std::shared_ptr<xla::XlaBuilder>;
 
 struct Op {
   Op(BuilderPtr builder, xla::XlaOp op)
-      : builder(std::move(builder)), op(std::move(op)) {}
+      : builder(std::move(builder)), op(std::move(op)) {
+        std::cout << "[FTXJ LOG] Op_builder constructor";
+      }
 
   BuilderPtr builder;
   xla::XlaOp op;
