@@ -4,7 +4,10 @@ import torch
 import torch_xla
 import torch_xla.core.xla_model as xm
 
-os.environ['GPU_NUM_DEVICES']="1"
+os.environ['XRT_DEVICE_MAP']="CPU:0;/job:localservice/replica:0/task:0/device:XLA_CPU:0"
+os.environ['XRT_WORKERS']="localservice:0;grpc://localhost:40934"
+# os.environ['GPU_NUM_DEVICES']="1"
+
 print('------------------------------------------------------------------')
 d=xm.xla_device(0)
 print('------------------------------------------------------------------')

@@ -1,0 +1,1298 @@
+[FTXJ LOG] InitXlaModuleBindings
+------------------------------------------------------------------
+[FTXJ LOG] xla_device. xla_model.py
+[FTXJ LOG] xla_device call _xla_set_default_device
+[FTXJ LOG] _xla_set_default_device
+[FTXJ LOG] _xla_set_default_device call SetCurrentThreadDevice
+[FTXJ LOG] SetCurrentThreadDevice xla:0
+[FTXJ LOG] SetCurrentThreadDevice call bridge::SetCurrentDevice. do data format transfer (string -> c10::Device)
+[FTXJ LOG] bridge::SetCurrentDevice. input=c10:Device
+[FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] AtenXlaDeviceMapper init. need call xla::ComputationClient Get()
+[FTXH LOG] ComputationClient::Get. singleton
+[CreateClient] computation_client.cpp file
+[ComputationClient::Create] only can create Xrt Computation Client
+[ParseEnvBasedTpuClusterConfig] this function need kEnvTpuConfig
+[AddXrtHostDevices::device_loop]TPU:0
+[AddXrtHostDevices::device_loop]GPU:0
+[GetXrtDevicePath] device_name : GPU:0, worker_name : localservice, task_no : 0 ==>/job:localservice/replica:0/task:0/device:XLA_GPU:0
+[AddXrtHostDevices::device_loop]CPU:0
+[GetXrtDevicePath] device_name : CPU:0, worker_name : localservice, task_no : 0 ==>/job:localservice/replica:0/task:0/device:XLA_CPU:0
+[XrtComputationClient] Init....
+[FTXJ LOG] DeviceType default construction CPU
+[FTXJ LOG] DeviceType default construction CPU
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] DeviceType default construction CPU
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] GetDeviceOrdinal End. from device to get index
+[FTXJ LOG] bridge::SetCurrentDevice End
+[FTXJ LOG] SetCurrentThreadDevice call end.
+[FTXJ LOG] SetCurrentThreadDevice End.
+[FTXJ LOG] _xla_set_default_device End
+[FTXJ LOG] xla_device call torch.device
+[FTXJ LOG] xla_device End
+------------------------------------------------------------------
+[FTXJ LOG] XLANativeFunctions::empty
+[FTXJ LOG] XLANativeFunctions::empty call     AtenFromXlaTensor->XLATensor::full->GetXlaDeviceOrCurrent
+[FTXJ LOG] GetXlaDeviceOrCurrent
+[FTXJ LOG] GetXlaDeviceOrCurrent call GetXlaDevice
+[FTXJ LOG] GetXlaDevice.device.opt
+[FTXJ LOG] GetXlaDevice.device
+[FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice End
+[FTXJ LOG] GetXlaDevice.device End
+[FTXJ LOG] GetXlaDevice.device.opt End
+[FTXJ LOG] GetXlaDeviceOrCurrent may call GetCurrentDevice
+[FTXJ LOG] GetXlaDeviceOrCurrent End
+[FTXJ LOG] XLATensor::full
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] InferOutputShape 
+[FTXJ LOG] XlaBuilder InferOutputShape
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d End
+[FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
+[FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
+[FTXJ LOG] Register Tensor to Device. push data into device vector
+[FTXJ LOG] [XLATensor::Create End]
+[FTXJ LOG] XLATensor::full End
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] GetDeviceOrdinal End. from device to get index
+[XLATensorImpl] constructor
+[FTXJ LOG] XLANativeFunctions::empty End
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d End
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] InferOutputShape
+[FTXJ LOG] XlaBuilder InferOutputShape
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d End
+[FTXJ LOG] DeviceContextArena::GetRngSeed
+[FTXH LOG] ComputationClient::Get. singleton
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] NodePtr::Add Constructor
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] DeviceContextArena::GetRngSeed End
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] XLATensor::SetInPlaceIrValue
+[FTXJ LOG] XLATensor::SetIrValue
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetIrValue End
+[FTXJ LOG] XLATensor::SetInPlaceIrValue End
+------------------------------------------------------------------
+[FTXJ LOG] XLANativeFunctions::empty
+[FTXJ LOG] XLANativeFunctions::empty call     AtenFromXlaTensor->XLATensor::full->GetXlaDeviceOrCurrent
+[FTXJ LOG] GetXlaDeviceOrCurrent
+[FTXJ LOG] GetXlaDeviceOrCurrent call GetXlaDevice
+[FTXJ LOG] GetXlaDevice.device.opt
+[FTXJ LOG] GetXlaDevice.device
+[FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice End
+[FTXJ LOG] GetXlaDevice.device End
+[FTXJ LOG] GetXlaDevice.device.opt End
+[FTXJ LOG] GetXlaDeviceOrCurrent may call GetCurrentDevice
+[FTXJ LOG] GetXlaDeviceOrCurrent End
+[FTXJ LOG] XLATensor::full
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d End
+[FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
+[FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
+[FTXJ LOG] Register Tensor to Device. push data into device vector
+[FTXJ LOG] [XLATensor::Create End]
+[FTXJ LOG] XLATensor::full End
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] GetDeviceOrdinal End. from device to get index
+[XLATensorImpl] constructor
+[FTXJ LOG] XLANativeFunctions::empty End
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d End
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d End
+[FTXJ LOG] DeviceContextArena::GetRngSeed
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] NodePtr::Add Constructor
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] DeviceContextArena::GetRngSeed End
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] XLATensor::SetInPlaceIrValue
+[FTXJ LOG] XLATensor::SetIrValue
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetIrValue End
+[FTXJ LOG] XLATensor::SetInPlaceIrValue End
+------------------------------------------------------------------
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] InferOutputShape
+[FTXJ LOG] XlaBuilder InferOutputShape
+[FTXJ LOG] BuildRelu
+[FTXJ LOG] BuildRelu call ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] BuildRelu call ShapeOfXlaOp result is
+element_type: F32
+dimensions: 2
+dimensions: 2
+layout {
+  minor_to_major: 1
+  minor_to_major: 0
+  format: DENSE
+}
+is_dynamic_dimension: false
+is_dynamic_dimension: false
+
+[FTXJ LOG] BuildRelu call xla::Max, add inst to Builder
+[FTXJ LOG] End BuildRelu
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaValue construct
+[XLATensor::CreateFrom] ir::XlaValue
+[FTXJ LOG] XLATensor::MaybeCastIrValue
+[FTXJ LOG] XLATensor::MaybeCastIrValue End
+[FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
+[FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
+[FTXJ LOG] Register Tensor to Device. push data into device vector
+[FTXJ LOG] [XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] GetDeviceOrdinal End. from device to get index
+[XLATensorImpl] constructor
+------------------------------------------------------------------
+[GetXlaTensor] convert from at::Tensor -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XlaValue construct
+[XLATensor::CreateFrom] ir::XlaValue
+[FTXJ LOG] XLATensor::MaybeCastIrValue
+[FTXJ LOG] XLATensor::MaybeCastIrValue End
+[FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
+[FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
+[FTXJ LOG] Register Tensor to Device. push data into device vector
+[FTXJ LOG] [XLATensor::Create End]
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] GetDeviceOrdinal End. from device to get index
+[XLATensorImpl] constructor
+------------------------------------------------------------------
+[FTXJ LOG] XLANativeFunctions::add
+[FTXJ LOG] add accept input from at::Tensor, output to at::Tensor
+[DoBinaryOp] from at::Tensor & binary Op
+[FTXJ LOG] GetBinaryOperands
+[FTXJ LOG] GetBinaryOperands call TryGetXlaTensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[FTXJ LOG] GetBinaryOperands call GetOrCreateXlaTensor
+[GetOrCreateXlaTensor] convert at::Tensor & Device -> XLATensor
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[FTXJ LOG] GetBinaryOperands End
+[FTXJ LOG] DoBinaryOp call XLATensor::add
+[FTXJ LOG] XLATensor::add
+[FTXJ LOG] XLATensor::add call GetIrValueForScalar
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d
+[XlaNode] build. Also a Lazy Node.
+[XlaNode] build. Also a XlaNode.
+[FTXJ LOG] XlaValue construct
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[XlaNode] build. Also a XlaNode. with GetOpShape
+[FTXJ LOG] InferOutputShape
+[FTXJ LOG] XlaBuilder InferOutputShape
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d End
+[FTXJ LOG] XLATensor::add call GetIrValue & CreateFrom
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XlaValue construct
+[FTXJ LOG] NodePtr::Add Constructor
+[XlaNode] build. Also a Lazy Node
+[XlaNode] build. Also a XlaNode
+[FTXJ LOG] XlaValue construct
+[XLATensor::CreateFrom] ir::XlaValue & optional<ScalarType>
+[FTXJ LOG] XLATensor::MaybeCastIrValue
+[FTXJ LOG] XLATensor::MaybeCastIrValue End
+[FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
+[FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
+[FTXJ LOG] Register Tensor to Device. push data into device vector
+[FTXJ LOG] [XLATensor::Create End]
+[FTXJ LOG] DoBinaryOp call XLATensor::add End
+[AtenFromXlaTensor] XLATensor -> Tensor
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] GetDeviceOrdinal End. from device to get index
+[XLATensorImpl] constructor
+[FTXJ LOG] XLANativeFunctions::add End
+------------------------------------------------------------------
+[GetCurrentAtenDevice]
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] GetDeviceOrdinal End. from device to get index
+[StepMarker] Begin
+[FTXJ LOG] AtenDeviceToXlaDevice. input = c10::Device, output = lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[GetDeviceFromOrdinal] from device index to lazy::BackendDevice
+[FTXJ LOG] AtenDeviceToXlaDevice End
+[SyncLiveTensorsGraph Begin]
+call XLATensor::GetLiveTensors
+[FTXJ LOG] DeviceContextArena::GetLiveTensors
+[FTXJ LOG] [XLA Tensor] Constructor from Data
+[FTXJ LOG] [XLA Tensor] Constructor from Data
+[FTXJ LOG] [XLA Tensor] Constructor from Data
+[FTXJ LOG] [XLA Tensor] Constructor from Data
+[FTXJ LOG] [XLA Tensor] Constructor from Data
+[FTXJ LOG] DeviceContextArena::GetLiveTensors, Live Tensor Numbers = 5
+[SyncTensorsGraph Begin] Tensor size = 5
+[FTXJ LOG] SyncTensorsGraphInternal
+[FTXJ LOG] SyncTensorsGraphInternal call CollectSyncTensors
+[CollectSyncTensors] input tensor size = 5
+[CollectSyncTensors] unique_device ele
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] SyncTensorsGraphInternal call RunPostOrder
+[FRXJ LOG] XLATensor::RunPostOrder
+call ComputePostOrder on node(str=[] aten::normal, op=aten::normal)
+[FTXJ LOG] Util::ComputePostOrder
+traversal node(str=[] aten::normal, op=aten::normal)
+node first traversal
+operands --- node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+first traversal this node, push into queue
+operands --- node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+first traversal this node, push into queue
+operands --- node(str=[] aten::add, op=aten::add)
+first traversal this node, push into queue
+traversal node(str=[] aten::add, op=aten::add)
+node first traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+first traversal this node, push into queue
+operands --- node(str=[] aten::mul, op=aten::mul)
+first traversal this node, push into queue
+traversal node(str=[] aten::mul, op=aten::mul)
+node first traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+first traversal this node, push into queue
+operands --- node(str=[UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, op=xla::device_data)
+first traversal this node, push into queue
+traversal node(str=[UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, op=xla::device_data)
+node first traversal
+traversal node(str=[UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, op=xla::device_data)
+node second traversal
+node into post order
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node first traversal
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node second traversal
+node into post order
+traversal node(str=[] aten::mul, op=aten::mul)
+node second traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+operands --- node(str=[UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, op=xla::device_data)
+node into post order
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node first traversal
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node second traversal
+node into post order
+traversal node(str=[] aten::add, op=aten::add)
+node second traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+operands --- node(str=[] aten::mul, op=aten::mul)
+node into post order
+traversal node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node first traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+first traversal this node, push into queue
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node first traversal
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node second traversal
+node into post order
+traversal node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node second traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node into post order
+traversal node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node first traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+first traversal this node, push into queue
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node first traversal
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node second traversal
+node into post order
+traversal node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node second traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node into post order
+traversal node(str=[] aten::normal, op=aten::normal)
+node second traversal
+operands --- node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+operands --- node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+operands --- node(str=[] aten::add, op=aten::add)
+node into post order
+
+After ComputePostOrder, return data is
+node(str=[UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, op=xla::device_data)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+
+
+after call ComputePostOrder, post order is
+node(str=[UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, op=xla::device_data)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+call ComputePostOrder on node(str=[] aten::normal, op=aten::normal)
+[FTXJ LOG] Util::ComputePostOrder
+traversal node(str=[] aten::normal, op=aten::normal)
+node first traversal
+operands --- node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+first traversal this node, push into queue
+operands --- node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+first traversal this node, push into queue
+operands --- node(str=[] aten::add, op=aten::add)
+first traversal this node, push into queue
+traversal node(str=[] aten::add, op=aten::add)
+node first traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+first traversal this node, push into queue
+operands --- node(str=[] aten::mul, op=aten::mul)
+first traversal this node, push into queue
+traversal node(str=[] aten::mul, op=aten::mul)
+node first traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+first traversal this node, push into queue
+operands --- node(str=[] aten::add, op=aten::add)
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node first traversal
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node second traversal
+node into post order
+traversal node(str=[] aten::mul, op=aten::mul)
+node second traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+operands --- node(str=[] aten::add, op=aten::add)
+node into post order
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node first traversal
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node second traversal
+node into post order
+traversal node(str=[] aten::add, op=aten::add)
+node second traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+operands --- node(str=[] aten::mul, op=aten::mul)
+node into post order
+traversal node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node first traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+first traversal this node, push into queue
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node first traversal
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node second traversal
+node into post order
+traversal node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node second traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node into post order
+traversal node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node first traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+first traversal this node, push into queue
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node first traversal
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node second traversal
+node into post order
+traversal node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node second traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node into post order
+traversal node(str=[] aten::normal, op=aten::normal)
+node second traversal
+operands --- node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+operands --- node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+operands --- node(str=[] aten::add, op=aten::add)
+node into post order
+
+After ComputePostOrder, return data is
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+
+
+after call ComputePostOrder, post order is
+node(str=[UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, op=xla::device_data)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+call ComputePostOrder on node(str=[] aten::relu, op=aten::relu)
+[FTXJ LOG] Util::ComputePostOrder
+traversal node(str=[] aten::relu, op=aten::relu)
+node first traversal
+operands --- node(str=[] aten::normal, op=aten::normal)
+traversal node(str=[] aten::relu, op=aten::relu)
+node second traversal
+operands --- node(str=[] aten::normal, op=aten::normal)
+node into post order
+
+After ComputePostOrder, return data is
+node(str=[] aten::relu, op=aten::relu)
+
+
+after call ComputePostOrder, post order is
+node(str=[UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, op=xla::device_data)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+node(str=[] aten::relu, op=aten::relu)
+call ComputePostOrder on node(str=[] aten::abs, op=aten::abs)
+[FTXJ LOG] Util::ComputePostOrder
+traversal node(str=[] aten::abs, op=aten::abs)
+node first traversal
+operands --- node(str=[] aten::normal, op=aten::normal)
+traversal node(str=[] aten::abs, op=aten::abs)
+node second traversal
+operands --- node(str=[] aten::normal, op=aten::normal)
+node into post order
+
+After ComputePostOrder, return data is
+node(str=[] aten::abs, op=aten::abs)
+
+
+after call ComputePostOrder, post order is
+node(str=[UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, op=xla::device_data)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+node(str=[] aten::relu, op=aten::relu)
+node(str=[] aten::abs, op=aten::abs)
+call ComputePostOrder on node(str=[] aten::add, op=aten::add)
+[FTXJ LOG] Util::ComputePostOrder
+traversal node(str=[] aten::add, op=aten::add)
+node first traversal
+operands --- node(str=[] aten::relu, op=aten::relu)
+operands --- node(str=[] aten::mul, op=aten::mul)
+first traversal this node, push into queue
+traversal node(str=[] aten::mul, op=aten::mul)
+node first traversal
+operands --- node(str=[] aten::abs, op=aten::abs)
+operands --- node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+first traversal this node, push into queue
+traversal node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node first traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+first traversal this node, push into queue
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node first traversal
+traversal node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node second traversal
+node into post order
+traversal node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node second traversal
+operands --- node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node into post order
+traversal node(str=[] aten::mul, op=aten::mul)
+node second traversal
+operands --- node(str=[] aten::abs, op=aten::abs)
+operands --- node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node into post order
+traversal node(str=[] aten::add, op=aten::add)
+node second traversal
+operands --- node(str=[] aten::relu, op=aten::relu)
+operands --- node(str=[] aten::mul, op=aten::mul)
+node into post order
+
+After ComputePostOrder, return data is
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[] aten::add, op=aten::add)
+
+
+after call ComputePostOrder, post order is
+node(str=[UNKNOWN_SCALAR[]] xla::device_data, device=CPU:0, op=xla::device_data)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=214013, op=prim::Constant)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=2531011, op=prim::Constant)
+node(str=[] aten::add, op=aten::add)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=0, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::normal, op=aten::normal)
+node(str=[] aten::relu, op=aten::relu)
+node(str=[] aten::abs, op=aten::abs)
+node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
+node(str=[] aten::expand, size=(2, 2), op=aten::expand)
+node(str=[] aten::mul, op=aten::mul)
+node(str=[] aten::add, op=aten::add)
+[FTXJ LOG] SyncTensorsGraphInternal call SaveTensorsGraphInfo
+[FTXJ LOG] SyncTensorsGraphInternal call TryRunCachedSync
+[FTXJ LOG] SyncTensorsGraphInternal call Compile
+[FTXJ LOG] XLATensor::Compiler.
+[FTXJ MSG] using activate tensor and post order to get Complication Result.
+[FTXJ LOG] XLATensor::Compiler call build LoweringContext.
+[FTXJ LOG] LoweringContext::LoweringContextSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetParameter.d from ComputationClient::Data
+[FTXJ LOG] LoweringContext::GetParameter.d call ComputationClient:GetOpaqueHandle
+[FTXJ LOG] LoweringContext::GetParameter.d not find param, build a new parameter
+[FTXJ LOG] LoweringContext::GetParameter.d End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] NodePtr::Add Constructor lower_fn
+[FTXJ LOG] NodePtr::Add Constructor lower_fn call GetOutputOp Op0
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] NodePtr::Add Constructor lower_fn call GetOutputOp Op1
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] NodePtr::Add Constructor lower_fn
+[FTXJ LOG] NodePtr::Add Constructor lower_fn call GetOutputOp Op0
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] NodePtr::Add Constructor lower_fn call GetOutputOp Op1
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] BuildRelu
+[FTXJ LOG] BuildRelu call ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] BuildRelu call ShapeOfXlaOp result is
+element_type: F32
+dimensions: 2
+dimensions: 2
+layout {
+  minor_to_major: 1
+  minor_to_major: 0
+  format: DENSE
+}
+is_dynamic_dimension: false
+is_dynamic_dimension: false
+
+[FTXJ LOG] BuildRelu call xla::Max, add inst to Builder
+[FTXJ LOG] End BuildRelu
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext call LowerNodeSyncTensorsGraph
+[FTXJ LOG] LoweringContext::LowerNode. cast (Lazy node) -> (XlaOpVector) and do lower
+[FTXJ LOG] LoweringContext::LowerNode call Lower
+[FTXJ LOG] NodePtr::Add Constructor lower_fn
+[FTXJ LOG] NodePtr::Add Constructor lower_fn call GetOutputOp Op0
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] NodePtr::Add Constructor lower_fn call GetOutputOp Op1
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp
+[FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
+[ReturnOp] call. Also Loctx AssignOutputOp.
+[FTXJ LOG] LoweringContext::AssignOutputOp assign output->op pointer
+[FTXJ LOG] LoweringContext::AssignOutputOp End
+[FTXJ LOG] LoweringContext::LowerNode End
+[FTXJ LOG] LoweringContext::LoweringContext EndSyncTensorsGraph
+[FTXJ LOG] XLATensor::Compiler mid info
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+index = 0, XlaOp = 58
+[FTXJ LOG] LoweringContext::AddResult End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+index = 1, XlaOp = 115
+[FTXJ LOG] LoweringContext::AddResult End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+index = 2, XlaOp = 118
+[FTXJ LOG] LoweringContext::AddResult End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+index = 3, XlaOp = 119
+[FTXJ LOG] LoweringContext::AddResult End
+[FTXJ LOG] LoweringContext::GetOutputOp
+find output in emitted_outputs_ context, if not, build post_order, and lower, then get
+[FTXJ LOG] LoweringContext::GetOutputOp End
+index = 4, XlaOp = 126
+[FTXJ LOG] LoweringContext::AddResult End
+[FTXJ LOG] LoweringContext::GetParametersData End
+[FTXJ LOG] LoweringContext::Build
+[FTXJ MSG] build xla::XlaComputation from nodes
+[FTXJ LOG] LoweringContext::Build from root
+[FTXJ LOG] LoweringContext::Build End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::Compile call xla::ComputationClient::Compile
+[FTXH LOG] ComputationClient::Get. singleton
+2022-05-24 03:17:34.400119: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88] StackTrace:
+2022-05-24 03:17:34.400182: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88] *** Begin stack trace ***
+2022-05-24 03:17:34.400198: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]        tensorflow::CurrentStackTrace()
+2022-05-24 03:17:34.400208: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]        xla::util::ReportComputationError(tensorflow::Status const&, absl::lts_20211102::Span<xla::XlaComputation const* const>, absl::lts_20211102::Span<xla::Shape const* const>)
+2022-05-24 03:17:34.400219: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]        xla::XrtComputationClient::CheckCompileStatus(tensorflow::Status const&, std::vector<xla::ComputationClient::CompileInstance, std::allocator<xla::ComputationClient::CompileInstance> > const&, xla::XrtComputationClient::SessionWork const&)
+2022-05-24 03:17:34.400229: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]
+2022-05-24 03:17:34.400238: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]        xla::util::MultiWait::Complete(std::function<void ()> const&)
+2022-05-24 03:17:34.400248: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]
+2022-05-24 03:17:34.400261: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]
+2022-05-24 03:17:34.400271: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]
+2022-05-24 03:17:34.400283: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]        clone
+2022-05-24 03:17:34.400293: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88] *** End stack trace ***
+2022-05-24 03:17:34.400304: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]
+2022-05-24 03:17:34.400316: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88] Status: INVALID_ARGUMENT: Cannot assign a device for operation XRTCompile: {{node XRTCompile}} was explicitly assigned to /job:localservice/replica:0/task:0/device:XLA_GPU:0 but available devices are [ /job:localservice/replica:0/task:0/device:CPU:0, /job:localservice/replica:0/task:0/device:XLA_CPU:0 ]. Make sure the device specification refers to a valid device.    
+2022-05-24 03:17:34.400330: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]         [[XRTCompile]]
+Traceback (most recent call last):
+  File "test.py", line 21, in <module>
+    xm.mark_step()
+  File "/root/anaconda3/envs/pytorch/lib/python3.7/site-packages/torch_xla/core/xla_model.py", line 822, in mark_step
+    wait=xu.getenv_as('XLA_SYNC_WAIT', bool, False))
+RuntimeError: INVALID_ARGUMENT: Cannot assign a device for operation XRTCompile: {{node XRTCompile}} was explicitly assigned to /job:localservice/replica:0/task:0/device:XLA_GPU:0 but available devices are [ /job:localservice/replica:0/task:0/device:CPU:0, /job:localservice/replica:0/task:0/device:XLA_CPU:0 ]. Make sure the device specification refers to a valid device.
+         [[XRTCompile]]
+[XLATensor::WaitDeviceOps Begin]
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] DeviceType default construction CPU
+[FTXJ LOG] DeviceType default construction CPU
+[XLATensor::WaitDeviceOps End]
+[FTXJ LOG] Deconstructor XLATensor::Data
+[FTXJ LOG] Unregister Tensor to Device. erase data in device vector
+[FTXJ LOG] Deconstructor XLATensor::Data End
+[FTXJ LOG] Deconstructor XLATensor::Data
+[FTXJ LOG] Unregister Tensor to Device. erase data in device vector
+[FTXJ LOG] Deconstructor XLATensor::Data End
+[FTXJ LOG] Deconstructor XLATensor::Data
+[FTXJ LOG] Unregister Tensor to Device. erase data in device vector
+[FTXJ LOG] Deconstructor XLATensor::Data End
+[FTXJ LOG] Deconstructor XLATensor::Data
+[FTXJ LOG] Unregister Tensor to Device. erase data in device vector
+[FTXJ LOG] Deconstructor XLATensor::Data End
+[FTXJ LOG] Deconstructor XLATensor::Data
+[FTXJ LOG] Unregister Tensor to Device. erase data in device vector
+[FTXJ LOG] Deconstructor XLATensor::Data End
