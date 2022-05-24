@@ -40,8 +40,8 @@ print("------------------------------------------------------ftxj -2------------
 from setuptools import setup, find_packages, distutils
 
 print("------------------------------------------------------ftxj -before import -----------------------------------------------------")
-# from torch.utils.cpp_extension import BuildExtension
-print("------------------------------------------------------ftxj -mid import -----------------------------------------------------")
+from torch.utils.cpp_extension import BuildExtension
+print("------------------------------------------------------ftxj -after import -----------------------------------------------------")
 from torch.utils.cpp_extension import CppExtension
 print("------------------------------------------------------ftxj -after import -----------------------------------------------------")
 
@@ -234,12 +234,12 @@ class Clean(distutils.command.clean.clean):
 
 print("------------------------------------------------------ftxj 1-----------------------------------------------------")
 
-class Build():
+class Build(BuildExtension):
 
   def run(self):
     # Run the original BuildExtension first. We need this before building
     # the tests.
-    # BuildExtension.run(self)
+    BuildExtension.run(self)
     if _check_env_flag('BUILD_CPP_TESTS', default='1'):
       # Build the C++ tests.
       cmd = [os.path.join(base_dir, 'test/cpp/run_tests.sh'), '-B']
@@ -343,15 +343,15 @@ setup(
     # Exclude the build files.
     packages=find_packages(exclude=['build']),
     ext_modules=[
-        # CppExtension(
-        #     '_XLAC',
-        #     torch_xla_sources,
-        #     include_dirs=include_dirs,
-        #     extra_compile_args=extra_compile_args,
-        #     library_dirs=library_dirs,
-        #     extra_link_args=extra_link_args + \
-        #         [make_relative_rpath('torch_xla/lib')],
-        # ),
+        CppExtension(
+            '_XLAC',
+            torch_xla_sources,
+            include_dirs=include_dirs,
+            extra_compile_args=extra_compile_args,
+            library_dirs=library_dirs,
+            extra_link_args=extra_link_args + \
+                [make_relative_rpath('torch_xla/lib')],
+        ),
     ],
     extras_require={
         # On Cloud TPU VM install with:
@@ -369,6 +369,6 @@ setup(
         'test/cpp/build/test_ptxla'
     ] if _check_env_flag('BUILD_CPP_TESTS', default='1') else [],
     cmdclass={
-        # 'build_ext': Build,
-        # 'clean': Clean,
+        'build_ext': Build,
+        'clean': Clean,
     })
