@@ -15,13 +15,7 @@
 [CreateClient] computation_client.cpp file
 [ComputationClient::Create] only can create Xrt Computation Client
 [ParseEnvBasedTpuClusterConfig] this function need kEnvTpuConfig
-[AddXrtHostDevices::device_loop]TPU:0
-[AddXrtHostDevices::device_loop]GPU:0
-[GetXrtDevicePath] device_name : GPU:0, worker_name : localservice, task_no : 0 ==>/job:localservice/replica:0/task:0/device:XLA_GPU:0
-[AddXrtHostDevices::device_loop]CPU:0
-[GetXrtDevicePath] device_name : CPU:0, worker_name : localservice, task_no : 0 ==>/job:localservice/replica:0/task:0/device:XLA_CPU:0
 [XrtComputationClient] Init....
-[FTXJ LOG] DeviceType default construction CPU
 [FTXJ LOG] DeviceType default construction CPU
 [GetDeviceFromOrdinal] from device index to lazy::BackendDevice
 [FTXJ LOG] AtenDeviceToXlaDevice End
@@ -37,7 +31,7 @@
 [FTXJ LOG] xla_device call torch.device
 [FTXJ LOG] xla_device End
 ------------------------------------------------------------------
-[FTXJ LOG] XLANativeFunctions::empty
+[FTXJ LOG] XLANativeFunctions::empty 
 [FTXJ LOG] XLANativeFunctions::empty call     AtenFromXlaTensor->XLATensor::full->GetXlaDeviceOrCurrent
 [FTXJ LOG] GetXlaDeviceOrCurrent
 [FTXJ LOG] GetXlaDeviceOrCurrent call GetXlaDevice
@@ -61,7 +55,7 @@
 [XlaNode] build. Also a Lazy Node
 [XlaNode] build. Also a XlaNode
 [XlaNode] build. Also a XlaNode. with GetOpShape
-[FTXJ LOG] InferOutputShape 
+[FTXJ LOG] InferOutputShape
 [FTXJ LOG] XlaBuilder InferOutputShape
 [FTXJ LOG] XlaHelpers::ShapeOfXlaOp
 [FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
@@ -369,6 +363,7 @@ call XLATensor::GetLiveTensors
 [CollectSyncTensors] input tensor size = 5
 [CollectSyncTensors] unique_device ele
 [FTXH LOG] ComputationClient::Get. singleton
+
 [FTXJ LOG] SyncTensorsGraphInternal call RunPostOrder
 [FRXJ LOG] XLATensor::RunPostOrder
 call ComputePostOrder on node(str=[] aten::normal, op=aten::normal)
@@ -721,6 +716,7 @@ node(str=[UNKNOWN_SCALAR[]] prim::Constant, value=1, op=prim::Constant)
 node(str=[] aten::expand, size=(2, 2), op=aten::expand)
 node(str=[] aten::mul, op=aten::mul)
 node(str=[] aten::add, op=aten::add)
+
 [FTXJ LOG] SyncTensorsGraphInternal call SaveTensorsGraphInfo
 [FTXJ LOG] SyncTensorsGraphInternal call TryRunCachedSync
 [FTXJ LOG] SyncTensorsGraphInternal call Compile
@@ -1254,31 +1250,66 @@ index = 4, XlaOp = 126
 [FTXH LOG] ComputationClient::Get. singleton
 [FTXJ LOG] XLATensor::Compile call xla::ComputationClient::Compile
 [FTXH LOG] ComputationClient::Get. singleton
-2022-05-24 03:17:34.400119: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88] StackTrace:
-2022-05-24 03:17:34.400182: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88] *** Begin stack trace ***
-2022-05-24 03:17:34.400198: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]        tensorflow::CurrentStackTrace()
-2022-05-24 03:17:34.400208: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]        xla::util::ReportComputationError(tensorflow::Status const&, absl::lts_20211102::Span<xla::XlaComputation const* const>, absl::lts_20211102::Span<xla::Shape const* const>)
-2022-05-24 03:17:34.400219: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]        xla::XrtComputationClient::CheckCompileStatus(tensorflow::Status const&, std::vector<xla::ComputationClient::CompileInstance, std::allocator<xla::ComputationClient::CompileInstance> > const&, xla::XrtComputationClient::SessionWork const&)
-2022-05-24 03:17:34.400229: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]
-2022-05-24 03:17:34.400238: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]        xla::util::MultiWait::Complete(std::function<void ()> const&)
-2022-05-24 03:17:34.400248: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]
-2022-05-24 03:17:34.400261: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]
-2022-05-24 03:17:34.400271: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]
-2022-05-24 03:17:34.400283: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]        clone
-2022-05-24 03:17:34.400293: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88] *** End stack trace ***
-2022-05-24 03:17:34.400304: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]
-2022-05-24 03:17:34.400316: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88] Status: INVALID_ARGUMENT: Cannot assign a device for operation XRTCompile: {{node XRTCompile}} was explicitly assigned to /job:localservice/replica:0/task:0/device:XLA_GPU:0 but available devices are [ /job:localservice/replica:0/task:0/device:CPU:0, /job:localservice/replica:0/task:0/device:XLA_CPU:0 ]. Make sure the device specification refers to a valid device.    
-2022-05-24 03:17:34.400330: E     195 tensorflow/compiler/xla/xla_client/xla_util.cc:88]         [[XRTCompile]]
-Traceback (most recent call last):
-  File "test.py", line 21, in <module>
-    xm.mark_step()
-  File "/root/anaconda3/envs/pytorch/lib/python3.7/site-packages/torch_xla/core/xla_model.py", line 822, in mark_step
-    wait=xu.getenv_as('XLA_SYNC_WAIT', bool, False))
-RuntimeError: INVALID_ARGUMENT: Cannot assign a device for operation XRTCompile: {{node XRTCompile}} was explicitly assigned to /job:localservice/replica:0/task:0/device:XLA_GPU:0 but available devices are [ /job:localservice/replica:0/task:0/device:CPU:0, /job:localservice/replica:0/task:0/device:XLA_CPU:0 ]. Make sure the device specification refers to a valid device.
-         [[XRTCompile]]
+[FTXJ MSG] Compiling IR graph hash 37f4efc56eace7204eda7f180b4cda2d on device CPU:0 done![FTXJ MSG] Graph hash 37f4efc56eace7204eda7f180b4cda2d is computation hash cb18f4db326e1e871332416b42421cdc[FTXJ LOG] SyncTensorsGraphInternal call GetComputationCache()->Add
+[FTXJ LOG] SyncTensorsGraphInternal call GetComputationCache()->Add
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::SetXlaData with sync
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetXlaData with sync End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::SetXlaData with sync
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetXlaData with sync End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::SetXlaData with sync
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetXlaData with sync End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::SetXlaData with sync
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetXlaData with sync End
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] XLATensor::SetXlaData with sync
+[FTXJ LOG] XLATensor::AssignIrValue
+[FTXJ LOG] XLATensor::AssignIrValue End
+[FTXJ LOG] XLATensor::SetXlaData with sync End
+[FTXJ LOG] [ScheduleSyncTensorsGraph]
+call XLATensor::TensorCollectionBarrier
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] SyncTensorsGraphInternal End
+[SyncTensorsGraph End]
+[SyncLiveTensorsGraph End]
+[XLATensor::MarkStep Begin]
+[FTXJ LOG] DeviceContextArena::MarkStep.
+[FTXJ LOG] DeviceContextArena::MarkStep End
+[XLATensor::MarkStep End]
+[StepMarker] End
+[GetCurrentAtenDevice]
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] GetDeviceOrdinal End. from device to get index
+[GetCurrentAtenDevice]
+[XlaDeviceToAtenDevice]
+[FTXJ LOG] AtenXlaDeviceMapper::Get
+[FTXJ LOG] GetDeviceOrdinal End. from device to get index
+------------------------------------------------------------------
+[FTXJ LOG] XLANativeFunctions::_copy_from
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[TryGetXlaTensor] convert from at::Tensor -> option<XLATensor>
+[GetXlaTensorImpl] convert from at::Tensor -> XLATensorImpl
+[FTXJ LOG] [XLATensor::ToTensor Begin]
+[FTXH LOG] ComputationClient::Get. singleton
+[FTXJ LOG] [XLATensor::ToTensor End]
+[FTXJ LOG] XLANativeFunctions::_copy_from End
+tensor([[2.9941, 2.0624],
+        [0.3019, 1.1809]], device='xla:0')
 [XLATensor::WaitDeviceOps Begin]
 [FTXH LOG] ComputationClient::Get. singleton
-[FTXJ LOG] DeviceType default construction CPU
 [FTXJ LOG] DeviceType default construction CPU
 [XLATensor::WaitDeviceOps End]
 [FTXJ LOG] Deconstructor XLATensor::Data
