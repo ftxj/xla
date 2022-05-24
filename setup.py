@@ -218,6 +218,8 @@ class Clean(distutils.command.clean.clean):
     distutils.command.clean.clean.run(self)
 
 
+print("------------------------------------------------------ftxj-----------------------------------------------------")
+
 class Build(BuildExtension):
 
   def run(self):
@@ -234,6 +236,7 @@ class Build(BuildExtension):
 
 xla_git_sha, torch_git_sha = get_git_head_sha(base_dir)
 version = get_build_version(xla_git_sha)
+print("------------------------------------------------------ftxj-----------------------------------------------------")
 
 build_mode = _get_build_mode()
 if build_mode not in ['clean']:
