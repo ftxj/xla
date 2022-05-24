@@ -40,7 +40,7 @@ print("------------------------------------------------------ftxj -2------------
 from setuptools import setup, find_packages, distutils
 
 print("------------------------------------------------------ftxj -before import -----------------------------------------------------")
-from torch.utils.cpp_extension import BuildExtension
+# from torch.utils.cpp_extension import BuildExtension
 print("------------------------------------------------------ftxj -mid import -----------------------------------------------------")
 from torch.utils.cpp_extension import CppExtension
 print("------------------------------------------------------ftxj -after import -----------------------------------------------------")
@@ -234,12 +234,12 @@ class Clean(distutils.command.clean.clean):
 
 print("------------------------------------------------------ftxj 1-----------------------------------------------------")
 
-class Build(BuildExtension):
+class Build():
 
   def run(self):
     # Run the original BuildExtension first. We need this before building
     # the tests.
-    BuildExtension.run(self)
+    # BuildExtension.run(self)
     if _check_env_flag('BUILD_CPP_TESTS', default='1'):
       # Build the C++ tests.
       cmd = [os.path.join(base_dir, 'test/cpp/run_tests.sh'), '-B']
