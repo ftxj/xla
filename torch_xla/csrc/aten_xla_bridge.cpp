@@ -297,6 +297,7 @@ torch::lazy::BackendDevice AtenDeviceToXlaDevice(const c10::Device& device) {
   }
 
   std::cout << "[FTXJ LOG] AtenDeviceToXlaDevice call AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal" << std::endl;
+  
   auto tmp = AtenXlaDeviceMapper::Get()->GetDeviceFromOrdinal(ordinal);
   std::cout << "[FTXJ LOG] AtenDeviceToXlaDevice End" << std::endl;
   return tmp;

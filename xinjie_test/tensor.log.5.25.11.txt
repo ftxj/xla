@@ -1,0 +1,1093 @@
+[FTXJ LOG autogen] THPVariable_empty
+[FTXJ LOG] THPVariable_empty call dispatch 
+[FTXJ LOG] dispatch overload index = 1
+[FTXJ LOG] autogen code call_dispatch
+[FTXJ LOG] call wrap(dispatch_empty)
+
+[FTXJ LOG] lambda dispatch_empty
+[FTXJ LOG] lambda dispatch_empty call torch::empty with (size, options, memory_format)
+variable_factor empty call autograd::make_variable(at::empty)
+[FTXJ LOG] aten::empty
+[FTXJ LOG] aten::empty call at::_ops::empty_memory_format::call()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::empty, overload_name = memory_format
+[FTXJ LOG] Dispatcher::findSchema call findOp
+[FTXJ LOG] Dispatcher::findOp, op_name = aten::empty, overload_name = memory_format
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::empty, overload_name = memory_format
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::empty, overload_name = memory_format
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+variable_factor empty call end
+[FTXJ LOG] lambda dispatch_empty End
+
+
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_empty) End
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] wrap dtype->PyObject*
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] wrap THPLayout->PyObject*
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] wrap THPLayout->PyObject*
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] THPVariable__is_zerotensor
+[FTXJ LOG autogen] THPVariable__is_zerotensor
+[FTXJ LOG] THPVariable__is_zerotensor call dispatch
+[FTXJ LOG] call wrap(dispatch__is_zerotensor)
+[FTXJ LOG] lambda dispatch__is_zerotensor
+[FTXJ LOG] lambda dispatch__is_zerotensor call self._is_zerotensor with ()
+[FTXJ LOG] lambda dispatch__is_zerotensor End
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] call wrap(dispatch__is_zerotensor) End
+[FTXJ LOG] THPVariable_is_neg
+[FTXJ LOG autogen] THPVariable_is_neg
+[FTXJ LOG] THPVariable_is_neg call dispatch
+[FTXJ LOG] call wrap(dispatch_is_neg)
+[FTXJ LOG] lambda dispatch_is_neg
+[FTXJ LOG] lambda dispatch_is_neg call self.is_neg with ()
+[FTXJ LOG] lambda dispatch_is_neg End
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] call wrap(dispatch_is_neg) End
+[FTXJ LOG] wrap dtype->PyObject*
+[FTXJ LOG] wrap dtype->PyObject*
+[FTXJ LOG] wrap dtype->PyObject*
+[FTXJ LOG] wrap dtype->PyObject*
+[FTXJ LOG] wrap dtype->PyObject*
+[FTXJ LOG autogen] THPVariable_reshape
+[FTXJ LOG] THPVariable_reshape
+[FTXJ LOG] THPVariable_reshape call dispatch
+[FTXJ LOG] call wrap(dispatch_reshape)
+[FTXJ LOG] lambda dispatch_reshape
+[FTXJ LOG] lambda dispatch_reshape call self.reshape with (shape)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::reshape, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::reshape, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::_reshape_alias, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::_reshape_alias, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::_reshape_alias, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::_reshape_alias, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_reshape End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_reshape) End
+[FTXJ LOG autogen] THPVariable_isfinite
+[FTXJ LOG] THPVariable_isfinite
+[FTXJ LOG] THPVariable_isfinite call dispatch
+[FTXJ LOG] call wrap(dispatch_isfinite)
+[FTXJ LOG] lambda dispatch_isfinite
+[FTXJ LOG] lambda dispatch_isfinite call self.isfinite with ()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::isfinite, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::isfinite, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::eq, overload_name = Tensor
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::eq, overload_name = Tensor
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::eq, overload_name = Tensor
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::eq, overload_name = Tensor
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::abs, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::abs, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::abs, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::abs, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::empty
+[FTXJ LOG] aten::empty call at::_ops::empty_memory_format::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::abs_out
+[FTXJ LOG] aten::abs_out call at::_ops::abs_out::call()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::abs, overload_name = out
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::abs, overload_name = out
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::ne, overload_name = Scalar
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::ne, overload_name = Scalar
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::ne, overload_name = Scalar
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::ne, overload_name = Scalar
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::to, overload_name = dtype
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::to, overload_name = dtype
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::_to_copy
+[FTXJ LOG] aten::_to_copy call at::_ops::_to_copy::call()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::_to_copy, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::_to_copy, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, BackendSelect)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::_to_copy, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::_to_copy, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::empty_strided
+[FTXJ LOG] aten::empty_strided call at::_ops::empty_strided::call()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::empty_strided, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::empty_strided, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::empty_strided, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::empty_strided, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::copy_, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::copy_, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::mul, overload_name = Tensor
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::mul, overload_name = Tensor
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::mul, overload_name = Tensor
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::mul, overload_name = Tensor
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_isfinite End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_isfinite) End
+[FTXJ LOG autogen] THPVariable_ne
+[FTXJ LOG] THPVariable_ne call dispatch
+[FTXJ LOG] dispatch overload index = 1
+[FTXJ LOG] call wrap(dispatch_ne)
+[FTXJ LOG] lambda dispatch_ne
+[FTXJ LOG] lambda dispatch_ne call self.ne with (other)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::_to_copy
+[FTXJ LOG] aten::_to_copy call at::_ops::_to_copy::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::empty_strided
+[FTXJ LOG] aten::empty_strided call at::_ops::empty_strided::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_ne End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_ne) End
+[FTXJ LOG autogen] THPVariable___and__
+[FTXJ LOG] THPVariable___and__ call dispatch
+[FTXJ LOG] dispatch overload index = 0
+[FTXJ LOG] call wrap(dispatch___and__)
+[FTXJ LOG] lambda dispatch___and__
+[FTXJ LOG] lambda dispatch___and__ call self.__and__ with (other)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::__and__, overload_name = Tensor
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::__and__, overload_name = Tensor
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] aten::bitwise_and
+[FTXJ LOG] aten::bitwise_and call at::_ops::bitwise_and_Tensor::call()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::bitwise_and, overload_name = Tensor
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::bitwise_and, overload_name = Tensor
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] KernelFunction::callBoxed
+[FTXJ LOG] lambda dispatch___and__ End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch___and__) End
+[FTXJ LOG autogen] THPVariable_masked_select
+[FTXJ LOG] THPVariable_masked_select
+[FTXJ LOG] THPVariable_masked_select call dispatch
+[FTXJ LOG] autogen code call_dispatch
+[FTXJ LOG] call wrap(dispatch_masked_select)
+[FTXJ LOG] lambda dispatch_masked_select
+[FTXJ LOG] lambda dispatch_masked_select call self.masked_select with (mask)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::masked_select, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::masked_select, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::masked_select, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::masked_select, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::empty
+[FTXJ LOG] aten::empty call at::_ops::empty_memory_format::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::sum, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::sum, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::sum
+[FTXJ LOG] aten::sum call at::_ops::sum_dim_IntList::call()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::sum, overload_name = dim_IntList
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::sum, overload_name = dim_IntList
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::as_strided, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::as_strided, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::_to_copy
+[FTXJ LOG] aten::_to_copy call at::_ops::_to_copy::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::empty_strided
+[FTXJ LOG] aten::empty_strided call at::_ops::empty_strided::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::fill_, overload_name = Scalar
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::fill_, overload_name = Scalar
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::item, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::item, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::_local_scalar_dense
+[FTXJ LOG] aten::_local_scalar_dense call at::_ops::_local_scalar_dense::call()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::_local_scalar_dense, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::_local_scalar_dense, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_masked_select End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_masked_select) End
+[FTXJ LOG] THPVariable_abs
+[FTXJ LOG autogen] THPVariable_abs
+[FTXJ LOG] THPVariable_abs call dispatch
+[FTXJ LOG] call wrap(dispatch_abs)
+[FTXJ LOG] lambda dispatch_abs
+[FTXJ LOG] lambda dispatch_abs call self.abs with ()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::empty
+[FTXJ LOG] aten::empty call at::_ops::empty_memory_format::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::abs_out
+[FTXJ LOG] aten::abs_out call at::_ops::abs_out::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_abs End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_abs) End
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] aten::_to_copy
+[FTXJ LOG] aten::_to_copy call at::_ops::_to_copy::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, BackendSelect, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, BackendSelect, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU, BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::empty_strided
+[FTXJ LOG] aten::empty_strided call at::_ops::empty_strided::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG autogen] THPVariable_min
+[FTXJ LOG] THPVariable_min call dispatch
+[FTXJ LOG] dispatch overload index = 0
+[FTXJ LOG] call wrap(dispatch_min)
+[FTXJ LOG] lambda dispatch_min
+[FTXJ LOG] lambda dispatch_min call self.min with ()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::min, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::min, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::min, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::min, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::empty
+[FTXJ LOG] aten::empty call at::_ops::empty_memory_format::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_min End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_min) End
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG autogen] THPVariable_max
+[FTXJ LOG] THPVariable_max call dispatch
+[FTXJ LOG] dispatch overload index = 0
+[FTXJ LOG] call wrap(dispatch_max)
+[FTXJ LOG] lambda dispatch_max
+[FTXJ LOG] lambda dispatch_max call self.max with ()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::max, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::max, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::max, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::max, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] aten::empty
+[FTXJ LOG] aten::empty call at::_ops::empty_memory_format::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(BackendSelect)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_max End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_max) End
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG autogen] THPVariable_unbind
+[FTXJ LOG] THPVariable_unbind call dispatch
+[FTXJ LOG] dispatch overload index = 0
+[FTXJ LOG] call wrap(dispatch_unbind)
+[FTXJ LOG] lambda dispatch_unbind
+[FTXJ LOG] lambda dispatch_unbind call self.unbind with (dim)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::unbind, overload_name = int
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::unbind, overload_name = int
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::unbind, overload_name = int
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::unbind, overload_name = int
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::select, overload_name = int
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::select, overload_name = int
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_unbind End
+[FTXJ LOG] wrap TensorList->PyObject*
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_unbind) End
+[FTXJ LOG autogen] THPVariable_ceil
+[FTXJ LOG] THPVariable_ceil
+[FTXJ LOG] THPVariable_ceil call dispatch
+[FTXJ LOG] autogen code call_dispatch
+[FTXJ LOG] call wrap(dispatch_ceil)
+[FTXJ LOG] lambda dispatch_ceil
+[FTXJ LOG] lambda dispatch_ceil call self.ceil with ()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::ceil, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::ceil, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::ceil, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::ceil, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_ceil End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_ceil) End
+[FTXJ LOG autogen] THPVariable_ne
+[FTXJ LOG] THPVariable_ne call dispatch
+[FTXJ LOG] dispatch overload index = 0
+[FTXJ LOG] call wrap(dispatch_ne)
+[FTXJ LOG] lambda dispatch_ne
+[FTXJ LOG] lambda dispatch_ne call self.ne with (other)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::ne, overload_name = Tensor
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::ne, overload_name = Tensor
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::ne, overload_name = Tensor
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::ne, overload_name = Tensor
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_ne End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_ne) End
+[FTXJ LOG] THPVariable_is_nonzero
+[FTXJ LOG autogen] THPVariable_is_nonzero
+[FTXJ LOG] THPVariable_is_nonzero call dispatch
+[FTXJ LOG] call wrap(dispatch_is_nonzero)
+[FTXJ LOG] lambda dispatch_is_nonzero
+[FTXJ LOG] lambda dispatch_is_nonzero call self.is_nonzero with ()
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::is_nonzero, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::is_nonzero, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] aten::_local_scalar_dense
+[FTXJ LOG] aten::_local_scalar_dense call at::_ops::_local_scalar_dense::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::_local_scalar_dense, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::_local_scalar_dense, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_is_nonzero End
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] call wrap(dispatch_is_nonzero) End
+[FTXJ LOG autogen] THPVariable_ceil
+[FTXJ LOG] THPVariable_ceil
+[FTXJ LOG] THPVariable_ceil call dispatch
+[FTXJ LOG] autogen code call_dispatch
+[FTXJ LOG] call wrap(dispatch_ceil)
+[FTXJ LOG] lambda dispatch_ceil
+[FTXJ LOG] lambda dispatch_ceil call self.ceil with ()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_ceil End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_ceil) End
+[FTXJ LOG autogen] THPVariable_ne
+[FTXJ LOG] THPVariable_ne call dispatch
+[FTXJ LOG] dispatch overload index = 0
+[FTXJ LOG] call wrap(dispatch_ne)
+[FTXJ LOG] lambda dispatch_ne
+[FTXJ LOG] lambda dispatch_ne call self.ne with (other)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_ne End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_ne) End
+[FTXJ LOG] THPVariable_is_nonzero
+[FTXJ LOG autogen] THPVariable_is_nonzero
+[FTXJ LOG] THPVariable_is_nonzero call dispatch
+[FTXJ LOG] call wrap(dispatch_is_nonzero)
+[FTXJ LOG] lambda dispatch_is_nonzero
+[FTXJ LOG] lambda dispatch_is_nonzero call self.is_nonzero with ()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] aten::_local_scalar_dense
+[FTXJ LOG] aten::_local_scalar_dense call at::_ops::_local_scalar_dense::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_is_nonzero End
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] call wrap(dispatch_is_nonzero) End
+[FTXJ LOG autogen] THPVariable_div
+[FTXJ LOG] THPVariable_div call dispatch
+[FTXJ LOG] dispatch overload index = 0
+[FTXJ LOG] call wrap(dispatch_div)
+[FTXJ LOG] lambda dispatch_div
+[FTXJ LOG] lambda dispatch_div call self.div with (other)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::div, overload_name = Tensor
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::div, overload_name = Tensor
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::div, overload_name = Tensor
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::div, overload_name = Tensor
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_div End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_div) End
+[FTXJ LOG autogen] THPVariable_gt
+[FTXJ LOG] THPVariable_gt call dispatch
+[FTXJ LOG] dispatch overload index = 1
+[FTXJ LOG] call wrap(dispatch_gt)
+[FTXJ LOG] lambda dispatch_gt
+[FTXJ LOG] lambda dispatch_gt call self.gt with (other)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::gt, overload_name = Scalar
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::gt, overload_name = Scalar
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::gt, overload_name = Scalar
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::gt, overload_name = Scalar
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_gt End
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_gt) End
+[FTXJ LOG] THPVariable_is_nonzero
+[FTXJ LOG autogen] THPVariable_is_nonzero
+[FTXJ LOG] THPVariable_is_nonzero call dispatch
+[FTXJ LOG] call wrap(dispatch_is_nonzero)
+[FTXJ LOG] lambda dispatch_is_nonzero
+[FTXJ LOG] lambda dispatch_is_nonzero call self.is_nonzero with ()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] aten::_local_scalar_dense
+[FTXJ LOG] aten::_local_scalar_dense call at::_ops::_local_scalar_dense::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_is_nonzero End
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] call wrap(dispatch_is_nonzero) End
+[FTXJ LOG autogen] THPVariable_unbind
+[FTXJ LOG] THPVariable_unbind call dispatch
+[FTXJ LOG] dispatch overload index = 0
+[FTXJ LOG] call wrap(dispatch_unbind)
+[FTXJ LOG] lambda dispatch_unbind
+[FTXJ LOG] lambda dispatch_unbind call self.unbind with (dim)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lambda dispatch_unbind End
+[FTXJ LOG] wrap TensorList->PyObject*
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] wrap Tensor->PyObject*
+[FTXJ LOG] call wrap(dispatch_unbind) End
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] aten::_local_scalar_dense
+[FTXJ LOG] aten::_local_scalar_dense call at::_ops::_local_scalar_dense::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] wrap double->PyObject*
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] aten::_local_scalar_dense
+[FTXJ LOG] aten::_local_scalar_dense call at::_ops::_local_scalar_dense::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] wrap double->PyObject*
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] aten::_local_scalar_dense
+[FTXJ LOG] aten::_local_scalar_dense call at::_ops::_local_scalar_dense::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] wrap double->PyObject*
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] aten::_local_scalar_dense
+[FTXJ LOG] aten::_local_scalar_dense call at::_ops::_local_scalar_dense::call()
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] wrap double->PyObject*
+[FTXJ LOG] wrap int->PyObject*
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::select, overload_name = int
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::select, overload_name = int
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::resolve_conj, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::resolve_conj, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] Dispatcher::findSchemaOrThrow
+[FTXJ LOG] Dispatcher::findSchemaOrThrow call findSchema
+[FTXJ LOG] Dispatcher::findSchema, op_name = aten::resolve_neg, overload_name =
+[FTXJ LOG] Dispatcher::findSchema call findOp[FTXJ LOG] Dispatcher::findOp, op_name = aten::resolve_neg, overload_name =
+find op success
+[FTXJ LOG] Dispatcher::findSchemaOrThrow End
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, ADInplaceOrView)
+[FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] TypedOperatorHandle::call
+[FTXJ LOG] Dispatcher::call
+[FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] lookup KernelFunction with DispatchKeySet = DispatchKeySet(CPU, AutogradCPU)
+[FTXJ LOG] wrap THPLayout->PyObject*
+[FTXJ LOG] wrap bool->PyObject*
+[FTXJ LOG] wrap bool->PyObject*
+tensor([[3.9253e+25, 4.5771e-41],
+        [3.9253e+25, 4.5771e-41]
