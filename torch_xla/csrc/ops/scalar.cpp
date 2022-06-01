@@ -8,6 +8,8 @@
 #include "torch_xla/csrc/helpers.h"
 #include "torch_xla/csrc/lowering_context.h"
 
+#include <iostream>
+
 namespace torch_xla {
 namespace ir {
 namespace ops {
@@ -15,13 +17,17 @@ namespace ops {
 Scalar::Scalar(const at::Scalar& value, xla::Shape shape)
     : XlaNode(torch::lazy::OpKind(at::prim::Constant), std::move(shape),
               /*num_outputs=*/1, ScalarHash(value)),
-      value_(std::move(value)) {}
+      value_(std::move(value)) {
+        std::cout << "Scalar Node build End" << std::endl;
+      }
 
 Scalar::Scalar(const at::Scalar& value, xla::PrimitiveType type)
     : XlaNode(torch::lazy::OpKind(at::prim::Constant),
               xla::ShapeUtil::MakeShape(type, {}),
               /*num_outputs=*/1, ScalarHash(value)),
-      value_(std::move(value)) {}
+      value_(std::move(value)) {
+        std::cout << "Scalar Node build End" << std::endl;
+      }
 
 std::string Scalar::ToString() const {
   std::stringstream ss;

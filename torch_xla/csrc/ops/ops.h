@@ -9,6 +9,7 @@
 #include "torch_xla/csrc/ops/constant.h"
 #include "torch_xla/csrc/ops/generic.h"
 #include "torch_xla/csrc/ops/scalar.h"
+#include <iostream>
 
 namespace torch_xla {
 namespace ir {
@@ -16,15 +17,24 @@ namespace ops {
 
 inline torch::lazy::NodePtr ScalarOp(const at::Scalar& value,
                                      xla::Shape shape) {
-  return ir::MakeNode<Scalar>(value, std::move(shape));
+  std::cout << "Make ScalarOp Node" << std::endl;
+  auto tmp = ir::MakeNode<Scalar>(value, std::move(shape));
+  std::cout << "Make ScalarOp Node End" << std::endl;
+  return tmp;
 }
 inline torch::lazy::NodePtr ScalarOp(const at::Scalar& value,
                                      xla::PrimitiveType type) {
-  return ir::MakeNode<Scalar>(value, type);
+  std::cout << "Make ScalarOp Node" << std::endl;
+  auto tmp = ir::MakeNode<Scalar>(value, type);
+  std::cout << "Make ScalarOp Node End" << std::endl;
+  return tmp;
 }
 
 inline torch::lazy::NodePtr ConstantOp(xla::Literal value) {
-  return ir::MakeNode<Constant>(std::move(value));
+  std::cout << "Make ConstantOp Node" << std::endl;
+  auto tmp = ir::MakeNode<Constant>(std::move(value));
+  std::cout << "Make ConstantOp Node End" << std::endl;
+  return tmp;
 }
 
 inline torch::lazy::NodePtr GenericOp(

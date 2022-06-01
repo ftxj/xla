@@ -824,7 +824,9 @@ ir::XlaValue XLATensor::GetIrValueForScalar(
     const torch::lazy::BackendDevice& device) {
   std::cout << "[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d" << std::endl;
   if (IsSpecialScalar(value)) {
-    return ir::ops::ScalarOp(std::move(value), type);
+    auto tmp = ir::ops::ScalarOp(std::move(value), type);
+    std::cout << "[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d End" << std::endl;
+    return tmp;
   }
   auto tmp = GetDeviceDataIrValue(value, type, device);
   std::cout << "[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d End" << std::endl;
@@ -842,8 +844,10 @@ ir::XlaValue XLATensor::GetIrValueForScalar(
     absl::Span<const int64_t> dimensions,
     const torch::lazy::BackendDevice& device) {
   std::cout << "[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d" << std::endl;
+  std::cout << "[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d call GetIrValueForScalar.v.t.d" << std::endl;
   ir::XlaValue ir_value = GetIrValueForScalar(value, type, device);
   if (!dimensions.empty()) {
+    std::cout << "[FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d call Expand Node" << std::endl;
     ir_value = ir::MakeNode<ir::ops::Expand>(
         ir_value, torch::lazy::ToVector<int64_t>(dimensions));
   }

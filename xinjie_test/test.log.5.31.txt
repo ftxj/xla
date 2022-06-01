@@ -34,11 +34,17 @@
 [FTXJ LOG] dispatch overload index = 2
 [FTXJ LOG] autogen code call_dispatch
 [FTXJ LOG] call wrap(dispatch_randn)
+
 [FTXJ LOG] lambda dispatch_randn
 [FTXJ LOG] lambda dispatch_randn call torch::randn with (size, options)
 [FTXJ LOG] variable_factor randn call autograd::make_variable(at::randn)
+
+
+
 [FTXJ LOG] aten::randn
 [FTXJ LOG] aten::randn call at::_ops::randn::call()
+
+
 [FTXJ LOG] create_randn_typed_handle
 [FTXJ LOG] create_randn_typed_handle call Dispatcher::findSchemaOrThrow
 [FTXJ LOG] create_randn_typed_handle End
@@ -46,13 +52,18 @@
 [FTXJ LOG] TypedOperatorHandle::call
 [FTXJ LOG] Dispatcher::call
 [FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+
+
 [FTXJ LOG] create_randn_typed_handle
 [FTXJ LOG] create_randn_typed_handle call Dispatcher::findSchemaOrThrow
 [FTXJ LOG] create_randn_typed_handle End
 [FTXJ LOG] call op.redispatch
 [FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(XLA)
+
+
 [FTXJ LOG] aten::empty
 [FTXJ LOG] aten::empty call at::_ops::empty_memory_format::call()
+
 [FTXJ LOG] create_empty_memory_format_typed_handle
 [FTXJ LOG] create_empty_memory_format_typed_handle call Dispatcher::findSchemaOrThrow
 [FTXJ LOG] create_empty_memory_format_typed_handle End
@@ -60,13 +71,20 @@
 [FTXJ LOG] TypedOperatorHandle::call
 [FTXJ LOG] Dispatcher::call
 [FTXJ LOG] Dispatcher::call dispatchKeySet = DispatchKeySet(BackendSelect)
+
 [FTXJ LOG] create_empty_memory_format_typed_handle
 [FTXJ LOG] create_empty_memory_format_typed_handle call Dispatcher::findSchemaOrThrow
 [FTXJ LOG] create_empty_memory_format_typed_handle End
 [FTXJ LOG] call op.redispatch
 [FTXJ LOG] TypedOperatorHandle::redispatch, DispatchKeySet = DispatchKeySet(XLA)
+
+
+
+
 [FTXJ LOG] XLANativeFunctions::empty
 [FTXJ LOG] XLANativeFunctions::empty call     AtenFromXlaTensor->XLATensor::full->GetXlaDeviceOrCurrent
+
+
 [FTXJ LOG] GetXlaDeviceOrCurrent
 [FTXJ LOG] GetXlaDeviceOrCurrent call GetXlaDevice
 [FTXJ LOG] GetXlaDevice.device.opt
@@ -80,17 +98,26 @@
 [FTXJ LOG] GetXlaDevice.device.opt End
 [FTXJ LOG] GetXlaDeviceOrCurrent may call GetCurrentDevice
 [FTXJ LOG] GetXlaDeviceOrCurrent End
+
+
 [FTXJ LOG] XLATensor::full
+
 [FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d
 [FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d
+
 [XlaNode] build. Also a Lazy Node.
 [XlaNode] build. Also a XlaNode.
 [FTXJ LOG] XlaValue construct
+
+
+
+
 [XlaNode] build. Also a Lazy Node
 [XlaNode] build. Also a XlaNode
 [XlaNode] build. Also a XlaNode. with GetOpShape
 [FTXJ LOG] InferOutputShape
 [FTXJ LOG] XlaBuilder InferOutputShape
+
 [FTXJ LOG] XlaHelpers::ShapeOfXlaOp
 [FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
 [FTXJ LOG] XlaHelpers::ShapeOfXlaOp
@@ -98,18 +125,32 @@
 [FTXJ LOG] XlaHelpers::ShapeOfXlaOp
 [FTXJ LOG] XlaHelpers::ShapeOfXlaOp End
 [FTXJ LOG] XlaValue construct
+
+
 [FTXJ LOG] XLATensor::GetIrValueForScalar.v.t.d.d End
+
+
+
 [FTXJ LOG] [XLATensor::Create Begin] from ir::XlaValue
 [FTXJ LOG] [XLA Tensor] Constructor from ir::XlaValue
 [FTXJ LOG] Register Tensor to Device. push data into device vector
 [FTXJ LOG] [XLATensor::Create End]
 [FTXJ LOG] XLATensor::full End
+
+
 [AtenFromXlaTensor] XLATensor -> Tensor
 [XlaDeviceToAtenDevice]
 [FTXJ LOG] AtenXlaDeviceMapper::Get
 [FTXJ LOG] GetDeviceOrdinal End. from device to get index
 [XLATensorImpl] constructor
 [FTXJ LOG] XLANativeFunctions::empty End
+
+
+
+
+
+
+
 [FTXJ LOG] create_normal__typed_handle
 [FTXJ LOG] create_normal__typed_handle call Dispatcher::findSchemaOrThrow
 [FTXJ LOG] create_normal__typed_handle End
@@ -190,10 +231,17 @@
 [FTXJ LOG] XLATensor::AssignIrValue End
 [FTXJ LOG] XLATensor::SetIrValue End
 [FTXJ LOG] XLATensor::SetInPlaceIrValue End
+
+
 [FTXJ LOG] variable_factor randn call end
 [FTXJ LOG] lambda dispatch_randn End
 [FTXJ LOG] wrap Tensor->PyObject*
 [FTXJ LOG] call wrap(dispatch_randn) End
+
+
+
+
+
 [FTXJ LOG autogen] THPVariable_randn
 [FTXJ LOG] THPVariable_randn call dispatch
 [FTXJ LOG] dispatch overload index = 2
